@@ -13,13 +13,18 @@ from typing import Dict, Any
 # ─── Configurazione ───────────────────────────────────────────────────────────
 
 DEFAULT_TICKERS = [
-    # US Tech
-    "AAPL", "MSFT", "NVDA", "TSLA", "AMZN", "META", "GOOGL", "NFLX",
-    "AMD", "INTC", "CRM", "ORCL", "QCOM", "UBER",
-    # US Finance & Consumer
-    "JPM", "BAC", "V", "MA", "JNJ", "PFE", "KO", "DIS", "SBUX",
-    # US-listed (copertura Finnhub disponibile)
-    "ASML", "RACE",
+    # Big Tech — cloud, modelli AI, ecosistema
+    "MSFT", "GOOGL", "AMZN", "META", "AAPL", "TSLA",
+    # Semiconduttori AI — chip, architetture, memoria, produzione
+    "NVDA", "AMD", "AVGO", "ARM", "MRVL", "MU", "TSM", "SMCI", "QCOM", "INTC", "ASML",
+    # Networking & datacenter AI
+    "ANET", "NET",
+    # AI Software & piattaforme enterprise
+    "PLTR", "NOW", "CRM", "SNOW", "CDNS", "SNPS", "ORCL", "ADBE", "PATH", "AI",
+    # AI applicata & dati
+    "NFLX", "UBER", "SOUN", "DDOG",
+    # Finance & consumer (lista originale)
+    "JPM", "BAC", "V", "MA", "JNJ", "PFE", "KO", "DIS", "SBUX", "RACE",
 ]
 
 RATING_RANK: Dict[str, int] = {
@@ -76,6 +81,21 @@ TICKER_ISIN: Dict[str, str] = {
     "SBUX":  "US8552441094",
     "ASML":  "NL0010273215",
     "RACE":  "NL0011585146",
+    # Nuovi AI
+    "AVGO":  "US11135F1012",  # Broadcom
+    "MU":    "US5951121038",  # Micron Technology
+    "TSM":   "US8740391003",  # TSMC ADR
+    "MRVL":  "US5738741041",  # Marvell Technology
+    "ANET":  "US0404131064",  # Arista Networks
+    "PLTR":  "US69608A1088",  # Palantir
+    "ADBE":  "US00724F1012",  # Adobe
+    "NOW":   "US81762P1021",  # ServiceNow
+    "CDNS":  "US1273871051",  # Cadence Design Systems
+    "SNPS":  "US8716071076",  # Synopsys
+    "PATH":  "US90364P1057",  # UiPath
+    "SNOW":  "US8334451098",  # Snowflake
+    "DDOG":  "US23804L1035",  # Datadog
+    "NET":   "US18915M1071",  # Cloudflare
     # Europei (Finnhub non li copre, ma ISIN disponibile se aggiunti manualmente)
     "MC.PA":    "FR0000121014",  # LVMH
     "VOW3.DE":  "DE0007664039",  # Volkswagen
