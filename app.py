@@ -10,6 +10,251 @@ import requests
 import pandas as pd
 from typing import Dict, Any
 
+# ─── CSS Futuristico ──────────────────────────────────────────────────────────
+
+CUSTOM_CSS = """
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
+/* ── Background & griglia olografica ── */
+.stApp {
+    background: radial-gradient(ellipse at 20% 20%, #0d1535 0%, #07090f 60%) !important;
+    background-attachment: fixed !important;
+}
+.stApp::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0,212,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,.04) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Titoli ── */
+h1 {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 900 !important;
+    font-size: 2.4rem !important;
+    letter-spacing: .12em !important;
+    background: linear-gradient(90deg, #00d4ff 0%, #a855f7 50%, #00d4ff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    animation: holo-shift 4s linear infinite;
+    filter: drop-shadow(0 0 12px rgba(0,212,255,.45));
+}
+h2 {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 700 !important;
+    letter-spacing: .08em !important;
+    color: #00d4ff !important;
+    text-shadow: 0 0 14px rgba(0,212,255,.55), 0 0 2px #fff;
+}
+h3 {
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 400 !important;
+    color: #a855f7 !important;
+    text-shadow: 0 0 10px rgba(168,85,247,.5);
+    letter-spacing: .06em !important;
+}
+@keyframes holo-shift {
+    0%   { background-position: 0%   center; }
+    100% { background-position: 200% center; }
+}
+
+/* ── Sidebar ── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #08101f 0%, #060c1a 100%) !important;
+    border-right: 1px solid rgba(0,212,255,.18) !important;
+    box-shadow: 4px 0 24px rgba(0,212,255,.07) !important;
+}
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+    font-size: 1rem !important;
+}
+
+/* ── Pulsante primario ── */
+.stButton > button[kind="primary"] {
+    font-family: 'Orbitron', monospace !important;
+    font-size: .7rem !important;
+    letter-spacing: .15em !important;
+    text-transform: uppercase !important;
+    background: linear-gradient(135deg, rgba(168,85,247,.15), rgba(0,212,255,.1)) !important;
+    border: 1px solid #a855f7 !important;
+    color: #c084fc !important;
+    transition: all .3s !important;
+}
+.stButton > button[kind="primary"]:hover {
+    background: linear-gradient(135deg, rgba(168,85,247,.3), rgba(0,212,255,.2)) !important;
+    box-shadow: 0 0 20px rgba(168,85,247,.5), 0 0 40px rgba(0,212,255,.15) !important;
+    transform: translateY(-1px) !important;
+    border-color: #c084fc !important;
+}
+
+/* ── Altri pulsanti ── */
+.stButton > button {
+    font-family: 'Share Tech Mono', monospace !important;
+    font-size: .75rem !important;
+    letter-spacing: .08em !important;
+    background: transparent !important;
+    border: 1px solid rgba(0,212,255,.35) !important;
+    color: #67e8f9 !important;
+    transition: all .25s !important;
+}
+.stButton > button:hover {
+    background: rgba(0,212,255,.08) !important;
+    box-shadow: 0 0 12px rgba(0,212,255,.3) !important;
+    border-color: #00d4ff !important;
+}
+
+/* ── Input ── */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea {
+    background: rgba(0,212,255,.04) !important;
+    border: 1px solid rgba(0,212,255,.25) !important;
+    color: #c8e8ff !important;
+    font-family: 'Share Tech Mono', monospace !important;
+    transition: all .3s !important;
+}
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+    border-color: #00d4ff !important;
+    box-shadow: 0 0 12px rgba(0,212,255,.3) !important;
+    background: rgba(0,212,255,.07) !important;
+}
+
+/* ── Checkbox & label ── */
+.stCheckbox label, .stSelectbox label,
+[data-testid="stWidgetLabel"] {
+    font-family: 'Share Tech Mono', monospace !important;
+    color: #93c5fd !important;
+    font-size: .8rem !important;
+    letter-spacing: .04em !important;
+}
+
+/* ── Expander ── */
+[data-testid="stExpander"] {
+    border: 1px solid rgba(0,212,255,.18) !important;
+    border-radius: 2px !important;
+    background: rgba(0,212,255,.025) !important;
+    box-shadow: 0 0 15px rgba(0,212,255,.04) !important;
+}
+[data-testid="stExpander"] summary {
+    font-family: 'Share Tech Mono', monospace !important;
+    color: #67e8f9 !important;
+    letter-spacing: .05em !important;
+}
+
+/* ── Metric ── */
+[data-testid="stMetric"] {
+    background: rgba(0,212,255,.04);
+    border: 1px solid rgba(0,212,255,.2);
+    border-radius: 2px;
+    padding: 12px 16px !important;
+}
+[data-testid="stMetricValue"] {
+    font-family: 'Orbitron', monospace !important;
+    color: #00d4ff !important;
+    text-shadow: 0 0 14px rgba(0,212,255,.6) !important;
+}
+[data-testid="stMetricLabel"] {
+    font-family: 'Share Tech Mono', monospace !important;
+    color: rgba(100,200,255,.6) !important;
+    letter-spacing: .06em !important;
+    text-transform: uppercase !important;
+    font-size: .65rem !important;
+}
+
+/* ── Dataframe ── */
+[data-testid="stDataFrame"] {
+    border: 1px solid rgba(0,212,255,.18) !important;
+    border-radius: 2px !important;
+    box-shadow: 0 0 30px rgba(0,212,255,.06) !important;
+}
+
+/* ── Progress bar ── */
+[data-testid="stProgressBar"] > div > div {
+    background: linear-gradient(90deg, #00d4ff, #a855f7) !important;
+    box-shadow: 0 0 8px rgba(0,212,255,.5) !important;
+}
+
+/* ── Alert boxes ── */
+[data-testid="stAlert"] {
+    font-family: 'Share Tech Mono', monospace !important;
+    border-radius: 2px !important;
+    border-left-width: 3px !important;
+    font-size: .8rem !important;
+}
+
+/* ── Divider ── */
+hr {
+    border: none !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, rgba(0,212,255,.4), rgba(168,85,247,.4), transparent) !important;
+    margin: 1.5rem 0 !important;
+}
+
+/* ── Testo generico ── */
+p, li {
+    font-family: 'Share Tech Mono', monospace !important;
+    color: #b0d4f0 !important;
+    line-height: 1.7 !important;
+}
+.stCaption p {
+    color: rgba(100,180,220,.55) !important;
+    font-size: .72rem !important;
+    letter-spacing: .03em !important;
+}
+code {
+    background: rgba(0,212,255,.1) !important;
+    color: #00d4ff !important;
+    border: 1px solid rgba(0,212,255,.2) !important;
+    border-radius: 2px !important;
+    font-family: 'Share Tech Mono', monospace !important;
+    padding: 1px 5px !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #07090f; }
+::-webkit-scrollbar-thumb { background: rgba(0,212,255,.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,.5); }
+
+/* ── Toast ── */
+[data-testid="stToast"] {
+    background: #0b0f1e !important;
+    border: 1px solid rgba(0,212,255,.3) !important;
+    font-family: 'Share Tech Mono', monospace !important;
+    box-shadow: 0 0 20px rgba(0,212,255,.15) !important;
+}
+
+/* ── Tabella markdown ── */
+table { border-collapse: collapse !important; width: 100% !important; }
+thead tr { border-bottom: 1px solid rgba(0,212,255,.3) !important; }
+th {
+    font-family: 'Share Tech Mono', monospace !important;
+    color: #00d4ff !important;
+    font-size: .75rem !important;
+    letter-spacing: .08em !important;
+    text-transform: uppercase !important;
+    padding: 6px 12px !important;
+}
+td {
+    font-family: 'Share Tech Mono', monospace !important;
+    color: #b0d4f0 !important;
+    font-size: .78rem !important;
+    padding: 5px 12px !important;
+    border-bottom: 1px solid rgba(0,212,255,.07) !important;
+}
+tr:hover td { background: rgba(0,212,255,.04) !important; }
+</style>
+"""
+
 # ─── Configurazione ───────────────────────────────────────────────────────────
 
 DEFAULT_TICKERS = [
@@ -454,11 +699,21 @@ def main() -> None:
         layout="wide",
     )
 
-    st.title("📈 Analisti BuySell")
-    st.markdown(
-        "Confronto del consenso degli analisti: **Yahoo Finance** ↔ **Finnhub** — "
-        "due fonti indipendenti a confronto per ridurre i falsi segnali."
-    )
+    st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+
+    st.markdown("""
+<div style="text-align:center; padding: 1.2rem 0 0.4rem 0;">
+    <div style="font-family:'Share Tech Mono',monospace; font-size:.65rem; letter-spacing:.55em;
+                color:rgba(0,212,255,.45); text-transform:uppercase; margin-bottom:.6rem;">
+        ◈ &nbsp; sistema di analisi mercati azionari &nbsp; ◈
+    </div>
+    <h1 style="margin:0; padding:0;">📈 &nbsp; ANALISTI BUYSELL</h1>
+    <div style="font-family:'Share Tech Mono',monospace; font-size:.72rem; margin-top:.6rem;
+                color:rgba(0,212,255,.4); letter-spacing:.28em; text-transform:uppercase;">
+        consensus scanner &nbsp;·&nbsp; yahoo finance &nbsp;×&nbsp; finnhub
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
     # ── Sidebar ───────────────────────────────────────────────────────────────
     with st.sidebar:
