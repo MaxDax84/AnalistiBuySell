@@ -186,6 +186,7 @@ def get_yahoo_data(ticker: str) -> Dict[str, Any]:
         "target_low":    None,
         "target_mean":   None,
         "error":         None,
+        "name":          None,
     }
     try:
         info = yf.Ticker(ticker).info
@@ -197,6 +198,7 @@ def get_yahoo_data(ticker: str) -> Dict[str, Any]:
         result["target_high"]   = info.get("targetHighPrice")
         result["target_low"]    = info.get("targetLowPrice")
         result["target_mean"]   = info.get("targetMeanPrice")
+        result["name"]          = info.get("shortName") or info.get("longName")
     except Exception as exc:
         result["error"] = str(exc)
     return result
@@ -301,6 +303,7 @@ def build_dataframe(
 
         rows.append({
             "Ticker":         ticker,
+            "Nome":           y["name"] or "N/D",
             "ISIN":           TICKER_ISIN.get(ticker, "N/D"),
             "Prezzo (€/$)":   price,
             "Yahoo Rating":   yahoo_rating,
@@ -376,7 +379,7 @@ def _fmt_upside(val) -> str:
 
 # Colonne mostrate nella tabella UI (le altre restano nel CSV)
 DISPLAY_COLS = [
-    "Ticker", "ISIN", "Prezzo (€/$)", "Yahoo Rating", "Finnhub Rating",
+    "Ticker", "Nome", "ISIN", "Prezzo (€/$)", "Yahoo Rating", "Finnhub Rating",
     "Accordo", "Upside %", "FH SB %", "Analisti FH",
 ]
 
