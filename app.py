@@ -17,10 +17,8 @@ DEFAULT_TICKERS = [
     "AMD", "INTC", "CRM", "ORCL", "QCOM", "UBER",
     # US Finance & Consumer
     "JPM", "BAC", "V", "MA", "JNJ", "PFE", "KO", "DIS", "SBUX",
-    # European
-    "ASML", "MC.PA", "VOW3.DE", "SAP.DE",
-    # Italiani (formato Yahoo Finance — suffisso .MI per Borsa di Milano)
-    "RACE", "ENI.MI", "STLAM.MI", "UCG.MI", "ISP.MI",
+    # US-listed (copertura Finnhub disponibile)
+    "ASML", "RACE",
 ]
 
 RATING_RANK: Dict[str, int] = {
