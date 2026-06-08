@@ -1,0 +1,10 @@
+# Streamlit secrets (contengono API Key — NON committare mai)
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
