@@ -48,6 +48,35 @@ RATING_COLORS: Dict[str, str] = {
     "❌ Strong Sell":  "background-color: #4a148c; color: white",
 }
 
+# ISIN per i ticker predefiniti — per ticker personalizzati mostra N/D
+TICKER_ISIN: Dict[str, str] = {
+    "AAPL":  "US0378331005",
+    "MSFT":  "US5949181045",
+    "NVDA":  "US67066G1040",
+    "TSLA":  "US88160R1014",
+    "AMZN":  "US0231351067",
+    "META":  "US30303M1027",
+    "GOOGL": "US02079K3059",
+    "NFLX":  "US64110L1061",
+    "AMD":   "US0079031078",
+    "INTC":  "US4581401001",
+    "CRM":   "US79466L3024",
+    "ORCL":  "US68389X1054",
+    "QCOM":  "US7475251036",
+    "UBER":  "US90353T1007",
+    "JPM":   "US46625H1005",
+    "BAC":   "US0605051046",
+    "V":     "US92826C8394",
+    "MA":    "US57636Q1040",
+    "JNJ":   "US4781601046",
+    "PFE":   "US7170811035",
+    "KO":    "US1912161007",
+    "DIS":   "US2546871060",
+    "SBUX":  "US8552441094",
+    "ASML":  "NL0010273215",
+    "RACE":  "NL0011585146",
+}
+
 # Mappa suffissi Yahoo Finance → Finnhub per borse europee
 EXCHANGE_MAP = {
     ".MI": ":IM",
@@ -226,6 +255,7 @@ def build_dataframe(
 
         rows.append({
             "Ticker":         ticker,
+            "ISIN":           TICKER_ISIN.get(ticker, "N/D"),
             "Prezzo (€/$)":   price,
             "Yahoo Rating":   yahoo_rating,
             "Finnhub Rating": fh_label,
@@ -300,7 +330,7 @@ def _fmt_upside(val) -> str:
 
 # Colonne mostrate nella tabella UI (le altre restano nel CSV)
 DISPLAY_COLS = [
-    "Ticker", "Prezzo (€/$)", "Yahoo Rating", "Finnhub Rating",
+    "Ticker", "ISIN", "Prezzo (€/$)", "Yahoo Rating", "Finnhub Rating",
     "Accordo", "Upside %", "FH SB %", "Analisti FH",
 ]
 
