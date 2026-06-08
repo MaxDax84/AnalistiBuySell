@@ -3,6 +3,7 @@ Analisti BuySell — Streamlit app
 Confronta il consenso degli analisti da Yahoo Finance e Finnhub.
 """
 
+import re
 import streamlit as st
 import yfinance as yf
 import requests
@@ -84,6 +85,23 @@ TICKER_ISIN: Dict[str, str] = {
     "UCG.MI":   "IT0005239360",  # UniCredit
     "ISP.MI":   "IT0000072618",  # Intesa Sanpaolo
 }
+
+# Mappa inversa ISIN → ticker (generata automaticamente da TICKER_ISIN)
+ISIN_TICKER: Dict[str, str] = {isin: ticker for ticker, isin in TICKER_ISIN.items()}
+
+_ISIN_RE = re.compile(r'^[A-Z]{2}[A-Z0-9]{10}$')
+
+
+def resolve_input(raw: str) -> tuple[str | None, str | None]:
+    """Riceve un ticker o un ISIN e restituisce (ticker, avviso|None)."""
+    s = raw.strip().upper()
+    if _ISIN_RE.match(s):
+        ticker = ISIN_TICKER.get(s)
+        if ticker:
+            return ticker, None
+        return None, f"ISIN `{s}` non presente nella mappa — aggiungi il ticker direttamente."
+    return s, None
+
 
 # Mappa suffissi Yahoo Finance → Finnhub per borse europee
 EXCHANGE_MAP = {
@@ -453,11 +471,19 @@ def main() -> None:
     # ── Lista ticker ──────────────────────────────────────────────────────────
     tickers: list = list(DEFAULT_TICKERS) if use_default else []
 
+    isin_warnings = []
     if custom_raw.strip():
         for raw in custom_raw.replace(",", "\n").splitlines():
-            t = raw.strip().upper()
-            if t and t not in tickers:
+            if not raw.strip():
+                continue
+            t, warn = resolve_input(raw)
+            if warn:
+                isin_warnings.append(warn)
+            elif t and t not in tickers:
                 tickers.append(t)
+    if isin_warnings:
+        for w in isin_warnings:
+            st.warning(w)
 
     if not tickers:
         st.info("Abilita la lista predefinita oppure aggiungi ticker personalizzati.")
