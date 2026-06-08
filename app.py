@@ -22,7 +22,7 @@ DEFAULT_TICKERS = [
     # AI Software & piattaforme enterprise
     "PLTR", "NOW", "CRM", "SNOW", "CDNS", "SNPS", "ORCL", "ADBE", "PATH", "AI",
     # AI applicata & dati
-    "NFLX", "UBER", "SOUN", "DDOG",
+    "NFLX", "UBER", "SOUN", "DDOG", "ACN",
     # Finance & consumer (lista originale)
     "JPM", "BAC", "V", "MA", "JNJ", "PFE", "KO", "DIS", "SBUX", "RACE",
 ]
@@ -96,6 +96,7 @@ TICKER_ISIN: Dict[str, str] = {
     "SNOW":  "US8334451098",  # Snowflake
     "DDOG":  "US23804L1035",  # Datadog
     "NET":   "US18915M1071",  # Cloudflare
+    "ACN":   "IE00B4BNMY34",  # Accenture
     # Europei (Finnhub non li copre, ma ISIN disponibile se aggiunti manualmente)
     "MC.PA":    "FR0000121014",  # LVMH
     "VOW3.DE":  "DE0007664039",  # Volkswagen
