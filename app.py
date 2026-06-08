@@ -188,6 +188,7 @@ def get_yahoo_data(ticker: str) -> Dict[str, Any]:
         "target_mean":   None,
         "error":         None,
         "name":          None,
+        "currency":      None,
     }
     try:
         info = yf.Ticker(ticker).info
@@ -200,6 +201,7 @@ def get_yahoo_data(ticker: str) -> Dict[str, Any]:
         result["target_low"]    = info.get("targetLowPrice")
         result["target_mean"]   = info.get("targetMeanPrice")
         result["name"]          = info.get("shortName") or info.get("longName")
+        result["currency"]      = info.get("currency")
     except Exception as exc:
         result["error"] = str(exc)
     return result
@@ -306,7 +308,8 @@ def build_dataframe(
             "Ticker":         ticker,
             "Nome":           y["name"] or "N/D",
             "ISIN":           TICKER_ISIN.get(ticker, "N/D"),
-            "Prezzo (€/$)":   price,
+            "Prezzo":         price,
+            "Valuta":         y["currency"] or "N/D",
             "Yahoo Rating":   yahoo_rating,
             "Finnhub Rating": fh_label,
             "Accordo":        accordo,
@@ -346,9 +349,18 @@ def is_consenso_assoluto(row: pd.Series) -> bool:
 
 # ─── Formattazione ────────────────────────────────────────────────────────────
 
-def _fmt_price(val) -> str:
+CURRENCY_SYMBOL: Dict[str, str] = {
+    "USD": "$", "EUR": "€", "GBP": "£", "CHF": "Fr",
+    "JPY": "¥", "GBp": "p", "CAD": "C$", "AUD": "A$",
+}
+
+
+def _fmt_price(val, currency: str = "") -> str:
     try:
-        return f"{float(val):,.2f}" if pd.notna(val) else "N/D"
+        if pd.isna(val):
+            return "N/D"
+        symbol = CURRENCY_SYMBOL.get(currency, currency)
+        return f"{symbol} {float(val):,.2f}".strip()
     except (TypeError, ValueError):
         return "N/D"
 
@@ -380,7 +392,7 @@ def _fmt_upside(val) -> str:
 
 # Colonne mostrate nella tabella UI (le altre restano nel CSV)
 DISPLAY_COLS = [
-    "Ticker", "Nome", "ISIN", "Prezzo (€/$)", "Yahoo Rating", "Finnhub Rating",
+    "Ticker", "Nome", "ISIN", "Prezzo", "Yahoo Rating", "Finnhub Rating",
     "Accordo", "Upside %", "FH SB %", "Analisti FH",
 ]
 
@@ -391,10 +403,10 @@ def format_for_display(df: pd.DataFrame) -> pd.DataFrame:
     d["Finnhub Rating"] = d["Finnhub Rating"].map(
         lambda x: RATING_LABEL.get(str(x).lower(), "N/D") if x else "N/D"
     )
-    d["Prezzo (€/$)"] = d["Prezzo (€/$)"].apply(_fmt_price)
-    d["FH SB %"]      = d["FH SB %"].apply(_fmt_pct)
-    d["Upside %"]     = d["Upside %"].apply(_fmt_upside)
-    d["Analisti FH"]  = d["Analisti FH"].apply(_fmt_int)
+    d["Prezzo"]      = d.apply(lambda r: _fmt_price(r["Prezzo"], r.get("Valuta", "")), axis=1)
+    d["FH SB %"]     = d["FH SB %"].apply(_fmt_pct)
+    d["Upside %"]    = d["Upside %"].apply(_fmt_upside)
+    d["Analisti FH"] = d["Analisti FH"].apply(_fmt_int)
     return d[DISPLAY_COLS]
 
 
