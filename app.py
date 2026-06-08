@@ -31,48 +31,79 @@ RATING_RANK: Dict[str, int] = {
 }
 
 RATING_LABEL: Dict[str, str] = {
-    "strong_buy":   "Strong Buy",
-    "buy":          "Buy",
-    "hold":         "Hold",
-    "underperform": "Underperform",
-    "sell":         "Sell",
-    "strong_sell":  "Strong Sell",
+    "strong_buy":   "⭐ Strong Buy",
+    "buy":          "✅ Buy",
+    "hold":         "➡️ Hold",
+    "underperform": "⚠️ Underperform",
+    "sell":         "🔻 Sell",
+    "strong_sell":  "❌ Strong Sell",
 }
 
 RATING_COLORS: Dict[str, str] = {
-    "Strong Buy":   "background-color: #1b5e20; color: white",
-    "Buy":          "background-color: #388e3c; color: white",
-    "Hold":         "background-color: #f57c00; color: black",
-    "Underperform": "background-color: #e53935; color: white",
-    "Sell":         "background-color: #b71c1c; color: white",
-    "Strong Sell":  "background-color: #4a148c; color: white",
+    "⭐ Strong Buy":   "background-color: #1b5e20; color: white",
+    "✅ Buy":          "background-color: #388e3c; color: white",
+    "➡️ Hold":         "background-color: #f57c00; color: black",
+    "⚠️ Underperform": "background-color: #e53935; color: white",
+    "🔻 Sell":         "background-color: #b71c1c; color: white",
+    "❌ Strong Sell":  "background-color: #4a148c; color: white",
 }
 
 # Mappa suffissi Yahoo Finance → Finnhub per borse europee
 EXCHANGE_MAP = {
-    ".MI": ":IM",   # Borsa di Milano
-    ".PA": ":FP",   # Euronext Paris
-    ".DE": ":GR",   # Xetra / Frankfurt
-    ".AS": ":NA",   # Euronext Amsterdam
-    ".L":  ":LN",   # London Stock Exchange
-    ".SW": ":SW",   # SIX Swiss Exchange
-    ".BR": ":BB",   # Euronext Brussels
+    ".MI": ":IM",
+    ".PA": ":FP",
+    ".DE": ":GR",
+    ".AS": ":NA",
+    ".L":  ":LN",
+    ".SW": ":SW",
+    ".BR": ":BB",
 }
+
+BULLISH = {"strong_buy", "buy"}
+BEARISH = {"sell", "strong_sell"}
 
 
 def yahoo_to_finnhub(ticker: str) -> str:
-    """Converte un ticker Yahoo Finance nel formato simbolo Finnhub."""
     for yahoo_sfx, fh_sfx in EXCHANGE_MAP.items():
         if ticker.endswith(yahoo_sfx):
             return ticker[: -len(yahoo_sfx)] + fh_sfx
     return ticker
 
 
-# ─── Recupero dati (con cache 1 ora) ─────────────────────────────────────────
+def compute_fh_label(sb, b, h, s, ss) -> str | None:
+    """Rating sintetico Finnhub calcolato come media ponderata (5=SB, 4=B, 3=H, 2=S, 1=SS)."""
+    total = (sb or 0) + (b or 0) + (h or 0) + (s or 0) + (ss or 0)
+    if total == 0:
+        return None
+    score = (5*(sb or 0) + 4*(b or 0) + 3*(h or 0) + 2*(s or 0) + 1*(ss or 0)) / total
+    if score >= 4.5:
+        return "strong_buy"
+    if score >= 3.5:
+        return "buy"
+    if score >= 2.5:
+        return "hold"
+    if score >= 1.5:
+        return "sell"
+    return "strong_sell"
+
+
+def compute_accordo(yahoo_rating: str, fh_label: str | None) -> str:
+    if fh_label is None:
+        return "❓ Solo Yahoo"
+    y = yahoo_rating.lower()
+    if y in BULLISH and fh_label in BULLISH:
+        return "✅ Concordano"
+    if y == "hold" and fh_label == "hold":
+        return "✅ Concordano"
+    if y in BEARISH and fh_label in BEARISH:
+        return "✅ Concordano"
+    return "⚠️ Discordano"
+
+
+# ─── Recupero dati ────────────────────────────────────────────────────────────
 
 @st.cache_data(ttl=3600, show_spinner=False)
 def get_yahoo_data(ticker: str) -> Dict[str, Any]:
-    """Scarica raccomandazione e target di prezzo da Yahoo Finance (cache 1h)."""
     result: Dict[str, Any] = {
         "current_price": None,
         "yahoo_rating":  None,
@@ -98,7 +129,6 @@ def get_yahoo_data(ticker: str) -> Dict[str, Any]:
 
 @st.cache_data(ttl=3600, show_spinner=False)
 def get_finnhub_data(ticker: str, api_key: str) -> Dict[str, Any]:
-    """Scarica il trend di raccomandazione da Finnhub (cache 1h)."""
     fh_ticker = yahoo_to_finnhub(ticker)
     result: Dict[str, Any] = {
         "fh_strong_buy":  None,
@@ -107,7 +137,6 @@ def get_finnhub_data(ticker: str, api_key: str) -> Dict[str, Any]:
         "fh_sell":        None,
         "fh_strong_sell": None,
         "fh_total":       None,
-        "fh_period":      None,
         "fh_ticker_used": fh_ticker,
         "error":          None,
     }
@@ -143,7 +172,6 @@ def get_finnhub_data(ticker: str, api_key: str) -> Dict[str, Any]:
             "fh_sell":        s,
             "fh_strong_sell": ss,
             "fh_total":       total if total > 0 else None,
-            "fh_period":      latest.get("period"),
         })
     except Exception as exc:
         result["error"] = str(exc)
@@ -157,7 +185,6 @@ def build_dataframe(
     finnhub_key: str,
     progress_bar,
 ) -> tuple[pd.DataFrame, list[str]]:
-    """Raccoglie dati e restituisce (DataFrame ordinato, lista avvisi)."""
     rows = []
     warnings = []
     n = len(tickers)
@@ -193,26 +220,31 @@ def build_dataframe(
             else None
         )
 
+        yahoo_rating = y["yahoo_rating"] or "N/D"
+        fh_label     = compute_fh_label(fh_sb, fh["fh_buy"], fh["fh_hold"], fh["fh_sell"], fh["fh_strong_sell"])
+        accordo      = compute_accordo(yahoo_rating, fh_label)
+
         rows.append({
             "Ticker":         ticker,
             "Prezzo (€/$)":   price,
-            "Yahoo Rating":   y["yahoo_rating"] or "N/D",
+            "Yahoo Rating":   yahoo_rating,
+            "Finnhub Rating": fh_label,
+            "Accordo":        accordo,
+            "Upside %":       upside,
             "Target Low":     y["target_low"],
             "Target Mean":    tgt_mean,
             "Target High":    y["target_high"],
-            "Upside %":       upside,
+            "FH SB %":        fh_pct,
+            "Analisti FH":    fh_total,
             "FH Strong Buy":  fh_sb,
             "FH Buy":         fh["fh_buy"],
             "FH Hold":        fh["fh_hold"],
             "FH Sell":        fh["fh_sell"],
             "FH Strong Sell": fh["fh_strong_sell"],
-            "FH Totale":      fh_total,
-            "FH SB %":        fh_pct,
         })
 
     df = pd.DataFrame(rows)
 
-    # Ordinamento primario: rank Yahoo Rating  |  secondario: % Strong Buy Finnhub
     df["_rank"]    = df["Yahoo Rating"].map(lambda x: RATING_RANK.get(x, -1))
     df["_fh_sort"] = df["FH SB %"].fillna(0.0)
     df = (
@@ -232,7 +264,7 @@ def is_consenso_assoluto(row: pd.Series) -> bool:
     return bool(yahoo_ok and fh_ok)
 
 
-# ─── Formattazione per la visualizzazione ────────────────────────────────────
+# ─── Formattazione ────────────────────────────────────────────────────────────
 
 def _fmt_price(val) -> str:
     try:
@@ -266,18 +298,24 @@ def _fmt_upside(val) -> str:
         return "N/D"
 
 
+# Colonne mostrate nella tabella UI (le altre restano nel CSV)
+DISPLAY_COLS = [
+    "Ticker", "Prezzo (€/$)", "Yahoo Rating", "Finnhub Rating",
+    "Accordo", "Upside %", "FH SB %", "Analisti FH",
+]
+
+
 def format_for_display(df: pd.DataFrame) -> pd.DataFrame:
     d = df.copy()
-    d["Yahoo Rating"] = d["Yahoo Rating"].map(
-        lambda x: RATING_LABEL.get(str(x).lower(), x)
+    d["Yahoo Rating"]   = d["Yahoo Rating"].map(lambda x: RATING_LABEL.get(str(x).lower(), x))
+    d["Finnhub Rating"] = d["Finnhub Rating"].map(
+        lambda x: RATING_LABEL.get(str(x).lower(), "N/D") if x else "N/D"
     )
-    for col in ["Prezzo (€/$)", "Target Low", "Target Mean", "Target High"]:
-        d[col] = d[col].apply(_fmt_price)
-    for col in ["FH Strong Buy", "FH Buy", "FH Hold", "FH Sell", "FH Strong Sell", "FH Totale"]:
-        d[col] = d[col].apply(_fmt_int)
-    d["FH SB %"]  = d["FH SB %"].apply(_fmt_pct)
-    d["Upside %"] = d["Upside %"].apply(_fmt_upside)
-    return d
+    d["Prezzo (€/$)"] = d["Prezzo (€/$)"].apply(_fmt_price)
+    d["FH SB %"]      = d["FH SB %"].apply(_fmt_pct)
+    d["Upside %"]     = d["Upside %"].apply(_fmt_upside)
+    d["Analisti FH"]  = d["Analisti FH"].apply(_fmt_int)
+    return d[DISPLAY_COLS]
 
 
 def color_rating(val: str) -> str:
@@ -298,6 +336,23 @@ def color_upside(val: str) -> str:
     return ""
 
 
+def color_accordo(val: str) -> str:
+    if val.startswith("✅"):
+        return "color: #1b5e20; font-weight: bold"
+    if val.startswith("⚠️"):
+        return "color: #e65100; font-weight: bold"
+    return "color: #757575"
+
+
+def style_table(display_df: pd.DataFrame):
+    return (
+        display_df.style
+        .map(color_rating, subset=["Yahoo Rating", "Finnhub Rating"])
+        .map(color_upside,  subset=["Upside %"])
+        .map(color_accordo, subset=["Accordo"])
+    )
+
+
 # ─── App principale ───────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -309,7 +364,8 @@ def main() -> None:
 
     st.title("📈 Analisti BuySell")
     st.markdown(
-        "Confronto del consenso degli analisti: **Yahoo Finance** ↔ **Finnhub**"
+        "Confronto del consenso degli analisti: **Yahoo Finance** ↔ **Finnhub** — "
+        "due fonti indipendenti a confronto per ridurre i falsi segnali."
     )
 
     # ── Sidebar ───────────────────────────────────────────────────────────────
@@ -351,7 +407,8 @@ def main() -> None:
         st.divider()
         run = st.button("🔍 Analizza ora", type="primary", use_container_width=True)
 
-        if st.button("🗑️ Svuota cache dati", use_container_width=True, help="Forza il riscariamento dei dati alla prossima analisi (i dati vengono altrimenti tenuti in cache per 1 ora)"):
+        if st.button("🗑️ Svuota cache dati", use_container_width=True,
+                     help="Forza il riscariamento alla prossima analisi (cache 1 ora)"):
             st.cache_data.clear()
             st.toast("Cache svuotata — la prossima analisi scaricherà dati aggiornati.", icon="✅")
 
@@ -389,14 +446,22 @@ def main() -> None:
     df: pd.DataFrame = st.session_state["df"]
     warnings: list   = st.session_state.get("warnings", [])
 
+    # — Legenda colonne —
+    with st.expander("📖 Come leggere la tabella", expanded=False):
+        st.markdown("""
+| Colonna | Significato |
+|---|---|
+| **Yahoo Rating** | Valutazione sintetica degli analisti secondo Yahoo Finance. Va da ❌ Strong Sell (molto negativo) a ⭐ Strong Buy (molto positivo). |
+| **Finnhub Rating** | Stessa scala, calcolata dalla media ponderata degli analisti su Finnhub (fonte indipendente). |
+| **Accordo** | ✅ Le due fonti concordano · ⚠️ Le due fonti discordano · ❓ Dati Finnhub non disponibili |
+| **Upside %** | Differenza % tra il prezzo attuale e il **Target Mean** (prezzo obiettivo medio degli analisti). Verde = potenziale di salita, rosso = sopravvalutato. |
+| **FH SB %** | Percentuale di analisti Finnhub che hanno assegnato il massimo rating "Strong Buy". Più alto = maggiore convinzione rialzista. |
+| **Analisti FH** | Numero totale di analisti che coprono il titolo su Finnhub. Più è alto, più la valutazione è affidabile. |
+        """)
+
     # — Avvisi fetch —
     if warnings:
-        with st.expander(f"⚠️ {len(warnings)} avvisi (dati mancanti o errori di fetch)", expanded=False):
-            st.caption(
-                "I titoli con errori Yahoo Finance vengono comunque mostrati con i dati disponibili. "
-                "I titoli europei senza dati Finnhub vengono cercati automaticamente nel formato "
-                "corretto per borsa (es. `ENI.MI` → `ENI:IM` per Borsa di Milano)."
-            )
+        with st.expander(f"⚠️ {len(warnings)} avvisi tecnici (espandi per dettagli)", expanded=False):
             for w in warnings:
                 st.markdown(f"- {w}")
 
@@ -410,44 +475,32 @@ def main() -> None:
     col_h2.metric("Titoli trovati", len(df_ca))
 
     st.caption(
-        "**Criteri (entrambi obbligatori):** "
-        "Yahoo Rating = **Strong Buy** "
-        "**e** Finnhub Strong Buy > 50% del totale analisti copertura."
+        "Titoli in cui **entrambe le fonti** sono fortemente d'accordo: "
+        "Yahoo Finance = **Strong Buy** e più del **50%** degli analisti Finnhub "
+        "ha assegnato il rating massimo. Il filtro doppio riduce i falsi segnali."
     )
 
     if df_ca.empty:
         st.info("Nessun titolo soddisfa entrambi i criteri in questo momento.")
     else:
-        ca_display = format_for_display(df_ca)
-        ca_styled  = (
-            ca_display.style
-            .map(color_rating, subset=["Yahoo Rating"])
-            .map(color_upside, subset=["Upside %"])
-        )
-        st.dataframe(ca_styled, use_container_width=True, hide_index=True)
+        st.dataframe(style_table(format_for_display(df_ca)), use_container_width=True, hide_index=True)
 
     # — Tabella completa —
     st.divider()
-    st.subheader("📊 Tabella Completa di Confronto")
+    st.subheader("📊 Tutti i titoli analizzati")
     st.caption(
-        "Ordinata per: 1° Yahoo Rating (decrescente) · 2° FH Strong Buy % (decrescente).  "
-        "**Upside %**: potenziale di rialzo dal prezzo attuale al Target Mean degli analisti.  "
-        "**FH SB %**: quota di analisti Finnhub con rating Strong Buy sul totale copertura."
+        "Ordinati per: 1° Yahoo Rating · 2° FH Strong Buy %. "
+        "Clicca un'intestazione di colonna per riordinare."
     )
 
-    full_display = format_for_display(df)
-    full_styled  = (
-        full_display.style
-        .map(color_rating, subset=["Yahoo Rating"])
-        .map(color_upside, subset=["Upside %"])
-    )
-    st.dataframe(full_styled, use_container_width=True, hide_index=True)
+    st.dataframe(style_table(format_for_display(df)), use_container_width=True, hide_index=True)
 
     st.download_button(
-        label="⬇️ Scarica CSV",
+        label="⬇️ Scarica CSV completo",
         data=df.to_csv(index=False).encode("utf-8"),
         file_name="analisti_buysell.csv",
         mime="text/csv",
+        help="Il CSV include anche i dati dettagliati Finnhub (Strong Buy, Buy, Hold, Sell, Strong Sell).",
     )
 
 
