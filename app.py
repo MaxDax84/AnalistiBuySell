@@ -75,6 +75,14 @@ TICKER_ISIN: Dict[str, str] = {
     "SBUX":  "US8552441094",
     "ASML":  "NL0010273215",
     "RACE":  "NL0011585146",
+    # Europei (Finnhub non li copre, ma ISIN disponibile se aggiunti manualmente)
+    "MC.PA":    "FR0000121014",  # LVMH
+    "VOW3.DE":  "DE0007664039",  # Volkswagen
+    "SAP.DE":   "DE0007164600",  # SAP
+    "ENI.MI":   "IT0003132476",  # Eni
+    "STLAM.MI": "NL00150001Q9",  # Stellantis
+    "UCG.MI":   "IT0005239360",  # UniCredit
+    "ISP.MI":   "IT0000072618",  # Intesa Sanpaolo
 }
 
 # Mappa suffissi Yahoo Finance → Finnhub per borse europee
