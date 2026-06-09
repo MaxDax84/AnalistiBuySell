@@ -828,10 +828,11 @@ def make_target_chart(df: pd.DataFrame, top_n: int = 15):
             showlegend=False, hovertemplate=f"<b>{t}</b><br>Prezzo: {price:.2f}<extra></extra>",
         ))
 
+    base = {k: v for k, v in PLOTLY_LAYOUT.items() if k != "xaxis"}
     fig.update_layout(
-        **PLOTLY_LAYOUT, height=480, barmode="overlay",
+        **base, height=480, barmode="overlay",
         xaxis=dict(categoryorder="array", categoryarray=tickers,
-                   gridcolor="rgba(0,212,255,0.12)"),
+                   gridcolor="rgba(0,212,255,0.12)", zerolinecolor="rgba(0,212,255,0.2)"),
         title=dict(text=f"Prezzo attuale vs Target Low / Mean / High (top {top_n} per Score)",
                    font=dict(size=13)),
     )
