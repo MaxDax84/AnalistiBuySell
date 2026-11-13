@@ -47,12 +47,14 @@ def grafico_indice(s: pd.DataFrame) -> str:
 
 def grafico_verdetti(storico: pd.DataFrame) -> str:
     fig = go.Figure()
-    for col, nome in [("3 mesi: vs sempre investito", "dopo 3 mesi"), ("6 mesi: vs sempre investito", "dopo 6 mesi"),
-                      ("12 mesi: vs sempre investito", "dopo 12 mesi")]:
-        fig.add_trace(go.Bar(x=storico["verdetto"], y=storico[col], name=nome,
+    colonne = [("3 mesi: vs sempre investito", "dopo 3 mesi", "#9ec5e8"), ("6 mesi: vs sempre investito", "dopo 6 mesi", "#4a90c8"),
+               ("12 mesi: vs sempre investito", "dopo 12 mesi", "#1f3b73")]
+    for col, nome, colore in colonne:
+        fig.add_trace(go.Bar(x=storico["verdetto"], y=storico[col], name=nome, marker_color=colore, cliponaxis=False,
                              text=[f"{v:+.1f}%" for v in storico[col]], textposition="outside"))
+    valori = storico[[c for c, _, _ in colonne]]
     fig.update_layout(title="Cosa ha fatto l'S&P 500 dopo ogni verdetto, dal 1990 (in più o in meno rispetto allo stare sempre investito)",
-                      barmode="group", height=420, yaxis_title="%")
+                      barmode="group", height=420, yaxis=dict(title="%", range=[valori.min().min() * 1.35, valori.max().max() * 1.35]))
     return fig_html(fig)
 
 
