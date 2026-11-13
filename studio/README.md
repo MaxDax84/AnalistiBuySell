@@ -83,6 +83,39 @@ fondo. I momenti con il miglior rapporto sono i momenti di panico (VIX > 30, cre
 20% dal massimo), cioè quando è più difficile comprare. La zona pericolosa è quella intermedia: 10-20% sotto
 il massimo con il credito in stress.
 
+## Verdetto del giorno: STRONG BUY / BUY / WAIT / SMALL SELL
+
+```
+python verdetto.py          # valuta le regole dal 1990, simula i piani di liquidità, scrive risultati/verdetto.md
+python verdetto.py --oggi   # solo il verdetto di oggi
+```
+
+Il verdetto esce da regole fisse (vedi l'intestazione di `verdetto.py`), mai da una lettura delle notizie del
+giorno: le notizie sono nei prezzi entro minuti e il "sentiment" misurabile è già dentro VIX, EPU, GPR e HYG.
+Ogni sera il workflow lo aggiorna in `risultati/verdetto.md`.
+
+Cosa è successo dal 1990 nei mesi dopo ogni verdetto (S&P 500, vs sempre investito):
+
+| verdetto | quota del tempo | episodi | 6 mesi dopo | 12 mesi dopo | positivi a 6 mesi | decenni coerenti |
+|---|---|---|---|---|---|---|
+| STRONG BUY | 11% | 94 | **+5,1%** | **+7,0%** | 77% | 4/4 |
+| BUY | 13% | 196 | +2,7% | +2,4% | 83% | 4/4 |
+| WAIT | 62% | 177 | −0,2% | 0,0% | 77% | 3/4 |
+| SMALL SELL | 13% | 129 | **−6,3%** | **−8,5%** | 52% | 2/4 |
+
+E il test che conta per chi ha liquidità da investire, 1.000 € al mese per 36 anni:
+
+| politica | valore finale | moltiplicatore | peggior calo |
+|---|---|---|---|
+| ogni mese tutto subito | **3,10 M€** | 7,0× | −50% |
+| frena su WAIT, accelera su BUY/STRONG BUY, zero su SMALL SELL | 2,65 M€ | 6,0× | −44% |
+| tranche normale, zero su SMALL SELL, la cassa accumulata va su BUY/STRONG BUY | 3,07 M€ | 6,9× | −50% |
+
+Conclusione: i verdetti prevedono bene *cosa succede dopo*, ma **aspettarli per investire la liquidità costa più
+di quanto renda**, perché WAIT copre il 62% del tempo e il mercato sale anche allora. La liquidità nuova va
+investita a scadenze fisse; il verdetto serve a dimensionare l'esposizione del portafoglio esistente (SMALL SELL)
+e a non fermarsi, anzi aggiungere, quando scatta STRONG BUY.
+
 ## File
 
 | file | cosa contiene |
@@ -94,6 +127,7 @@ il massimo con il credito in stress.
 | `indicatori.py` | stato giornaliero per titolo: consenso, target (rettificato per gli split), upside, tendenza, upgrade recenti |
 | `simula.py` | simulatore in euro e confronto delle regole d'ingresso |
 | `regime.py` | indicatore di regime del mercato (36 anni) e lettura di oggi |
+| `verdetto.py` | verdetto a 4 livelli da regole fisse, verifica storica, piani di liquidità |
 | `analisi.py` | rendimenti in eccesso, studio degli eventi, fasce di consenso, riepilogo |
 | `giornaliero.py` | fotografia del giorno (per la raccolta automatica) |
 | `data/` | dati scaricati (`universo.csv` serve anche alla raccolta automatica) |
