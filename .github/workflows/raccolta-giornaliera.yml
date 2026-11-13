@@ -1,0 +1,38 @@
+name: Raccolta giornaliera consenso analisti
+
+on:
+  schedule:
+    # 22:30 UTC dal lunedì al venerdì = dopo la chiusura di Wall Street (16:00 New York)
+    - cron: "30 22 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  raccolta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dipendenze
+        run: pip install yfinance pandas requests
+
+      - name: Fotografia del giorno
+        working-directory: studio
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+        run: python giornaliero.py
+
+      - name: Salva nel repository
+        run: |
+          git config user.name "raccolta-bot"
+          git config user.email "raccolta-bot@users.noreply.github.com"
+          git add studio/data/giornaliero/
+          git diff --cached --quiet && echo "Niente di nuovo" && exit 0
+          git commit -m "Raccolta giornaliera $(date -u +%F)"
+          git push
