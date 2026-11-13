@@ -15,7 +15,7 @@ import pandas as pd
 import requests
 import yfinance as yf
 
-from config import (ANNI_STORICO, BENCHMARK, DATI, FILE_AZIONI, FILE_FINNHUB, FILE_PREZZI,
+from config import (ANNI_STORICO, BENCHMARK, DATI, FILE_AZIONI, FILE_FINNHUB, FILE_PREZZI, FILE_SPLIT,
                     FILE_UNIVERSO, chiave_finnhub)
 
 
@@ -55,6 +55,27 @@ def scarica_azioni(tickers: list[str]) -> pd.DataFrame:
     return tab
 
 
+def split_di(simbolo: str) -> pd.DataFrame | None:
+    try:
+        s = yf.Ticker(simbolo).splits
+        if s is None or s.empty:
+            return None
+        tab = s.rename("rapporto").reset_index().rename(columns={"Date": "Data"})
+        tab.insert(0, "Ticker", simbolo)
+        return tab
+    except Exception:
+        return None
+
+
+def scarica_split(tickers: list[str]) -> pd.DataFrame:
+    """Frazionamenti azionari: servono per riportare i vecchi prezzi obiettivo alla base azionaria di oggi."""
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        pezzi = [p for p in pool.map(split_di, tickers) if p is not None]
+    tab = pd.concat(pezzi, ignore_index=True) if pezzi else pd.DataFrame(columns=["Ticker", "Data", "rapporto"])
+    tab["Data"] = pd.to_datetime(tab["Data"]).dt.tz_localize(None).dt.normalize()
+    return tab
+
+
 def scarica_finnhub(tickers: list[str], chiave: str) -> pd.DataFrame | None:
     """Consenso mensile (strongBuy/buy/hold/sell/strongSell). Piano gratuito: 60 chiamate al minuto."""
     righe = []
@@ -90,6 +111,11 @@ def main() -> None:
     azioni.to_csv(FILE_AZIONI, index=False)
     print(f"  {len(azioni)} righe, {azioni['Ticker'].nunique()} titoli -> {FILE_AZIONI}")
     print("  Azioni:", azioni["Action"].value_counts().to_dict())
+
+    print("Frazionamenti (split)...")
+    split = scarica_split(tickers)
+    split.to_csv(FILE_SPLIT, index=False)
+    print(f"  {len(split)} split su {split['Ticker'].nunique()} titoli -> {FILE_SPLIT}")
 
     chiave = chiave_finnhub()
     if chiave:

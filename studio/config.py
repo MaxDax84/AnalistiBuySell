@@ -18,6 +18,7 @@ FILE_UNIVERSO = DATI / "universo.csv"
 FILE_PREZZI = DATI / "prezzi.csv"
 FILE_AZIONI = DATI / "azioni_analisti.csv"
 FILE_FINNHUB = DATI / "consenso_finnhub.csv"
+FILE_SPLIT = DATI / "split.csv"
 
 
 def chiave_finnhub() -> str | None:

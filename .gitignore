@@ -11,4 +11,5 @@ venv/
 
 # Studio consenso analisti: file derivati o di log (si rigenerano con analisi.py)
 studio/risultati/consenso_giornaliero.csv
+studio/risultati/stato_giornaliero.csv
 studio/*.log
