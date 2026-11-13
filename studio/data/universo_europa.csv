@@ -1,0 +1,456 @@
+Symbol,Nome,mercato,indice
+A2A.MI,A2A,Italia,FTSE MIB
+AMP.MI,Amplifon,Italia,FTSE MIB
+AVIO.MI,Avio,Italia,FTSE MIB
+AZM.MI,Azimut,Italia,FTSE MIB
+BMED.MI,Banca Mediolanum,Italia,FTSE MIB
+BMPS.MI,Banca Monte dei Paschi di Siena,Italia,FTSE MIB
+BAMI.MI,Banco BPM,Italia,FTSE MIB
+BPE.MI,BPER Banca,Italia,FTSE MIB
+BC.MI,Brunello Cucinelli,Italia,FTSE MIB
+BZU.MI,Buzzi,Italia,FTSE MIB
+CPR.MI,Campari,Italia,FTSE MIB
+ENEL.MI,Enel,Italia,FTSE MIB
+ENI.MI,Eni,Italia,FTSE MIB
+RACE.MI,Ferrari,Italia,FTSE MIB
+FCT.MI,Fincantieri,Italia,FTSE MIB
+FBK.MI,FinecoBank,Italia,FTSE MIB
+G.MI,Generali,Italia,FTSE MIB
+HER.MI,Hera,Italia,FTSE MIB
+ISP.MI,Intesa Sanpaolo,Italia,FTSE MIB
+INW.MI,INWIT,Italia,FTSE MIB
+IG.MI,Italgas,Italia,FTSE MIB
+IVG.MI,Iveco,Italia,FTSE MIB
+LDO.MI,Leonardo,Italia,FTSE MIB
+LTMC.MI,Lottomatica Group,Italia,FTSE MIB
+MB.MI,Mediobanca,Italia,FTSE MIB
+MONC.MI,Moncler,Italia,FTSE MIB
+NEXI.MI,Nexi,Italia,FTSE MIB
+PST.MI,Poste italiane,Italia,FTSE MIB
+PRY.MI,Prysmian,Italia,FTSE MIB
+REC.MI,Recordati,Italia,FTSE MIB
+SPM.MI,Saipem,Italia,FTSE MIB
+SRG.MI,Snam,Italia,FTSE MIB
+STLAM.MI,Stellantis,Italia,FTSE MIB
+STMMI.MI,STMicroelectronics,Italia,FTSE MIB
+TPRO.MI,Technoprobe,Italia,FTSE MIB
+TIT.MI,Telecom Italia,Italia,FTSE MIB
+TEN.MI,Tenaris,Italia,FTSE MIB
+TRN.MI,Terna,Italia,FTSE MIB
+UCG.MI,UniCredit,Italia,FTSE MIB
+UNI.MI,Unipol,Italia,FTSE MIB
+ACE.MI,Acea,Italia,FTSE Italia Mid Cap
+ARN.MI,Alerion,Italia,FTSE Italia Mid Cap
+ANIM.MI,Anima Holding,Italia,FTSE Italia Mid Cap
+ASC.MI,Ascopiave,Italia,FTSE Italia Mid Cap
+BGN.MI,Banca Generali,Italia,FTSE Italia Mid Cap
+IF.MI,Banca Ifis,Italia,FTSE Italia Mid Cap
+BDB.MI,Banco Desio,Italia,FTSE Italia Mid Cap
+BFG.MI,B.F.,Italia,FTSE Italia Mid Cap
+BFF.MI,BFF Bank,Italia,FTSE Italia Mid Cap
+BRE.MI,Brembo,Italia,FTSE Italia Mid Cap
+CALT.MI,Caltagirone,Italia,FTSE Italia Mid Cap
+CRL.MI,Carel Industries,Italia,FTSE Italia Mid Cap
+CMB.MI,Cembre,Italia,FTSE Italia Mid Cap
+CEM.MI,Cementir Holding,Italia,FTSE Italia Mid Cap
+CIR.MI,CIR,Italia,FTSE Italia Mid Cap
+COM.MI,Comer Industries,Italia,FTSE Italia Mid Cap
+CE.MI,Credem,Italia,FTSE Italia Mid Cap
+DIS.MI,D'Amico International Shipping,Italia,FTSE Italia Mid Cap
+DAN.MI,Danieli & C.,Italia,FTSE Italia Mid Cap
+DLG.MI,De'Longhi,Italia,FTSE Italia Mid Cap
+DIA.MI,DiaSorin,Italia,FTSE Italia Mid Cap
+ELN.MI,El.En.,Italia,FTSE Italia Mid Cap
+ENAV.MI,ENAV,Italia,FTSE Italia Mid Cap
+ERG.MI,ERG,Italia,FTSE Italia Mid Cap
+YACHT.MI,Ferretti,Italia,FTSE Italia Mid Cap
+FM.MI,Fiera Milano,Italia,FTSE Italia Mid Cap
+GHC.MI,Garofalo Health Care,Italia,FTSE Italia Mid Cap
+OROX.MI,Gens Aurea,Italia,FTSE Italia Mid Cap
+GVS.MI,GVS,Italia,FTSE Italia Mid Cap
+ICOS.MI,Intercos,Italia,FTSE Italia Mid Cap
+IP.MI,Interpump Group,Italia,FTSE Italia Mid Cap
+IRE.MI,Iren,Italia,FTSE Italia Mid Cap
+ITM.MI,Italmobiliare,Italia,FTSE Italia Mid Cap
+JUVE.MI,Juventus,Italia,FTSE Italia Mid Cap
+LUVE.MI,LU-VE,Italia,FTSE Italia Mid Cap
+MAIRE.MI,Maire,Italia,FTSE Italia Mid Cap
+MFEA.MI,MFE (azioni A),Italia,FTSE Italia Mid Cap
+MFEB.MI,MFE (azioni B),Italia,FTSE Italia Mid Cap
+MOL.MI,Moltiply Group,Italia,FTSE Italia Mid Cap
+MN.MI,Mondadori,Italia,FTSE Italia Mid Cap
+NWL.MI,NewPrinces,Italia,FTSE Italia Mid Cap
+OVS.MI,OVS,Italia,FTSE Italia Mid Cap
+PHN.MI,PharmaNutra,Italia,FTSE Italia Mid Cap
+PHIL.MI,Philogen,Italia,FTSE Italia Mid Cap
+PIA.MI,Piaggio,Italia,FTSE Italia Mid Cap
+PIRC.MI,Pirelli & C.,Italia,FTSE Italia Mid Cap
+RWAY.MI,Rai Way,Italia,FTSE Italia Mid Cap
+REY.MI,Reply,Italia,FTSE Italia Mid Cap
+REVO.MI,REVO Insurance,Italia,FTSE Italia Mid Cap
+SFL.MI,Safilo Group,Italia,FTSE Italia Mid Cap
+SFER.MI,Salvatore Ferragamo,Italia,FTSE Italia Mid Cap
+SL.MI,Sanlorenzo,Italia,FTSE Italia Mid Cap
+SES.MI,Sesa,Italia,FTSE Italia Mid Cap
+SOL.MI,SOL,Italia,FTSE Italia Mid Cap
+TIP.MI,Tamburi Investment Partners,Italia,FTSE Italia Mid Cap
+TGYM.MI,Technogym,Italia,FTSE Italia Mid Cap
+TXT.MI,TXT e-solutions,Italia,FTSE Italia Mid Cap
+WBD.MI,Webuild,Italia,FTSE Italia Mid Cap
+WIIT.MI,WIIT,Italia,FTSE Italia Mid Cap
+ZV.MI,Zignago Vetro,Italia,FTSE Italia Mid Cap
+ADS.DE,Adidas,Germania,DAX
+AIR.PA,Airbus,Germania,DAX
+ALV.DE,Allianz,Germania,DAX
+BAS.DE,BASF,Germania,DAX
+BAYN.DE,Bayer,Germania,DAX
+BEI.DE,Beiersdorf,Germania,DAX
+BMW.DE,BMW,Germania,DAX
+BNR.DE,Brenntag,Germania,DAX
+CBK.DE,Commerzbank,Germania,DAX
+CON.DE,Continental,Germania,DAX
+DTG.DE,Daimler Truck,Germania,DAX
+DBK.DE,Deutsche Bank,Germania,DAX
+DB1.DE,Deutsche Börse,Germania,DAX
+DHL.DE,Deutsche Post,Germania,DAX
+DTE.DE,Deutsche Telekom,Germania,DAX
+EOAN.DE,E.ON,Germania,DAX
+FRE.DE,Fresenius,Germania,DAX
+FME.DE,Fresenius Medical Care,Germania,DAX
+G1A.DE,GEA Group,Germania,DAX
+HNR1.DE,Hannover Re,Germania,DAX
+HEI.DE,Heidelberg Materials,Germania,DAX
+HEN3.DE,Henkel,Germania,DAX
+IFX.DE,Infineon Technologies,Germania,DAX
+MBG.DE,Mercedes-Benz Group,Germania,DAX
+MRK.DE,Merck,Germania,DAX
+MTX.DE,MTU Aero Engines,Germania,DAX
+MUV2.DE,Munich Re,Germania,DAX
+PAH3.DE,Porsche SE,Germania,DAX
+QIA.DE,Qiagen,Germania,DAX
+RHM.DE,Rheinmetall,Germania,DAX
+RWE.DE,RWE,Germania,DAX
+SAP.DE,SAP,Germania,DAX
+G24.DE,Scout24,Germania,DAX
+SIE.DE,Siemens,Germania,DAX
+ENR.DE,Siemens Energy,Germania,DAX
+SHL.DE,Siemens Healthineers,Germania,DAX
+SY1.DE,Symrise,Germania,DAX
+VOW3.DE,Volkswagen Group,Germania,DAX
+VNA.DE,Vonovia,Germania,DAX
+ZAL.DE,Zalando,Germania,DAX
+AIXA.DE,Aixtron,Germania,MDAX
+AT1.DE,Aroundtown,Germania,MDAX
+NDA.DE,Aurubis,Germania,MDAX
+BC8.DE,Bechtle,Germania,MDAX
+BFSA.DE,Befesa,Germania,MDAX
+GBF.DE,Bilfinger,Germania,MDAX
+AFX.DE,Carl Zeiss Meditec,Germania,MDAX
+EVD.DE,CTS Eventim,Germania,MDAX
+DHER.DE,Delivery Hero,Germania,MDAX
+LHA.DE,Lufthansa,Germania,MDAX
+ECV.DE,Encavis,Germania,MDAX
+EVK.DE,Evonik,Germania,MDAX
+EVT.DE,Evotec,Germania,MDAX
+FRA.DE,Fraport,Germania,MDAX
+FNTN.DE,Freenet,Germania,MDAX
+FPE3.DE,Fuchs Petrolub,Germania,MDAX
+GXI.DE,Gerresheimer,Germania,MDAX
+HLE.DE,Hella,Germania,MDAX
+HFG.DE,HelloFresh,Germania,MDAX
+HAG.DE,Hensoldt,Germania,MDAX
+HOT.DE,Hochtief,Germania,MDAX
+BOSS.DE,Hugo Boss,Germania,MDAX
+JEN.DE,Jenoptik,Germania,MDAX
+JUN3.DE,Jungheinrich,Germania,MDAX
+SDF.DE,K+S,Germania,MDAX
+KGX.DE,KION Group,Germania,MDAX
+KBX.DE,Knorr-Bremse,Germania,MDAX
+KRN.DE,Krones,Germania,MDAX
+LXS.DE,Lanxess,Germania,MDAX
+LEG.DE,LEG Immobilien,Germania,MDAX
+NEM.DE,Nemetschek,Germania,MDAX
+NDX1.DE,Nordex,Germania,MDAX
+PUM.DE,Puma,Germania,MDAX
+RAA.DE,Rational,Germania,MDAX
+RDC.DE,Redcare Pharmacy,Germania,MDAX
+RRTL.DE,RTL Group,Germania,MDAX
+WAF.DE,Siltronic,Germania,MDAX
+STM.DE,Stabilus,Germania,MDAX
+SAX.DE,Ströer,Germania,MDAX
+TEG.DE,TAG Tegernsee Immobilien und Beteiligung,Germania,MDAX
+TLX.DE,Talanx,Germania,MDAX
+TMV.DE,TeamViewer,Germania,MDAX
+TKA.DE,ThyssenKrupp,Germania,MDAX
+8TRA.DE,Traton,Germania,MDAX
+TUI1.DE,TUI,Germania,MDAX
+UTDI.DE,United Internet,Germania,MDAX
+WCH.DE,Wacker Chemie,Germania,MDAX
+AC.PA,Accor,Francia,CAC 40
+AI.PA,Air Liquide,Francia,CAC 40
+MT.AS,ArcelorMittal,Francia,CAC 40
+CS.PA,Axa,Francia,CAC 40
+BNP.PA,BNP Paribas,Francia,CAC 40
+EN.PA,Bouygues,Francia,CAC 40
+BVI.PA,Bureau Veritas,Francia,CAC 40
+CAP.PA,Capgemini,Francia,CAC 40
+CA.PA,Carrefour,Francia,CAC 40
+ACA.PA,Crédit Agricole,Francia,CAC 40
+BN.PA,Danone,Francia,CAC 40
+DSY.PA,Dassault Systèmes,Francia,CAC 40
+FGR.PA,Eiffage,Francia,CAC 40
+ENGI.PA,Engie,Francia,CAC 40
+EL.PA,EssilorLuxottica,Francia,CAC 40
+ERF.PA,Eurofins Scientific,Francia,CAC 40
+ENX.PA,Euronext,Francia,CAC 40
+RMS.PA,Hermès,Francia,CAC 40
+KER.PA,Kering,Francia,CAC 40
+OR.PA,L'Oréal,Francia,CAC 40
+LR.PA,Legrand,Francia,CAC 40
+MC.PA,LVMH,Francia,CAC 40
+ML.PA,Michelin,Francia,CAC 40
+ORA.PA,Orange,Francia,CAC 40
+RI.PA,Pernod Ricard,Francia,CAC 40
+PUB.PA,Publicis,Francia,CAC 40
+RNO.PA,Renault,Francia,CAC 40
+SAF.PA,Safran,Francia,CAC 40
+SGO.PA,Saint-Gobain,Francia,CAC 40
+SAN.PA,Sanofi,Francia,CAC 40
+SU.PA,Schneider Electric,Francia,CAC 40
+GLE.PA,Société Générale,Francia,CAC 40
+STLAP.PA,Stellantis,Francia,CAC 40
+STMPA.PA,STMicroelectronics,Francia,CAC 40
+HO.PA,Thales,Francia,CAC 40
+TTE.PA,TotalEnergies,Francia,CAC 40
+URW.PA,Unibail-Rodamco-Westfield,Francia,CAC 40
+VIE.PA,Veolia,Francia,CAC 40
+DG.PA,Vinci,Francia,CAC 40
+ACS.MC,ACS,Spagna,IBEX 35
+ACX.MC,Acerinox,Spagna,IBEX 35
+AMS.MC,Amadeus IT Group,Spagna,IBEX 35
+ANA.MC,Acciona,Spagna,IBEX 35
+ANE.MC,Acciona Energía,Spagna,IBEX 35
+BBVA.MC,BBVA,Spagna,IBEX 35
+BKT.MC,Bankinter,Spagna,IBEX 35
+CABK.MC,CaixaBank,Spagna,IBEX 35
+CLNX.MC,Cellnex Telecom,Spagna,IBEX 35
+COL.MC,Inmobiliaria Colonial,Spagna,IBEX 35
+AENA.MC,AENA,Spagna,IBEX 35
+ELE.MC,Endesa,Spagna,IBEX 35
+ENG.MC,Enagás,Spagna,IBEX 35
+FDR.MC,Fluidra,Spagna,IBEX 35
+FER.MC,Ferrovial,Spagna,IBEX 35
+GRF.MC,Grifols,Spagna,IBEX 35
+IAG.MC,International Airlines Group,Spagna,IBEX 35
+IBE.MC,Iberdrola,Spagna,IBEX 35
+IDR.MC,Indra,Spagna,IBEX 35
+ITX.MC,Inditex,Spagna,IBEX 35
+LOG.MC,Logista,Spagna,IBEX 35
+MAP.MC,Mapfre,Spagna,IBEX 35
+MRL.MC,Merlin Properties,Spagna,IBEX 35
+MTS.MC,ArcelorMittal,Spagna,IBEX 35
+NTGY.MC,Naturgy,Spagna,IBEX 35
+PUIG.MC,Puig,Spagna,IBEX 35
+RED.MC,Redeia Corporación,Spagna,IBEX 35
+REP.MC,Repsol,Spagna,IBEX 35
+ROVI.MC,Laboratorios Rovi [es],Spagna,IBEX 35
+SAB.MC,Banco Sabadell,Spagna,IBEX 35
+SAN.MC,Santander,Spagna,IBEX 35
+SCYR.MC,Sacyr,Spagna,IBEX 35
+SLR.MC,Solaria,Spagna,IBEX 35
+TEF.MC,Telefónica,Spagna,IBEX 35
+UNI.MC,Unicaja,Spagna,IBEX 35
+ABN.AS,ABN AMRO,Paesi Bassi,AEX
+ADYEN.AS,Adyen,Paesi Bassi,AEX
+AGN.AS,Aegon,Paesi Bassi,AEX
+AD.AS,Ahold Delhaize,Paesi Bassi,AEX
+AKZA.AS,AkzoNobel,Paesi Bassi,AEX
+ASM.AS,ASM International,Paesi Bassi,AEX
+ASML.AS,ASML Holding,Paesi Bassi,AEX
+ASRNL.AS,ASR Nederland,Paesi Bassi,AEX
+BESI.AS,BE Semiconductors,Paesi Bassi,AEX
+DSFIR.AS,DSM Firmenich AG,Paesi Bassi,AEX
+EXO.AS,Exor,Paesi Bassi,AEX
+HEIA.AS,Heineken,Paesi Bassi,AEX
+IMCD.AS,IMCD,Paesi Bassi,AEX
+INGA.AS,ING Group,Paesi Bassi,AEX
+KPN.AS,KPN,Paesi Bassi,AEX
+NN.AS,NN Group,Paesi Bassi,AEX
+PHIA.AS,Philips,Paesi Bassi,AEX
+PRX.AS,Prosus,Paesi Bassi,AEX
+RAND.AS,Randstad,Paesi Bassi,AEX
+REN.AS,RELX,Paesi Bassi,AEX
+SHELL.AS,Shell plc,Paesi Bassi,AEX
+UMG.AS,Universal Music Group,Paesi Bassi,AEX
+UNA.AS,Unilever,Paesi Bassi,AEX
+WKL.AS,Wolters Kluwer,Paesi Bassi,AEX
+ABI.BR,AB InBev,Belgio,BEL 20
+ACKB.BR,Ackermans & van Haaren,Belgio,BEL 20
+AED.BR,Aedifica,Belgio,BEL 20
+AGS.BR,Ageas,Belgio,BEL 20
+ARGX.BR,arGEN-X [nl],Belgio,BEL 20
+APAM.BR,Aperam,Belgio,BEL 20
+AZE.BR,Azelis Group,Belgio,BEL 20
+DIE.BR,D'Ieteren,Belgio,BEL 20
+ELI.BR,Elia Group,Belgio,BEL 20
+GBLB.BR,GBL,Belgio,BEL 20
+KBC.BR,KBC,Belgio,BEL 20
+LOTB.BR,Lotus Bakeries,Belgio,BEL 20
+MELE.BR,Melexis [nl],Belgio,BEL 20
+MONT.BR,Montea,Belgio,BEL 20
+SOF.BR,Sofina,Belgio,BEL 20
+SOLB.BR,Solvay,Belgio,BEL 20
+SYENS.BR,Syensqo,Belgio,BEL 20
+UCB.BR,UCB,Belgio,BEL 20
+UMI.BR,Umicore,Belgio,BEL 20
+WDP.BR,WDP [nl],Belgio,BEL 20
+NOVN.SW,Novartis International AG,Svizzera,SMI
+ROP.SW,Roche Holding AG,Svizzera,SMI
+NESN.SW,Nestlé SA,Svizzera,SMI
+ABBN.SW,ABB Ltd,Svizzera,SMI
+UBSG.SW,UBS Group AG,Svizzera,SMI
+CFR.SW,Compagnie Financière Richemont SA,Svizzera,SMI
+ZURN.SW,Zurich Insurance Group AG,Svizzera,SMI
+HOLN.SW,Holcim Limited,Svizzera,SMI
+SREN.SW,Swiss Reinsurance Company Ltd,Svizzera,SMI
+LONN.SW,Lonza Group AG,Svizzera,SMI
+SDZ.SW,Sandoz,Svizzera,SMI
+GIVN.SW,Givaudan SA,Svizzera,SMI
+ALC.SW,Alcon Inc,Svizzera,SMI
+SIKA.SW,Sika AG,Svizzera,SMI
+AMRZ.SW,Amrize AG,Svizzera,SMI
+SLHN.SW,Swiss Life Holding AG,Svizzera,SMI
+GALD.SW,Galderma,Svizzera,SMI
+GEBN.SW,Geberit AG,Svizzera,SMI
+PGHN.SW,Partners Group Holding AG,Svizzera,SMI
+LOGN.SW,Logitech International SA,Svizzera,SMI
+III.L,3i,Regno Unito,FTSE 100
+ABDN.L,Aberdeen Group,Regno Unito,FTSE 100
+ADM.L,Admiral Group,Regno Unito,FTSE 100
+AAF.L,Airtel Africa,Regno Unito,FTSE 100
+ALW.L,Alliance Witan,Regno Unito,FTSE 100
+AAL.L,Anglo American plc,Regno Unito,FTSE 100
+ANTO.L,Antofagasta plc,Regno Unito,FTSE 100
+ABF.L,Associated British Foods,Regno Unito,FTSE 100
+AZN.L,AstraZeneca,Regno Unito,FTSE 100
+AUTO.L,Autotrader Group,Regno Unito,FTSE 100
+AV.L,Aviva,Regno Unito,FTSE 100
+BAB.L,Babcock International,Regno Unito,FTSE 100
+BA.L,BAE Systems,Regno Unito,FTSE 100
+BBY.L,Balfour Beatty,Regno Unito,FTSE 100
+BARC.L,Barclays,Regno Unito,FTSE 100
+BTRW.L,Barratt Redrow,Regno Unito,FTSE 100
+BP.L,BP,Regno Unito,FTSE 100
+BATS.L,British American Tobacco,Regno Unito,FTSE 100
+BLND.L,British Land,Regno Unito,FTSE 100
+BT-A.L,BT Group,Regno Unito,FTSE 100
+BNZL.L,Bunzl,Regno Unito,FTSE 100
+BRBY.L,Burberry Group,Regno Unito,FTSE 100
+CNA.L,Centrica,Regno Unito,FTSE 100
+CCEP.L,Coca-Cola Europacific Partners,Regno Unito,FTSE 100
+CCH.L,Coca-Cola HBC,Regno Unito,FTSE 100
+CPG.L,Compass Group,Regno Unito,FTSE 100
+CCC.L,Computacenter,Regno Unito,FTSE 100
+CTEC.L,Convatec,Regno Unito,FTSE 100
+CRDA.L,Croda International,Regno Unito,FTSE 100
+DCC.L,DCC Energy,Regno Unito,FTSE 100
+DGE.L,Diageo,Regno Unito,FTSE 100
+DPLM.L,Diploma,Regno Unito,FTSE 100
+EZJ.L,EasyJet,Regno Unito,FTSE 100
+EDV.L,Endeavour Mining,Regno Unito,FTSE 100
+EXPN.L,Experian,Regno Unito,FTSE 100
+FCIT.L,F & C Investment Trust,Regno Unito,FTSE 100
+FRES.L,Fresnillo plc,Regno Unito,FTSE 100
+GAW.L,Games Workshop,Regno Unito,FTSE 100
+GLEN.L,Glencore,Regno Unito,FTSE 100
+GSK.L,GSK plc,Regno Unito,FTSE 100
+HLN.L,Haleon,Regno Unito,FTSE 100
+HLMA.L,Halma plc,Regno Unito,FTSE 100
+HSX.L,Hiscox,Regno Unito,FTSE 100
+HWDN.L,Howdens Joinery,Regno Unito,FTSE 100
+HSBA.L,HSBC,Regno Unito,FTSE 100
+ICG.L,ICG,Regno Unito,FTSE 100
+IGG.L,IG Group,Regno Unito,FTSE 100
+IHG.L,IHG Hotels & Resorts,Regno Unito,FTSE 100
+IMI.L,IMI,Regno Unito,FTSE 100
+IMB.L,Imperial Brands,Regno Unito,FTSE 100
+INF.L,Informa,Regno Unito,FTSE 100
+IAG.L,International Airlines Group,Regno Unito,FTSE 100
+ITRK.L,Intertek,Regno Unito,FTSE 100
+INVP.L,Investec,Regno Unito,FTSE 100
+ITH.L,Ithaca Energy,Regno Unito,FTSE 100
+JD.L,JD Sports,Regno Unito,FTSE 100
+BGEO.L,Lion Finance Group,Regno Unito,FTSE 100
+KGF.L,Kingfisher plc,Regno Unito,FTSE 100
+LAND.L,Land Securities,Regno Unito,FTSE 100
+LGEN.L,Legal & General,Regno Unito,FTSE 100
+LLOY.L,Lloyds Banking Group,Regno Unito,FTSE 100
+LMP.L,LondonMetric Property,Regno Unito,FTSE 100
+LSEG.L,London Stock Exchange Group,Regno Unito,FTSE 100
+MNG.L,M&G,Regno Unito,FTSE 100
+MKS.L,Marks & Spencer,Regno Unito,FTSE 100
+MRO.L,Melrose Industries,Regno Unito,FTSE 100
+MTLN.L,Metlen Energy & Metals,Regno Unito,FTSE 100
+NG.L,National Grid plc,Regno Unito,FTSE 100
+NWG.L,NatWest Group,Regno Unito,FTSE 100
+NXT.L,Next plc,Regno Unito,FTSE 100
+PSON.L,Pearson plc,Regno Unito,FTSE 100
+PSH.L,Pershing Square Holdings,Regno Unito,FTSE 100
+PCT.L,Polar Capital Technology Trust,Regno Unito,FTSE 100
+PRU.L,Prudential plc,Regno Unito,FTSE 100
+RKT.L,Reckitt,Regno Unito,FTSE 100
+REL.L,RELX,Regno Unito,FTSE 100
+RTO.L,Rentokil Initial,Regno Unito,FTSE 100
+RIO.L,Rio Tinto,Regno Unito,FTSE 100
+RR.L,Rolls-Royce Holdings,Regno Unito,FTSE 100
+SGE.L,Sage Group,Regno Unito,FTSE 100
+SBRY.L,Sainsbury's,Regno Unito,FTSE 100
+SMT.L,Scottish Mortgage Investment Trust,Regno Unito,FTSE 100
+SGRO.L,Segro,Regno Unito,FTSE 100
+SVT.L,Severn Trent,Regno Unito,FTSE 100
+SHEL.L,Shell plc,Regno Unito,FTSE 100
+SMIN.L,Smiths Group,Regno Unito,FTSE 100
+SN.L,Smith & Nephew,Regno Unito,FTSE 100
+SPX.L,Spirax Group,Regno Unito,FTSE 100
+SSE.L,SSE plc,Regno Unito,FTSE 100
+STAN.L,Standard Chartered,Regno Unito,FTSE 100
+SDLF.L,Standard Life,Regno Unito,FTSE 100
+STJ.L,St. James's Place,Regno Unito,FTSE 100
+TSCO.L,Tesco,Regno Unito,FTSE 100
+BBOX.L,Tritax Big Box REIT,Regno Unito,FTSE 100
+ULVR.L,Unilever,Regno Unito,FTSE 100
+UU.L,United Utilities,Regno Unito,FTSE 100
+VOD.L,Vodafone Group,Regno Unito,FTSE 100
+WEIR.L,Weir,Regno Unito,FTSE 100
+WTB.L,Whitbread,Regno Unito,FTSE 100
+WPP.L,WPP,Regno Unito,FTSE 100
+ABB.ST,ABB Ltd,Svezia,OMX Stockholm 30
+ADDT-B.ST,Addtech B,Svezia,OMX Stockholm 30
+ALFA.ST,Alfa Laval,Svezia,OMX Stockholm 30
+ASSA-B.ST,Assa Abloy B,Svezia,OMX Stockholm 30
+AZN.ST,AstraZeneca,Svezia,OMX Stockholm 30
+ATCO-A.ST,Atlas Copco A,Svezia,OMX Stockholm 30
+BOL.ST,Boliden,Svezia,OMX Stockholm 30
+EPI-A.ST,Epiroc A,Svezia,OMX Stockholm 30
+EQT.ST,EQT,Svezia,OMX Stockholm 30
+ERIC-B.ST,Ericsson B,Svezia,OMX Stockholm 30
+ESSITY-B.ST,Essity B,Svezia,OMX Stockholm 30
+EVO.ST,Evolution,Svezia,OMX Stockholm 30
+SHB-A.ST,Handelsbanken A,Svezia,OMX Stockholm 30
+HM-B.ST,Hennes & Mauritz B,Svezia,OMX Stockholm 30
+HEXA-B.ST,Hexagon B,Svezia,OMX Stockholm 30
+INDU-C.ST,Industrivärden C,Svezia,OMX Stockholm 30
+INVE-B.ST,Investor B,Svezia,OMX Stockholm 30
+LIFCO-B.ST,Lifco B,Svezia,OMX Stockholm 30
+NIBE-B.ST,Nibe Industrier B,Svezia,OMX Stockholm 30
+NDA-SE.ST,Nordea Bank Abp,Svezia,OMX Stockholm 30
+SAAB-B.ST,Saab B,Svezia,OMX Stockholm 30
+SAND.ST,Sandvik,Svezia,OMX Stockholm 30
+SCA-B.ST,SCA B,Svezia,OMX Stockholm 30
+SEB-A.ST,SEB A,Svezia,OMX Stockholm 30
+SKA-B.ST,Skanska B,Svezia,OMX Stockholm 30
+SKF-B.ST,SKF B,Svezia,OMX Stockholm 30
+SWED-A.ST,Swedbank A,Svezia,OMX Stockholm 30
+TEL2-B.ST,Tele2 B,Svezia,OMX Stockholm 30
+TELIA.ST,Telia Company,Svezia,OMX Stockholm 30
+VOLV-B.ST,Volvo B,Svezia,OMX Stockholm 30

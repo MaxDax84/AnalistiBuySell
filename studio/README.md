@@ -123,6 +123,40 @@ di quanto renda**, perché WAIT copre il 62% del tempo e il mercato sale anche a
 investita a scadenze fisse; il verdetto serve a dimensionare l'esposizione del portafoglio esistente (SMALL SELL)
 e a non fermarsi, anzi aggiungere, quando scatta STRONG BUY.
 
+## Classifica di tutte le azioni comprabili (universo ampio)
+
+```
+python universo_ampio.py     # tutte le azioni USA con prezzo > 5 $ e cap > 300 M$ (screener nasdaq.com) -> ~3.300 titoli
+python prezzi_ampi.py        # 5 anni di chiusure e volumi, a blocchi (5-6 minuti) -> data/prezzi_ampi.parquet
+python classifica.py         # backtest a 10 fasce + classifica di oggi + confronto col portafoglio -> risultati/classifica.md
+python classifica.py --oggi  # solo classifica di oggi (è quello che gira ogni sera su GitHub)
+```
+
+Universo: ~2.600 titoli USA (prezzo > 5 $, cap > 1 mld $) + 455 europei (FTSE MIB e Mid Cap, DAX, MDAX, CAC 40,
+IBEX 35, AEX, BEL 20, SMI, FTSE 100, OMX Stoccolma 30). Esclusi i titoli poco scambiati (< 2 M$ al giorno) e
+quelli con prezzo inchiodato (volatilità < 8% annua = acquisizione in corso: il punteggio li adorava, il rendimento
+futuro è zero).
+
+Quattro fattori misurati uno per uno (backtest mensile a 10 fasce, 2022-2026, costi 0,2% per operazione):
+
+| fattore | F10 − F1 annuo | ultimi 12 mesi | mesi con F10 > F1 |
+|---|---|---|---|
+| **momentum 12-1** | **+6,6%** | +3,6% | 62% |
+| inversione 1 mese | −7,3% | +3,2% | 40% |
+| bassa volatilità | −26,3% | −19,2% | 42% |
+| vicinanza al massimo 52 sett. | −14,3% | −11,0% | 50% |
+
+Il punteggio usa **solo il momentum**, standardizzato dentro ogni mercato (USA / Europa). Gli altri tre escono
+col segno rovesciato per **distorsione di sopravvivenza**: l'universo sono i titoli vivi oggi, quindi un titolo
+che era volatile tre anni fa ed è ancora quotato sopra il miliardo è quasi per definizione uno che è salito. I
+volatili falliti non ci sono. Con dati gratuiti questi fattori non si possono valutare; il momentum ne risente meno
+ed è l'unico col segno della letteratura. Fasce del punteggio: F10 (migliori) +10,8% l'anno sopra l'universo,
+F1 +2,4% (la U tipica del momentum), F2-F5 sotto. Il 2023 è stato rovesciato (F1 +41%): il momentum perde nei
+rimbalzi violenti dopo un crollo, ed è il suo rischio noto.
+
+Portafoglio: un file `studio/portafoglio.csv` con colonne `Ticker,quantita` (non va su GitHub) fa comparire in
+`classifica.md` il percentile di ogni tuo titolo e i candidati dal 5% migliore quando un tuo titolo è sotto il 40°.
+
 ## File
 
 | file | cosa contiene |
@@ -135,6 +169,9 @@ e a non fermarsi, anzi aggiungere, quando scatta STRONG BUY.
 | `simula.py` | simulatore in euro e confronto delle regole d'ingresso |
 | `regime.py` | indicatore di regime del mercato (36 anni) e lettura di oggi |
 | `verdetto.py` | verdetto a 4 livelli da regole fisse, verifica storica, piani di liquidità |
+| `universo_ampio.py`, `prezzi_ampi.py` | tutte le azioni USA comprabili e i loro prezzi |
+| `classifica.py` | punteggio a 4 fattori, backtest a 10 fasce, classifica di oggi, confronto col portafoglio |
+| `pagina.py` | genera la pagina web `docs/index.html` |
 | `analisi.py` | rendimenti in eccesso, studio degli eventi, fasce di consenso, riepilogo |
 | `giornaliero.py` | fotografia del giorno (per la raccolta automatica) |
 | `data/` | dati scaricati (`universo.csv` serve anche alla raccolta automatica) |

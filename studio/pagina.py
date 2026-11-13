@@ -111,6 +111,38 @@ def grafico_analisti(eventi: pd.DataFrame) -> str:
     return fig_html(fig)
 
 
+def sezione_classifica() -> str:
+    """Tabella dei primi 25 titoli della classifica ampia e grafico delle 10 fasce del backtest (se esistono)."""
+    f_oggi, f_fasce = RISULTATI / "classifica_oggi.csv", RISULTATI / "classifica_fasce.csv"
+    if not f_oggi.exists():
+        return ""
+    oggi = pd.read_csv(f_oggi)
+    top = oggi.head(25)
+    righe = "".join(
+        f"<tr><td>{i + 1}</td><td><b>{r['Ticker']}</b><br><small>{str(r['Nome'])[:38]}</small></td><td>{r['mercato']}</td>"
+        f"<td>{r['prezzo']:.2f}</td><td>{r['rend_12m_%']:+.0f}%</td><td>{r['rend_1m_%']:+.0f}%</td>"
+        f"<td>{r['volatilita_annua_%']:.0f}%</td><td>{r['dal_max_52_%']:+.0f}%</td></tr>"
+        for i, (_, r) in enumerate(top.iterrows()))
+    tabella = f"""<table class="tab"><thead><tr><th>#</th><th>titolo</th><th>mercato</th><th>prezzo</th><th>12 mesi</th><th>1 mese</th>
+    <th>volatilità</th><th>dal max 52 sett.</th></tr></thead><tbody>{righe}</tbody></table>"""
+    grafico = ""
+    if f_fasce.exists():
+        fasce = pd.read_csv(f_fasce)
+        fig = go.Figure(go.Bar(x=[f"F{i}" for i in range(1, 11)], y=fasce["vs_universo_annuo_%"],
+                               marker_color=["#d9534f"] * 3 + ["#c9c9c9"] * 4 + ["#1b7f3b"] * 3,
+                               text=[f"{v:+.1f}%" for v in fasce["vs_universo_annuo_%"]], textposition="outside", cliponaxis=False))
+        fig.update_layout(title="Backtest 5 anni: rendimento annuo di ogni fascia rispetto alla media di tutti i titoli (F1 = punteggio peggiore, F10 = migliore)",
+                          height=380, yaxis_title="% annuo vs universo")
+        grafico = f'<div class="card">{fig_html(fig)}<p class="nota">Se la classifica funziona, le barre devono salire da sinistra a destra: F10 sopra lo zero, F1 sotto. Costi non inclusi in questo grafico; nel rapporto completo sì.</p></div>'
+    return f"""
+<h2>Classifica di tutte le azioni comprabili ({len(oggi)} titoli)</h2>
+<div class="card">
+<p class="nota">Ogni sera tutti i titoli USA con capitalizzazione &gt; 1 mld $ e le grandi e medie europee (Italia, Germania, Francia, Spagna, Paesi Bassi, Belgio, Svizzera, Regno Unito, Svezia) vengono ordinati con quattro fattori: momentum a 12 mesi, inversione dell'ultimo mese, bassa volatilità, vicinanza al massimo annuale. Questi sono i 25 in cima. Non è una lista della spesa: è dove, storicamente, le probabilità sono un po' più alte. Dettagli e portafoglio in <a href="https://github.com/MaxDax84/AnalistiBuySell/blob/master/studio/risultati/classifica.md">classifica.md</a>.</p>
+{tabella}
+</div>
+{grafico}"""
+
+
 def chip(testo: str, ok: bool | None) -> str:
     colore = {True: "#1b7f3b", False: "#d9534f", None: "#999"}[ok]
     return f'<span class="chip" style="border-color:{colore}"><span class="dot" style="background:{colore}"></span>{testo}</span>'
@@ -157,6 +189,8 @@ def pagina(s, storico, strat, piano, eventi) -> str:
  .dot{{width:.65em;height:.65em;border-radius:50%}}
  .striscia{{display:flex;gap:2px;margin:.4em 0}} .giorno{{flex:1;height:18px;border-radius:2px}}
  p.nota{{color:#555;font-size:.95rem}} small{{color:#777}}
+ .tab{{width:100%;border-collapse:collapse;font-size:.9rem}} .tab th,.tab td{{padding:.35em .5em;border-bottom:1px solid #eee;text-align:right}}
+ .tab th:nth-child(2),.tab td:nth-child(2){{text-align:left}} .tab thead th{{color:#555;font-weight:600}}
 </style></head><body><main>
 <h1>Semaforo di mercato</h1>
 <p class="nota">Aggiornato il {s.index[-1]:%d/%m/%Y} (dati alla chiusura di Wall Street). Regole fisse, verificate dal 1990; nessuna lettura delle notizie del giorno. Non è un consiglio d'investimento: è uno strumento per decidere con la testa fredda.</p>
@@ -190,6 +224,8 @@ def pagina(s, storico, strat, piano, eventi) -> str:
 <h2>E la liquidità nuova?</h2>
 <div class="card">{grafico_liquidita(piano)}
 <p class="nota">Aspettare i verdetti buoni per investire la liquidità costa più di quanto renda, perché il mercato sale anche nei giorni di WAIT. La liquidità nuova va investita a scadenze fisse; il verdetto serve a non fermarsi (anzi aggiungere) nel panico e a ridurre un po' negli allarmi.</p></div>
+
+{sezione_classifica()}
 
 <h2>E i giudizi degli analisti?</h2>
 <div class="card">{grafico_analisti(eventi)}
