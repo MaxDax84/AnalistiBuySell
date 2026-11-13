@@ -157,6 +157,29 @@ rimbalzi violenti dopo un crollo, ed è il suo rischio noto.
 Portafoglio: un file `studio/portafoglio.csv` con colonne `Ticker,quantita` (non va su GitHub) fa comparire in
 `classifica.md` il percentile di ogni tuo titolo e i candidati dal 5% migliore quando un tuo titolo è sotto il 40°.
 
+### Quando uscire: la classifica contro il trailing stop (`uscita.py`)
+
+Domanda: la classifica può dire di comprare *prima* del +200% e di vendere *prima* del −60%? No: il momentum
+misura il passato. Quando un titolo entra nel 10% migliore ha già fatto +58% (mediana) nei 12 mesi; quando scende
+sotto il 40° percentile ha già restituito il 20% dal picco. Allora si è provato a uscire con uno stop sul prezzo
+(vendi quando scende del X% dal massimo toccato da quando l'hai comprato), 2022-2026, 2.900-7.300 operazioni:
+
+| uscita | operazioni | giorni | mediana | media | in guadagno | sotto −30% | portafoglio annuo netto |
+|---|---|---|---|---|---|---|---|
+| **classifica (sotto il 40°)** | 2.842 | 185 | +1,5% | **+18,9%** | 52% | 7,7% | **+26,4%** |
+| stop 8% | 7.279 | 17 | −3,1% | +1,8% | 39% | 0,2% | +15,0% |
+| stop 12% | 5.890 | 30 | −4,1% | +3,7% | 40% | 0,4% | +17,5% |
+| stop 20% | 4.187 | 67 | −6,0% | +9,4% | 41% | 1,0% | +19,3% |
+| stop 30% | 3.104 | 132 | −10,1% | +14,3% | 39% | 11,5% | +20,0% |
+| classifica + stop 15% | 5.246 | 38 | −3,5% | +5,1% | 42% | 0,4% | +19,2% |
+
+(universo equipesato: +22,8% l'anno nello stesso periodo, gonfiato dalla sopravvivenza; calo massimo −18,5% per
+tutti, lo stop non lo riduce.) Lo stop fa esattamente quello che promette, elimina le operazioni sotto −30%, ma
+costa 6-11 punti l'anno: vende sul rumore (con lo stop al 12% l'operazione tipica dura 30 giorni) e taglia proprio
+i titoli che poi fanno il +100%. Più lo stop è largo, più ci si avvicina alla regola della classifica, che resta la
+migliore. Conclusione: le perdite del singolo titolo si gestiscono con il numero di titoli (20-30, mai uno solo)
+e con l'esposizione di portafoglio decisa dal semaforo, non con lo stop sul singolo titolo.
+
 ## File
 
 | file | cosa contiene |
@@ -171,6 +194,7 @@ Portafoglio: un file `studio/portafoglio.csv` con colonne `Ticker,quantita` (non
 | `verdetto.py` | verdetto a 4 livelli da regole fisse, verifica storica, piani di liquidità |
 | `universo_ampio.py`, `prezzi_ampi.py` | tutte le azioni USA comprabili e i loro prezzi |
 | `classifica.py` | punteggio a 4 fattori, backtest a 10 fasce, classifica di oggi, confronto col portafoglio |
+| `uscita.py` | regole di uscita a confronto: classifica contro trailing stop (risultato: lo stop costa rendimento) |
 | `pagina.py` | genera la pagina web `docs/index.html` |
 | `analisi.py` | rendimenti in eccesso, studio degli eventi, fasce di consenso, riepilogo |
 | `giornaliero.py` | fotografia del giorno (per la raccolta automatica) |
