@@ -44,6 +44,45 @@ Colonne da guardare, nell'ordine:
   confronto, e il vantaggio medio viene da pochi colpi grossi.
 - **stesso_segno_2_metà**: il vantaggio ha lo stesso segno nel 2021-23 e nel 2024-26? Se "no", non fidarsi.
 
+## Indicatore di regime (quando essere investiti)
+
+```
+python regime.py          # scarica 36 anni di S&P 500, VIX, HYG, curva, sussidi, EPU, GPR; valuta; scrive risultati/regime.md
+python regime.py --oggi   # solo la lettura di oggi
+```
+
+Misura il regime del mercato con 7 condizioni note alla chiusura di ogni giorno e, per ciascuna, cosa ha fatto
+l'S&P 500 nei 1-3-6-12 mesi successivi dal 1990, decennio per decennio. Il semaforo conta le condizioni
+favorevoli (tendenza, momentum 12 mesi, VIX < 30, credito tranquillo, sussidi vicini ai minimi, EPU non estremo).
+
+Cosa regge su 36 anni (dettagli e tabella completa in `risultati/regime.md`):
+
+| condizione | S&P 500 nei 6 mesi dopo, vs sempre investito | esiti positivi | decenni coerenti |
+|---|---|---|---|
+| VIX > 30 (panico) | **+8,1%** | 83% | 4/4 |
+| 5-10% sotto il massimo di 1 anno | +2,0% | 80% | 3/4 |
+| **10-20% sotto il massimo** (il "coltello che cade") | **−4,1%** | 51% | 1/4 |
+| oltre 20% sotto il massimo | +2,4% (+4,8% a 12 mesi) | 71% | 1/1 |
+| HYG −3/−6% in 60 gg (credito in stress, dal 2007) | **−8,0%** | 44% | 1/2 |
+| 12 mesi negativi | −2,7% | 59% | 2/4 |
+| EPU alto (incertezza politica tra mediana e top 10%) | −1,6% | 70% | 3/4 |
+| EPU estremo (top 10%) | +1,7% | 70% | 3/4 |
+
+Regole di uscita a confronto (1991-2026, liquidità allo 0% quando si è fuori):
+
+| regola | rendimento annuo | peggior calo | peggior anno | anni meglio del sempre investito |
+|---|---|---|---|---|
+| sempre investito | **9,1%** | −57% | −38% | — |
+| solo con 12 mesi positivi | 8,4% | **−25%** | −17% | 12/36 |
+| solo sopra la media 200 giorni | 7,0% | −28% | −18% | 5/36 |
+| solo con VIX < 30 | 6,3% | −57% | −26% | 7/36 |
+
+Lettura onesta: **nessuna regola di uscita aumenta il rendimento**; le migliori (momentum 12 mesi) lo riducono
+di meno di un punto l'anno e dimezzano il calo peggiore. Uscire col VIX alto è la cosa peggiore: si vende sul
+fondo. I momenti con il miglior rapporto sono i momenti di panico (VIX > 30, credito in capitolazione, oltre
+20% dal massimo), cioè quando è più difficile comprare. La zona pericolosa è quella intermedia: 10-20% sotto
+il massimo con il credito in stress.
+
 ## File
 
 | file | cosa contiene |
@@ -54,6 +93,7 @@ Colonne da guardare, nell'ordine:
 | `consenso.py` | scala dei giudizi (1 Strong Sell ... 5 Strong Buy), consenso giornaliero, elenco dei segnali |
 | `indicatori.py` | stato giornaliero per titolo: consenso, target (rettificato per gli split), upside, tendenza, upgrade recenti |
 | `simula.py` | simulatore in euro e confronto delle regole d'ingresso |
+| `regime.py` | indicatore di regime del mercato (36 anni) e lettura di oggi |
 | `analisi.py` | rendimenti in eccesso, studio degli eventi, fasce di consenso, riepilogo |
 | `giornaliero.py` | fotografia del giorno (per la raccolta automatica) |
 | `data/` | dati scaricati (`universo.csv` serve anche alla raccolta automatica) |

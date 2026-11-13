@@ -94,7 +94,11 @@ def regole(stato: pd.DataFrame) -> dict[str, pd.DataFrame]:
     s = stato[stato["n_banche"] >= 5].copy()
     s["diventa_compra"] = (s["etichetta"] == "Compra") & (s.groupby("Ticker")["etichetta"].shift() != "Compra")
     s["ups_q"] = s.groupby("Data")["upside_%"].rank(pct=True)
+    s["mom_q"] = s.groupby("Data")["mom_12_1_%"].rank(pct=True)
     return {
+        "momentum 12-1 nel 20% più alto del giorno": s[s["mom_q"] >= 0.8],
+        "momentum 12-1 nel 20% più basso del giorno": s[s["mom_q"] <= 0.2],
+        "momentum alto + target tagliato > 5% in 20 gg": s[(s["mom_q"] >= 0.8) & (s["target_var_20_%"] < -5)],
         "giorno qualsiasi (riferimento)": s,
         "consenso = Compra": s[s["etichetta"] == "Compra"],
         "consenso = Tieni": s[s["etichetta"] == "Tieni"],

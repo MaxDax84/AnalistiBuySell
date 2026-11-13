@@ -20,7 +20,7 @@ jobs:
           python-version: "3.12"
 
       - name: Dipendenze
-        run: pip install yfinance pandas requests
+        run: pip install yfinance pandas requests xlrd
 
       - name: Fotografia del giorno
         working-directory: studio
@@ -28,11 +28,15 @@ jobs:
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
         run: python giornaliero.py
 
+      - name: Lettura del regime di mercato
+        working-directory: studio
+        run: python regime.py
+
       - name: Salva nel repository
         run: |
           git config user.name "raccolta-bot"
           git config user.email "raccolta-bot@users.noreply.github.com"
-          git add studio/data/giornaliero/
+          git add studio/data/giornaliero/ studio/data/regime.csv studio/risultati/regime.md studio/risultati/regime_*.csv
           git diff --cached --quiet && echo "Niente di nuovo" && exit 0
           git commit -m "Raccolta giornaliera $(date -u +%F)"
           git push

@@ -96,6 +96,8 @@ def stato_giornaliero(ricalcola: bool = False) -> tuple[pd.DataFrame, pd.DataFra
     stato["upside_%"] = 100 * (stato["target"] / stato["prezzo"] - 1)
     stato = stato.sort_values(["Ticker", "Data"])
     stato["tendenza_20"] = stato.groupby("Ticker")["score"].diff(FINESTRA)
+    # momentum 12-1: rendimento degli ultimi 12 mesi escluso l'ultimo (il fattore sui titoli più studiato in letteratura)
+    stato["mom_12_1_%"] = 100 * (stato.groupby("Ticker")["prezzo"].shift(21) / stato.groupby("Ticker")["prezzo"].shift(252) - 1)
     stato["target_var_20_%"] = 100 * stato.groupby("Ticker")["target"].pct_change(FINESTRA, fill_method=None)
     stato = stato.reset_index(drop=True)
     RISULTATI.mkdir(parents=True, exist_ok=True)
