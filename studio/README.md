@@ -77,6 +77,13 @@ Regole di uscita a confronto (1991-2026, liquidità allo 0% quando si è fuori):
 | solo sopra la media 200 giorni | 7,0% | −28% | −18% | 5/36 |
 | solo con VIX < 30 | 6,3% | −57% | −26% | 7/36 |
 
+Sentiment dalle opzioni (struttura a termine del VIX dal 2006, SKEW dal 2000, VVIX dal 2007): misurato con lo
+stesso metodo, **non aggiunge nulla al livello del VIX**. L'inversione VIX > VIX3M vale +2,1% a 6 mesi, ma
+con VIX < 30 diventa −2,8%: tutto il valore sta nei giorni con VIX > 30, già nel semaforo. VVIX > 110 con
+VIX < 30: +0,7%. SKEW: decenni discordi. La "compiacenza" (VVIX < 90 e VIX < 15) non è un segnale di
+vendita (+0,6%, positivo 83%). Put/call del CBOE e sondaggio AAII non sono scaricabili liberamente. L'order
+book (Level 2) non serve a questo orizzonte: informazione che si consuma in minuti, senza storico gratuito.
+
 Lettura onesta: **nessuna regola di uscita aumenta il rendimento**; le migliori (momentum 12 mesi) lo riducono
 di meno di un punto l'anno e dimezzano il calo peggiore. Uscire col VIX alto è la cosa peggiore: si vende sul
 fondo. I momenti con il miglior rapporto sono i momenti di panico (VIX > 30, credito in capitolazione, oltre

@@ -58,12 +58,16 @@ def gpr() -> pd.Series | None:
 
 def scarica() -> pd.DataFrame:
     print("Scarico S&P 500, VIX, FRED, EPU, GPR...")
-    px = yf.download(["^GSPC", "^VIX", "HYG"], start="1990-01-01", auto_adjust=True, progress=False)["Close"]
+    px = yf.download(["^GSPC", "^VIX", "HYG", "^VIX3M", "^SKEW", "^VVIX"], start="1990-01-01",
+                     auto_adjust=True, progress=False)["Close"]
     px.index = pd.to_datetime(px.index).tz_localize(None).normalize()
     px = px[px["^GSPC"].notna() | px["^VIX"].notna()]
     # HYG (ETF obbligazioni ad alto rendimento, dal 2007): quando scende, gli spread di credito salgono.
     # Lo spread HY di FRED (BAMLH0A0HYM2) è ridistribuito solo per gli ultimi anni, quindi serve solo per la lettura di oggi.
-    df = pd.DataFrame({"SP": px["^GSPC"].ffill(), "VIX": px["^VIX"].ffill(), "HYG": px["HYG"].ffill()})
+    # Sentiment: VIX3M (paura a 3 mesi, dal 2006), SKEW (prezzo dell'assicurazione contro i crolli, dal 2000),
+    # VVIX (volatilità della volatilità, dal 2007). Put/call CBOE e sondaggio AAII non sono scaricabili liberamente.
+    df = pd.DataFrame({"SP": px["^GSPC"].ffill(), "VIX": px["^VIX"].ffill(), "HYG": px["HYG"].ffill(),
+                       "VIX3M": px["^VIX3M"].ffill(), "SKEW": px["^SKEW"].ffill(), "VVIX": px["^VVIX"].ffill()})
     serie = {"HY": "BAMLH0A0HYM2", "CURVA": "T10Y3M", "CLAIMS": "ICSA"}
     for nome, codice in serie.items():
         df[nome] = fred(codice).reindex(df.index, method="ffill")
@@ -107,6 +111,16 @@ def segnali(df: pd.DataFrame) -> pd.DataFrame:
         s["gpr_pct"] = percentile_mobile(s["GPR"].rolling(30).mean())
         s["geopolitica"] = pd.cut(s["gpr_pct"], [-0.01, 0.5, 0.9, 1.01],
                                   labels=["GPR basso", "GPR alto", "GPR estremo (top 10%)"]).astype(str)
+    # sentiment dalle opzioni
+    s["termine"] = s["VIX"] / s["VIX3M"]
+    s["struttura_vix"] = pd.cut(s["termine"], [0, 0.9, 1.0, 1.1, np.inf],
+                                labels=["calma (VIX < 90% del VIX3M)", "normale (VIX sotto il VIX3M)",
+                                        "inversione (VIX sopra il VIX3M)", "forte inversione (VIX > 110%)"]).astype(str)
+    s["skew_pct"] = percentile_mobile(s["SKEW"].rolling(20).mean())
+    s["skew_fascia"] = pd.cut(s["skew_pct"], [-0.01, 0.2, 0.8, 1.01],
+                              labels=["SKEW basso (poca protezione comprata)", "SKEW medio", "SKEW alto (top 20%)"]).astype(str)
+    s["vvix_fascia"] = pd.cut(s["VVIX"], [0, 90, 110, np.inf],
+                              labels=["VVIX < 90", "VVIX 90-110", "VVIX > 110"]).astype(str)
     s["dd"] = s["SP"] / s["SP"].rolling(252, min_periods=200).max() - 1
     s["ribasso"] = pd.cut(s["dd"], [-np.inf, -0.20, -0.10, -0.05, 0.01],
                           labels=["> 20% sotto il massimo", "10-20% sotto", "5-10% sotto", "vicino al massimo"]).astype(str)
@@ -119,6 +133,9 @@ SEGNALI = {"trend": "Tendenza (prezzo vs media 200 giorni)", "mom12": "Momentum 
            "credito": "Credito (HYG, variazione 60 gg, dal 2007)", "curva_stato": "Curva dei tassi (10 anni - 3 mesi)",
            "lavoro": "Lavoro (sussidi settimanali vs minimo 1 anno)", "incertezza": "Incertezza politica (EPU, 30 gg)",
            "geopolitica": "Rischio geopolitico (GPR, 30 gg)", "ribasso": "Distanza dal massimo di 1 anno",
+           "struttura_vix": "Sentiment: struttura a termine del VIX (dal 2006)",
+           "skew_fascia": "Sentiment: SKEW, costo della protezione (dal 2000)",
+           "vvix_fascia": "Sentiment: VVIX, volatilità della volatilità (dal 2007)",
            "semaforo": "SEMAFORO (condizioni favorevoli)"}
 
 
@@ -222,7 +239,8 @@ def lettura_oggi(s: pd.DataFrame) -> str:
              f"MM200 {u['mm200']:,.0f}), VIX {u['VIX']:.1f}, spread HY {u['HY']:.2f} ({u['hy_delta']:+.2f} in 60 gg), "
              f"HYG {100 * u['hyg_var']:+.1f}% in 60 gg, curva 10a-3m {u['CURVA']:+.2f}, sussidi {100 * u['claims_var']:+.0f}% dal minimo, "
              f"EPU al {100 * u['epu_pct']:.0f}° percentile" + (f", GPR al {100 * u['gpr_pct']:.0f}°" if "gpr_pct" in u else "")]
-    for col in ["trend", "mom12", "vix_fascia", "credito", "curva_stato", "lavoro", "incertezza", "geopolitica", "ribasso"]:
+    for col in ["trend", "mom12", "vix_fascia", "struttura_vix", "skew_fascia", "vvix_fascia", "credito", "curva_stato",
+                "lavoro", "incertezza", "geopolitica", "ribasso"]:
         if col in u:
             righe.append(f"  - {SEGNALI[col]}: **{u[col]}**")
     righe.append(f"  - **{u['semaforo']}**, {int(u['punti'])} condizioni favorevoli su 6")

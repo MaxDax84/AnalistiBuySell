@@ -6,10 +6,13 @@ Riferimento 'sempre investito': 1 mese +0.8% (positivo 64%), 3 mesi +2.4% (posit
 
 ## Lettura di oggi
 
-Lettura al 13/11/2026: S&P 500 7,520 (-3.8% dal massimo di 1 anno, MM200 7,346), VIX 20.8, spread HY 3.20 (+0.50 in 60 gg), HYG -1.8% in 60 gg, curva 10a-3m +0.78, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 76°
+Lettura al 13/11/2026: S&P 500 7,532 (-3.7% dal massimo di 1 anno, MM200 7,347), VIX 20.2, spread HY 3.20 (+0.50 in 60 gg), HYG -1.8% in 60 gg, curva 10a-3m +0.78, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 76°
   - Tendenza (prezzo vs media 200 giorni): **sopra MM200**
   - Momentum 12 mesi: **12 mesi positivi**
   - Paura (VIX): **VIX 20-30**
+  - Sentiment: struttura a termine del VIX (dal 2006): **normale (VIX sotto il VIX3M)**
+  - Sentiment: SKEW, costo della protezione (dal 2000): **SKEW alto (top 20%)**
+  - Sentiment: VVIX, volatilità della volatilità (dal 2007): **VVIX 90-110**
   - Credito (HYG, variazione 60 gg, dal 2007): **credito tranquillo**
   - Curva dei tassi (10 anni - 3 mesi): **curva normale**
   - Lavoro (sussidi settimanali vs minimo 1 anno): **sussidi vicini ai minimi**
@@ -47,6 +50,16 @@ Lettura al 13/11/2026: S&P 500 7,520 (-3.8% dal massimo di 1 anno, MM200 7,346),
 | Distanza dal massimo di 1 anno | 5-10% sotto | 12.4 | 2.1 | 2.0 | 1.3 | 79.7 | 80.5 | 3/4 |
 | Distanza dal massimo di 1 anno | > 20% sotto il massimo | 7.2 | 0.4 | 2.4 | 4.8 | 71.1 | 77.1 | 1/1 |
 | Distanza dal massimo di 1 anno | vicino al massimo | 66.7 | -0.1 | 0.3 | 0.6 | 78.7 | 85.2 | 1/4 |
+| Sentiment: struttura a termine del VIX (dal 2006) | calma (VIX < 90% del VIX3M) | 27.5 | -0.3 | -0.3 | 0.2 | 75.2 | 82.4 | 2/3 |
+| Sentiment: struttura a termine del VIX (dal 2006) | forte inversione (VIX > 110%) | 1.5 | -2.0 | -1.1 | 4.8 | 60.2 | 74.4 | 0/0 |
+| Sentiment: struttura a termine del VIX (dal 2006) | inversione (VIX sopra il VIX3M) | 4.5 | 1.9 | 3.2 | 0.3 | 70.6 | 70.3 | 2/2 |
+| Sentiment: struttura a termine del VIX (dal 2006) | normale (VIX sotto il VIX3M) | 20.4 | 0.3 | 0.2 | -0.7 | 74.4 | 79.1 | 2/3 |
+| Sentiment: SKEW, costo della protezione (dal 2000) | SKEW alto (top 20%) | 29.6 | -0.1 | 0.0 | 0.4 | 77.6 | 85.2 | 2/4 |
+| Sentiment: SKEW, costo della protezione (dal 2000) | SKEW basso (poca protezione comprata) | 15.8 | -0.3 | -1.3 | -0.8 | 71.6 | 78.7 | 1/4 |
+| Sentiment: SKEW, costo della protezione (dal 2000) | SKEW medio | 51.6 | 0.1 | 0.4 | -0.2 | 74.2 | 78.2 | 3/4 |
+| Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX 90-110 | 19.5 | 0.1 | 0.7 | 1.9 | 76.2 | 84.9 | 2/3 |
+| Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX < 90 | 25.0 | -0.6 | -1.2 | -2.5 | 71.4 | 78.2 | 2/3 |
+| Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX > 110 | 8.0 | 1.8 | 2.4 | 3.2 | 73.2 | 70.0 | 2/2 |
 | SEMAFORO (condizioni favorevoli) | GIALLO (3-4) | 18.3 | -0.3 | -0.7 | -0.2 | 65.1 | 77.5 | 1/4 |
 | SEMAFORO (condizioni favorevoli) | ROSSO (0-2) | 7.7 | -0.7 | -2.5 | -3.9 | 51.1 | 52.8 | 1/1 |
 | SEMAFORO (condizioni favorevoli) | VERDE (5-6) | 74.0 | 0.1 | 0.4 | 0.4 | 78.9 | 84.6 | 1/4 |
@@ -55,14 +68,14 @@ Lettura al 13/11/2026: S&P 500 7,520 (-3.8% dal massimo di 1 anno, MM200 7,346),
 
 | regola | investito_% | rendimento_annuo_% | peggior_calo_% | peggior_anno_% | anni_meglio_del_sempre_investito | 10.000€_nel_1990 |
 |---|---|---|---|---|---|---|
-| sempre investito | 100.0 | 9.1 | -56.8 | -38.5 | 0/36 | 228.779.5 |
-| solo sopra la MM200 | 76.7 | 7.0 | -28.3 | -18.0 | 5/36 | 113.157.8 |
-| solo con 12 mesi positivi | 80.8 | 8.4 | -25.0 | -17.1 | 12/36 | 182.324.8 |
-| solo con VIX < 30 | 92.1 | 6.3 | -56.6 | -25.7 | 7/36 | 90.918.6 |
-| solo senza forte stress del credito | 97.7 | 8.8 | -49.1 | -23.4 | 4/36 | 206.010.7 |
-| solo semaforo VERDE o GIALLO | 92.3 | 7.9 | -47.2 | -28.6 | 11/36 | 154.020.3 |
-| solo semaforo VERDE | 76.6 | 7.0 | -24.8 | -18.4 | 7/36 | 113.924.6 |
-| sopra MM200 oppure > 20% sotto il massimo | 83.2 | 8.3 | -45.9 | -18.0 | 9/36 | 177.165.0 |
+| sempre investito | 100.0 | 9.1 | -56.8 | -38.5 | 0/36 | 229.126.9 |
+| solo sopra la MM200 | 76.7 | 7.0 | -28.3 | -18.0 | 5/36 | 113.329.6 |
+| solo con 12 mesi positivi | 80.8 | 8.4 | -25.0 | -17.1 | 12/36 | 182.601.6 |
+| solo con VIX < 30 | 92.1 | 6.4 | -56.6 | -25.7 | 7/36 | 91.056.7 |
+| solo senza forte stress del credito | 97.7 | 8.8 | -49.1 | -23.4 | 4/36 | 206.323.5 |
+| solo semaforo VERDE o GIALLO | 92.3 | 7.9 | -47.2 | -28.6 | 12/36 | 154.254.2 |
+| solo semaforo VERDE | 76.6 | 7.0 | -24.8 | -18.4 | 7/36 | 114.097.5 |
+| sopra MM200 oppure > 20% sotto il massimo | 83.2 | 8.3 | -45.9 | -18.0 | 9/36 | 177.434.0 |
 
 ## Come leggerlo
 - Un indicatore 'funziona' se la colonna 'vs sempre investito' ha segno sensato, 'positivi %' si sposta davvero rispetto al riferimento e 'decenni coerenti' è pieno. Dove i decenni sono discordi, è rumore.
@@ -100,6 +113,16 @@ Lettura al 13/11/2026: S&P 500 7,520 (-3.8% dal massimo di 1 anno, MM200 7,346),
 | Distanza dal massimo di 1 anno | 5-10% sotto | 1117 | 12.4 | 1.6 | 0.8 | 69.6 | 4.5 | 2.1 | 80.8 | 6.8 | 2.0 | 79.7 | 11.5 | 1.3 | 80.5 | 3/4 |
 | Distanza dal massimo di 1 anno | > 20% sotto il massimo | 655 | 7.2 | 1.1 | 0.3 | 62.9 | 2.8 | 0.4 | 61.5 | 7.2 | 2.4 | 71.1 | 15.0 | 4.8 | 77.1 | 1/1 |
 | Distanza dal massimo di 1 anno | vicino al massimo | 6031 | 66.7 | 0.7 | -0.1 | 65.3 | 2.3 | -0.1 | 72.1 | 5.1 | 0.3 | 78.7 | 10.8 | 0.6 | 85.2 | 1/4 |
+| Sentiment: struttura a termine del VIX (dal 2006) | calma (VIX < 90% del VIX3M) | 2484 | 27.5 | 0.7 | -0.1 | 65.5 | 2.1 | -0.3 | 71.9 | 4.5 | -0.3 | 75.2 | 10.4 | 0.2 | 82.4 | 2/3 |
+| Sentiment: struttura a termine del VIX (dal 2006) | forte inversione (VIX > 110%) | 133 | 1.5 | -1.5 | -2.3 | 58.6 | 0.4 | -2.0 | 55.6 | 3.8 | -1.1 | 60.2 | 15.0 | 4.8 | 74.4 | 0/0 |
+| Sentiment: struttura a termine del VIX (dal 2006) | inversione (VIX sopra il VIX3M) | 408 | 4.5 | 2.4 | 1.6 | 69.9 | 4.3 | 1.9 | 72.5 | 8.0 | 3.2 | 70.6 | 10.5 | 0.3 | 70.3 | 2/2 |
+| Sentiment: struttura a termine del VIX (dal 2006) | normale (VIX sotto il VIX3M) | 1841 | 20.4 | 0.9 | 0.1 | 67.5 | 2.7 | 0.3 | 72.7 | 5.0 | 0.2 | 74.4 | 9.5 | -0.7 | 79.1 | 2/3 |
+| Sentiment: SKEW, costo della protezione (dal 2000) | SKEW alto (top 20%) | 2672 | 29.6 | 0.7 | -0.1 | 63.9 | 2.3 | -0.1 | 70.4 | 4.9 | 0.0 | 77.6 | 10.6 | 0.4 | 85.2 | 2/4 |
+| Sentiment: SKEW, costo della protezione (dal 2000) | SKEW basso (poca protezione comprata) | 1429 | 15.8 | 1.1 | 0.3 | 63.0 | 2.1 | -0.3 | 70.0 | 3.5 | -1.3 | 71.6 | 9.4 | -0.8 | 78.7 | 1/4 |
+| Sentiment: SKEW, costo della protezione (dal 2000) | SKEW medio | 4667 | 51.6 | 0.8 | -0.0 | 64.8 | 2.5 | 0.1 | 70.1 | 5.2 | 0.4 | 74.2 | 10.0 | -0.2 | 78.2 | 3/4 |
+| Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX 90-110 | 1764 | 19.5 | 0.8 | -0.0 | 67.2 | 2.5 | 0.1 | 70.3 | 5.5 | 0.7 | 76.2 | 12.1 | 1.9 | 84.9 | 2/3 |
+| Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX < 90 | 2262 | 25.0 | 0.6 | -0.2 | 63.0 | 1.8 | -0.6 | 72.0 | 3.6 | -1.2 | 71.4 | 7.7 | -2.5 | 78.2 | 2/3 |
+| Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX > 110 | 723 | 8.0 | 1.6 | 0.8 | 70.0 | 4.2 | 1.8 | 72.5 | 7.2 | 2.4 | 73.2 | 13.4 | 3.2 | 70.0 | 2/2 |
 | SEMAFORO (condizioni favorevoli) | GIALLO (3-4) | 1655 | 18.3 | 0.4 | -0.4 | 57.4 | 2.1 | -0.3 | 62.6 | 4.1 | -0.7 | 65.1 | 10.1 | -0.2 | 77.5 | 1/4 |
 | SEMAFORO (condizioni favorevoli) | ROSSO (0-2) | 695 | 7.7 | 1.3 | 0.5 | 63.2 | 1.7 | -0.7 | 60.1 | 2.3 | -2.5 | 51.1 | 6.3 | -3.9 | 52.8 | 1/1 |
 | SEMAFORO (condizioni favorevoli) | VERDE (5-6) | 6686 | 74.0 | 0.9 | 0.1 | 65.6 | 2.6 | 0.1 | 72.9 | 5.3 | 0.4 | 78.9 | 10.7 | 0.4 | 84.6 | 1/4 |
