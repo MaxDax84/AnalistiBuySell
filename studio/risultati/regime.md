@@ -6,10 +6,10 @@ Riferimento 'sempre investito': 1 mese +0.8% (positivo 64%), 3 mesi +2.4% (posit
 
 ## Lettura di oggi
 
-Lettura al 13/11/2026: S&P 500 7,529 (-3.7% dal massimo di 1 anno, MM200 7,347), VIX 20.3, spread HY 3.20 (+0.50 in 60 gg), HYG -1.8% in 60 gg, curva 10a-3m +0.78, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 76°
+Lettura al 13/11/2026: S&P 500 7,562 (-3.3% dal massimo di 1 anno, MM200 7,347), VIX 19.3, spread HY 3.20 (+0.50 in 60 gg), HYG -1.9% in 60 gg, curva 10a-3m +0.83, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 76°
   - Tendenza (prezzo vs media 200 giorni): **sopra MM200**
   - Momentum 12 mesi: **12 mesi positivi**
-  - Paura (VIX): **VIX 20-30**
+  - Paura (VIX): **VIX < 20**
   - Sentiment: struttura a termine del VIX (dal 2006): **normale (VIX sotto il VIX3M)**
   - Sentiment: SKEW, costo della protezione (dal 2000): **SKEW alto (top 20%)**
   - Sentiment: VVIX, volatilità della volatilità (dal 2007): **VVIX 90-110**
@@ -68,14 +68,14 @@ Lettura al 13/11/2026: S&P 500 7,529 (-3.7% dal massimo di 1 anno, MM200 7,347),
 
 | regola | investito_% | rendimento_annuo_% | peggior_calo_% | peggior_anno_% | anni_meglio_del_sempre_investito | 10.000€_nel_1990 |
 |---|---|---|---|---|---|---|
-| sempre investito | 100.0 | 9.1 | -56.8 | -38.5 | 0/36 | 229.032.0 |
-| solo sopra la MM200 | 76.7 | 7.0 | -28.3 | -18.0 | 5/36 | 113.282.7 |
-| solo con 12 mesi positivi | 80.8 | 8.4 | -25.0 | -17.1 | 12/36 | 182.526.0 |
-| solo con VIX < 30 | 92.1 | 6.4 | -56.6 | -25.7 | 7/36 | 91.018.9 |
-| solo senza forte stress del credito | 97.7 | 8.8 | -49.1 | -23.4 | 4/36 | 206.238.1 |
-| solo semaforo VERDE o GIALLO | 92.3 | 7.9 | -47.2 | -28.6 | 11/36 | 154.190.3 |
-| solo semaforo VERDE | 76.6 | 7.0 | -24.8 | -18.4 | 7/36 | 114.050.3 |
-| sopra MM200 oppure > 20% sotto il massimo | 83.2 | 8.3 | -45.9 | -18.0 | 9/36 | 177.360.5 |
+| sempre investito | 100.0 | 9.1 | -56.8 | -38.5 | 0/36 | 230.033.8 |
+| solo sopra la MM200 | 76.7 | 7.0 | -28.3 | -18.0 | 5/36 | 113.778.1 |
+| solo con 12 mesi positivi | 80.8 | 8.4 | -25.0 | -17.1 | 12/36 | 183.324.3 |
+| solo con VIX < 30 | 92.1 | 6.4 | -56.6 | -25.7 | 7/36 | 91.417.1 |
+| solo senza forte stress del credito | 97.7 | 8.8 | -49.1 | -23.4 | 4/36 | 207.140.1 |
+| solo semaforo VERDE o GIALLO | 92.3 | 7.9 | -47.2 | -28.6 | 11/36 | 154.864.7 |
+| solo semaforo VERDE | 76.6 | 7.0 | -24.8 | -18.4 | 7/36 | 114.549.1 |
+| sopra MM200 oppure > 20% sotto il massimo | 83.2 | 8.4 | -45.9 | -18.0 | 9/36 | 178.136.3 |
 
 ## Come leggerlo
 - Un indicatore 'funziona' se la colonna 'vs sempre investito' ha segno sensato, 'positivi %' si sposta davvero rispetto al riferimento e 'decenni coerenti' è pieno. Dove i decenni sono discordi, è rumore.

@@ -2,10 +2,10 @@
 
 nessuna occasione particolare: tranche ordinaria, niente di più.
 
-Lettura al 13/11/2026: S&P 500 7,529 (-3.7% dal massimo di 1 anno, MM200 7,347), VIX 20.4, spread HY 3.20 (+0.50 in 60 gg), HYG -1.8% in 60 gg, curva 10a-3m +0.78, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 76°
+Lettura al 13/11/2026: S&P 500 7,562 (-3.3% dal massimo di 1 anno, MM200 7,347), VIX 19.3, spread HY 3.20 (+0.50 in 60 gg), HYG -1.9% in 60 gg, curva 10a-3m +0.83, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 76°
   - Tendenza (prezzo vs media 200 giorni): **sopra MM200**
   - Momentum 12 mesi: **12 mesi positivi**
-  - Paura (VIX): **VIX 20-30**
+  - Paura (VIX): **VIX < 20**
   - Sentiment: struttura a termine del VIX (dal 2006): **normale (VIX sotto il VIX3M)**
   - Sentiment: SKEW, costo della protezione (dal 2000): **SKEW alto (top 20%)**
   - Sentiment: VVIX, volatilità della volatilità (dal 2007): **VVIX 90-110**
@@ -30,10 +30,10 @@ Lettura al 13/11/2026: S&P 500 7,529 (-3.7% dal massimo di 1 anno, MM200 7,347),
 
 | politica | versato_€ | valore_finale_€ | moltiplicatore | peggior_calo_% | liquidità_rimasta_€ |
 |---|---|---|---|---|---|
-| ogni mese tutto subito | 443.000.0 | 3.102.923.0 | 7.0 | -50.4 | 0.0 |
-| frena su WAIT (0,5), accelera su BUY (1,5) e STRONG BUY (3), zero su SMALL SELL | 443.000.0 | 2.654.990.2 | 6.0 | -43.8 | 69.000.0 |
-| tranche normale su WAIT, zero su SMALL SELL, la cassa accumulata va su BUY (2) e STRONG BUY (tutta) | 443.000.0 | 3.072.868.9 | 6.9 | -50.2 | 0.0 |
-| tranche normale sempre, STRONG BUY spende anche la cassa (solo accelerazione) | 443.000.0 | 3.102.923.0 | 7.0 | -50.4 | 0.0 |
+| ogni mese tutto subito | 443.000.0 | 3.116.200.8 | 7.0 | -50.4 | 0.0 |
+| frena su WAIT (0,5), accelera su BUY (1,5) e STRONG BUY (3), zero su SMALL SELL | 443.000.0 | 2.666.057.4 | 6.0 | -43.8 | 69.000.0 |
+| tranche normale su WAIT, zero su SMALL SELL, la cassa accumulata va su BUY (2) e STRONG BUY (tutta) | 443.000.0 | 3.086.018.2 | 7.0 | -50.2 | 0.0 |
+| tranche normale sempre, STRONG BUY spende anche la cassa (solo accelerazione) | 443.000.0 | 3.116.200.8 | 7.0 | -50.4 | 0.0 |
 
 Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usata si accumula per i verdetti dopo).
 
@@ -101,4 +101,4 @@ Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usa
 | 2026-11-10 00:00:00 | 7.520.9 | 19.5 | -3.8 | -1.5 | WAIT |
 | 2026-11-11 00:00:00 | 7.619.4 | 17.5 | -2.6 | -1.5 | WAIT |
 | 2026-11-12 00:00:00 | 7.592.4 | 18.7 | -2.9 | -1.8 | WAIT |
-| 2026-11-13 00:00:00 | 7.529.4 | 20.4 | -3.7 | -1.8 | WAIT |
+| 2026-11-13 00:00:00 | 7.561.7 | 19.3 | -3.3 | -1.9 | WAIT |
