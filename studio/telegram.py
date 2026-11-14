@@ -31,5 +31,17 @@ def invia(testo: str) -> bool:
     return ok
 
 
+PROVA = """👋 Ciao Massimo!
+
+✅ Il bot funziona: i messaggi arrivano da GitHub.
+
+📊 Da ora ti scriverò qui cosa tenere, comprare o vendere, in base alla classifica momentum.
+🛡️ Niente acquisti finché la logica non è validata.
+
+🤖 Analisti BuySell"""
+
+
 if __name__ == "__main__":
-    invia(" ".join(sys.argv[1:]) or "Prova: il bot funziona.")
+    if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+        sys.stdout.reconfigure(encoding="utf-8")
+    invia(PROVA if sys.argv[1:] == ["--prova"] else " ".join(sys.argv[1:]) or "Prova: il bot funziona.")

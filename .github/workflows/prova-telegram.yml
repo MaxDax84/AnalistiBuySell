@@ -17,12 +17,4 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          python telegram.py "👋 Ciao Massimo!
-
-✅ Il bot funziona: i messaggi arrivano da GitHub.
-
-📊 Da ora ti scriverò qui cosa tenere, comprare o vendere, in base alla classifica momentum.
-🛡️ Niente acquisti finché la logica non è validata.
-
-🤖 Analisti BuySell"
+        run: python telegram.py --prova
