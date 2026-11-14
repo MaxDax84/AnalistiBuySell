@@ -180,6 +180,21 @@ i titoli che poi fanno il +100%. Più lo stop è largo, più ci si avvicina alla
 migliore. Conclusione: le perdite del singolo titolo si gestiscono con il numero di titoli (20-30, mai uno solo)
 e con l'esposizione di portafoglio decisa dal semaforo, non con lo stop sul singolo titolo.
 
+## Il piano da 2.000 € (`piano.py`) e la simulazione su carta (`carta.py`)
+
+`piano.py` prova la regola operativa: 2.000 € su K titoli del 10% migliore della classifica, vendita sotto il 40°
+percentile, costi (2 € + 0,2% a ordine) e imposta del 26% inclusi, 39 date di partenza, 12 mesi ciascuna.
+Con 5 titoli e filtro "prudente" (volatilità annua <= 50%) il valore finale mediano è ~2.700-2.800 € contro 2.275 €
+di SPY, e la frequenza del controllo non conta: ogni sera, ogni settimana e ogni mese danno lo stesso risultato
+e lo stesso numero di ordini (~15 l'anno), con o senza conferma di 5-10 sere sotto soglia.
+Per anno di partenza il vantaggio sta quasi tutto nel 2023-2024; nel 2022 e nel 2025 è circa pari all'indice.
+
+Limiti che gonfiano questi numeri: l'universo è fatto dei titoli che OGGI valgono più di 1 mld $ (chi è salito è
+dentro, chi è sceso è fuori), sono 4 anni di un solo tipo di mercato, e le soglie sono scelte sugli stessi dati.
+Per questo esiste `carta.py`: applica la stessa regola dal vivo, senza soldi, ogni sera nel workflow, salva lo
+stato in `carta/` e manda un messaggio Telegram con valore, P&L del giorno e totale, confronto con SPY e ordini
+per la seduta successiva. È l'unica verifica senza quei difetti; servono mesi prima di poterla leggere.
+
 ## File
 
 | file | cosa contiene |
@@ -195,6 +210,8 @@ e con l'esposizione di portafoglio decisa dal semaforo, non con lo stop sul sing
 | `universo_ampio.py`, `prezzi_ampi.py` | tutte le azioni USA comprabili e i loro prezzi |
 | `classifica.py` | punteggio a 4 fattori, backtest a 10 fasce, classifica di oggi, confronto col portafoglio |
 | `uscita.py` | regole di uscita a confronto: classifica contro trailing stop (risultato: lo stop costa rendimento) |
+| `piano.py` | backtest del piano 2.000 € su K titoli con rotazione sulla classifica (costi, tasse 26%, partenze multiple) |
+| `carta.py`, `telegram.py` | simulazione su carta della regola (stato in `carta/`) e invio del messaggio serale su Telegram |
 | `pagina.py` | genera la pagina web `docs/index.html` |
 | `analisi.py` | rendimenti in eccesso, studio degli eventi, fasce di consenso, riepilogo |
 | `giornaliero.py` | fotografia del giorno (per la raccolta automatica) |

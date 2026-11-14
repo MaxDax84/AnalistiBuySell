@@ -42,6 +42,14 @@ jobs:
           python prezzi_ampi.py
           python classifica.py --oggi
 
+      - name: Simulazione su carta e messaggio Telegram della sera
+        working-directory: studio
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python carta.py
+
       - name: Pagina web
         working-directory: studio
         run: python pagina.py
@@ -53,7 +61,7 @@ jobs:
           git add studio/data/giornaliero/ studio/data/regime.csv studio/data/universo_ampio.csv \
                   studio/risultati/regime.md studio/risultati/regime_*.csv \
                   studio/risultati/verdetto.md studio/risultati/verdetto_storico.csv \
-                  studio/risultati/classifica.md studio/risultati/classifica_oggi.csv docs/index.html
+                  studio/risultati/classifica.md studio/risultati/classifica_oggi.csv docs/index.html studio/carta/
           git diff --cached --quiet && echo "Niente di nuovo" && exit 0
           git commit -m "Raccolta giornaliera $(date -u +%F)"
           git push
