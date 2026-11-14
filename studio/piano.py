@@ -1,6 +1,8 @@
 """Backtest del piano "2.000 € su K titoli, ruota con la classifica momentum".
 
-Uso: python studio/piano.py        (serve data/prezzi_ampi.parquet; 1-2 minuti)
+Uso: python studio/piano.py             (numero di titoli e frequenza del controllo; serve data/prezzi_ampi.parquet)
+     python studio/piano.py --modelli   (le varianti di modelli.py a confronto, 5 titoli, controllo ogni sera)
+     python studio/piano.py --rumore    (quanto conta la fortuna: 5 titoli pescati a caso tra i candidati, 20 volte)
 
 Regola testata:
   ingresso   compro i K titoli col punteggio migliore (percentile >= 90), a parti uguali; filtro "puro" o "prudente"
@@ -20,10 +22,13 @@ Risultati in risultati/piano.md e risultati/piano_varianti.csv.
 import numpy as np
 import pandas as pd
 
+import sys
+
 from classifica import fattori, punteggi
 from config import DATI, RISULTATI
 from prezzi_ampi import carica
-from universo_ampio import FILE_UNIVERSO_AMPIO
+from modelli import MODELLI, dati, freno_mercato, opzioni, punteggio, scegli
+from universo_ampio import FILE_UNIVERSO_AMPIO, simboli_classifica
 
 CAPITALE = 2000.0
 FISSO = 2.0
@@ -43,7 +48,8 @@ def tassa_vendita(guadagno: float, credito: float) -> tuple[float, float]:
     return TASSA * (guadagno - usato), credito - usato
 
 
-def corsa(s, fine, K, filtro, passo, P, PC, SC, VOLA, AMM, liquida_alla_fine=True, conferma=1):
+def corsa(s, fine, K, filtro, passo, P, PC, SC, VOLA, AMM, liquida_alla_fine=True, conferma=1,
+          R=None, corr_max=None, freno=None, rng=None):
     """Simula dal giorno s (segnale) fino a `fine` (incluso). Ritorna dict con valore finale netto e statistiche."""
     N = P.shape[1]
     cassa, credito = CAPITALE, 0.0
@@ -84,9 +90,12 @@ def corsa(s, fine, K, filtro, passo, P, PC, SC, VOLA, AMM, liquida_alla_fine=Tru
         n_ordini += 1
 
     def sceglie_e_compra(t_dec, t_exec, posti):
-        if posti <= 0 or cassa < 50:
+        if posti <= 0 or cassa < 50 or (freno is not None and freno[t_dec]):
             return
-        cand = candidati(t_dec, set(pos))[:posti]
+        cand = candidati(t_dec, set(pos))
+        if rng is not None:      # prova del rumore: tra i candidati si pesca a caso invece che in ordine di punteggio
+            cand = rng.permutation(cand)
+        cand = scegli(cand, list(pos), posti, R, t_dec, corr_max)
         if len(cand) == 0:
             return
         quota = cassa / len(cand)
@@ -132,7 +141,7 @@ def benchmark(serie_prezzo, s, fine):
 def main():
     close, vol = carica("prezzi_ampi"), carica("volumi_ampi")
     info = pd.read_csv(FILE_UNIVERSO_AMPIO)
-    tieni = [c for c in close.columns if c in set(info["Symbol"])]
+    tieni = [c for c in close.columns if c in simboli_classifica(info)]
     close, vol = close[tieni].ffill(limit=3), vol[tieni]
     f = fattori(close, vol, info)
     score, _ = punteggi(f)
@@ -214,5 +223,69 @@ def main():
     unica.to_csv(RISULTATI / "piano_unica.csv", index=False)
 
 
+def confronta_modelli():
+    """Ogni variante di modelli.py sulle stesse date di partenza: 5 titoli, controllo ogni sera, conferma 5 sere."""
+    base = dati("oggi")
+    date, T = base["close"].index, len(base["close"])
+    primo = int(np.argmax(base["f"]["ammesso"].values.sum(axis=1) > 200))
+    partenze = list(range(primo, T - ORIZZONTE - 2, PASSO_PARTENZE))
+    spy = pd.read_csv(DATI / "prezzi.csv", index_col=0, parse_dates=True)["SPY"].reindex(date).ffill().values
+    bench = np.array([benchmark(spy, s, s + ORIZZONTE) for s in partenze])
+    anni = np.array([date[s].year for s in partenze])
+    freno = freno_mercato(date)
+    print(f"{len(partenze)} partenze dal {date[primo]:%d/%m/%Y}; giorni con freno di mercato: {100 * freno[primo:].mean():.0f}%")
+    righe, per_anno = [], []
+    for nome, modello in MODELLI.items():
+        o = opzioni(modello)
+        d = dati(o["universo"])
+        score = punteggio(d, o["segnale"])
+        P, PC, SC = d["close"].values, score.rank(axis=1, pct=True).values, score.fillna(-9).values
+        VOLA, AMM = (d["f"]["volatilita_60"] * np.sqrt(252)).values, d["f"]["ammesso"].values.astype(bool)
+        print("...", nome, flush=True)
+        ris = pd.DataFrame([corsa(s, s + ORIZZONTE, 5, "prudente" if o["vol_max"] else "puro", 1, P, PC, SC, VOLA, AMM, conferma=5,
+                                  R=d["r"].values, corr_max=o["corr_max"], freno=freno if o["freno"] else None) for s in partenze])
+        fin = ris["finale"].values
+        riga = {"modello": nome, "finale mediano €": np.median(fin), "finale medio €": fin.mean(), "peggiore €": fin.min(),
+                "migliore €": fin.max(), "in guadagno %": 100 * (fin > CAPITALE).mean(), "batte SPY %": 100 * (fin > bench).mean(),
+                "vantaggio mediano su SPY €": np.median(fin - bench), "ordini medi": ris["ordini"].mean(),
+                "tasse medie €": ris["tasse"].mean(), "calo peggiore mediano %": 100 * ris["calo"].median()}
+        for a in sorted(set(anni)):
+            m = anni == a
+            riga[f"{a}: vs SPY €"] = np.median(fin[m] - bench[m])
+        righe.append(riga)
+    righe.append({"modello": "SPY", "finale mediano €": np.median(bench), "finale medio €": bench.mean(), "peggiore €": bench.min(),
+                  "migliore €": bench.max(), "in guadagno %": 100 * (bench > CAPITALE).mean()})
+    tab = pd.DataFrame(righe)
+    tab.to_csv(RISULTATI / "piano_modelli.csv", index=False)
+    pd.set_option("display.width", 250, "display.max_columns", 40)
+    print(tab.round(0).T.to_string())
+
+
+def rumore(prove: int = 20):
+    """Stessa regola, ma i 5 titoli sono pescati a caso tra i candidati (10% migliore, prudenti). Se la forbice tra
+    le prove è larga quanto le differenze tra i modelli, quelle differenze sono fortuna e non merito."""
+    d = dati("data")
+    score = punteggio(d, "rango")
+    date, T = d["close"].index, len(d["close"])
+    primo = int(np.argmax(dati("oggi")["f"]["ammesso"].values.sum(axis=1) > 200))
+    partenze = list(range(primo, T - ORIZZONTE - 2, PASSO_PARTENZE))
+    spy = pd.read_csv(DATI / "prezzi.csv", index_col=0, parse_dates=True)["SPY"].reindex(date).ffill().values
+    bench = np.array([benchmark(spy, s, s + ORIZZONTE) for s in partenze])
+    P, PC, SC = d["close"].values, score.rank(axis=1, pct=True).values, score.fillna(-9).values
+    VOLA, AMM = (d["f"]["volatilita_60"] * np.sqrt(252)).values, d["f"]["ammesso"].values.astype(bool)
+    righe = []
+    for seme in range(prove):
+        rng = np.random.default_rng(seme)
+        fin = np.array([corsa(s, s + ORIZZONTE, 5, "prudente", 1, P, PC, SC, VOLA, AMM, conferma=5, rng=rng)["finale"] for s in partenze])
+        righe.append({"prova": seme, "finale mediano €": np.median(fin), "peggiore €": fin.min(), "batte SPY %": 100 * (fin > bench).mean(),
+                      "vantaggio mediano su SPY €": np.median(fin - bench)})
+        print(righe[-1], flush=True)
+    tab = pd.DataFrame(righe)
+    tab.to_csv(RISULTATI / "piano_rumore.csv", index=False)
+    print(tab.describe().round(0).to_string())
+
+
 if __name__ == "__main__":
-    main()
+    if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+        sys.stdout.reconfigure(encoding="utf-8")
+    rumore() if "--rumore" in sys.argv else confronta_modelli() if "--modelli" in sys.argv else main()

@@ -27,7 +27,7 @@ import pandas as pd
 
 from config import CARTELLA, RISULTATI
 from prezzi_ampi import carica
-from universo_ampio import FILE_UNIVERSO_AMPIO
+from universo_ampio import FILE_UNIVERSO_AMPIO, simboli_classifica
 
 FILE_PORTAFOGLIO = CARTELLA / "portafoglio.csv"
 CONTROVALORE_MINIMO = 2e6      # $ al giorno (mediana 20 gg): sotto, il titolo non si compra senza muovere il prezzo
@@ -53,9 +53,11 @@ def fattori(close: pd.DataFrame, vol: pd.DataFrame, info: pd.DataFrame) -> dict[
     # Londra quota in pence: il controvalore va diviso per 100
     pence = pd.Series([1.0 if not c.endswith(".L") else 0.01 for c in close.columns], index=close.columns)
     controvalore = (close * vol * pence).rolling(20, min_periods=10).median()
-    usa = pd.Series(info.set_index("Symbol")["mercato"].reindex(close.columns).eq("USA").values, index=close.columns)
+    # titoli non presenti in info (fuori dall'universo di oggi): senza suffisso di borsa sono americani
+    usa = pd.Series(info.set_index("Symbol")["mercato"].reindex(close.columns).fillna("USA").eq("USA").values, index=close.columns)
     prezzo_ok = ~(usa & (close <= 5))              # il filtro "prezzo > 5" vale solo per gli USA
     viva = f["volatilita_60"] * np.sqrt(252) > VOL_MINIMA_ANNUA
+    f["controvalore"] = controvalore
     f["ammesso"] = (controvalore > CONTROVALORE_MINIMO) & prezzo_ok & viva & close.shift(252).notna()
     f["mercato"] = pd.Series(info.set_index("Symbol")["mercato"].reindex(close.columns).fillna("USA").values, index=close.columns)
     f["mercato"] = f["mercato"].where(f["mercato"] == "USA", "Europa")
@@ -192,13 +194,13 @@ def main():
     close, vol = carica("prezzi_ampi"), carica("volumi_ampi")
     info = pd.read_csv(FILE_UNIVERSO_AMPIO)
     # solo i titoli dell'universo attuale (USA > 1 mld $ + Europa)
-    tieni = [c for c in close.columns if c in set(info["Symbol"])]
+    tieni = [c for c in close.columns if c in simboli_classifica(info)]
     close, vol = close[tieni], vol[tieni]
     # calendari diversi (USA ed Europa): nei giorni di festa di una borsa si porta avanti l'ultimo prezzo
     close = close.ffill(limit=3)
     f = fattori(close, vol, info)
     score, zs = punteggi(f)
-    oggi = classifica_oggi(score, zs, f, close, info)
+    oggi = classifica_oggi(score, zs, f, close, info[info["Symbol"].isin(tieni)])
     RISULTATI.mkdir(parents=True, exist_ok=True)
     oggi.to_csv(RISULTATI / "classifica_oggi.csv", index=False)
     d = score.index[-1]

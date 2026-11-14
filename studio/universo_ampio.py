@@ -1,7 +1,9 @@
 """Universo ampio: tutte le azioni USA davvero comprabili + grandi e medie europee.
 
 Uso: python studio/universo_ampio.py
-USA: screener di nasdaq.com (NYSE, Nasdaq, AMEX), prezzo > 5 $, capitalizzazione > 1 mld $, niente privilegiate/warrant.
+USA: screener di nasdaq.com (NYSE, Nasdaq, AMEX), prezzo > 5 $, capitalizzazione > 300 M$, niente privilegiate/warrant.
+La classifica storica (classifica.py) usa solo gli USA sopra 1 mld $ di oggi: vedi simboli_classifica().
+I modelli nuovi (modelli.py) usano tutto il file e scelgono la dimensione con gli scambi di ciascun giorno.
 Europa: componenti dei principali indici (vedi universo_europa.py; eseguito se manca data/universo_europa.csv).
 Scrive data/universo_ampio.csv con la colonna 'mercato'.
 """
@@ -15,8 +17,14 @@ from universo_europa import main as costruisci_europa
 
 FILE_UNIVERSO_AMPIO = DATI / "universo_ampio.csv"
 PREZZO_MINIMO = 5.0
-CAP_MINIMA = 1e9
+CAP_MINIMA = 3e8
+CAP_CLASSIFICA = 1e9      # soglia (capitalizzazione di oggi) della classifica storica
 H = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
+
+
+def simboli_classifica(info: pd.DataFrame) -> set[str]:
+    """Titoli della classifica storica: europei + USA con capitalizzazione di oggi sopra CAP_CLASSIFICA."""
+    return set(info.loc[(info["mercato"] != "USA") | (info["market_cap"] > CAP_CLASSIFICA), "Symbol"])
 
 
 def screener() -> pd.DataFrame:
@@ -41,7 +49,7 @@ def main() -> None:
     t = t[colonne].rename(columns={"name": "Nome", "lastsale": "prezzo", "marketCap": "market_cap"})
     t["mercato"] = "USA"
     t["indice"] = "USA"
-    print(f"USA: {len(t)} titoli (prezzo > {PREZZO_MINIMO:.0f} $, cap > {CAP_MINIMA / 1e9:.0f} mld $)")
+    print(f"USA: {len(t)} titoli (prezzo > {PREZZO_MINIMO:.0f} $, cap > {CAP_MINIMA / 1e6:.0f} M$)")
 
     if not FILE_UNIVERSO_EUROPA.exists():
         costruisci_europa()

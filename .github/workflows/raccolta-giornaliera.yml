@@ -61,7 +61,7 @@ jobs:
           git add studio/data/giornaliero/ studio/data/regime.csv studio/data/universo_ampio.csv \
                   studio/risultati/regime.md studio/risultati/regime_*.csv \
                   studio/risultati/verdetto.md studio/risultati/verdetto_storico.csv \
-                  studio/risultati/classifica.md studio/risultati/classifica_oggi.csv docs/index.html studio/carta/
+                  studio/risultati/classifica.md studio/risultati/classifica_oggi.csv docs/index.html studio/carta/ studio/data/revisioni/
           git diff --cached --quiet && echo "Niente di nuovo" && exit 0
           git commit -m "Raccolta giornaliera $(date -u +%F)"
           git push

@@ -17,7 +17,7 @@ import pandas as pd
 from classifica import COSTO, fattori, punteggi
 from config import RISULTATI
 from prezzi_ampi import carica
-from universo_ampio import FILE_UNIVERSO_AMPIO
+from universo_ampio import FILE_UNIVERSO_AMPIO, simboli_classifica
 
 SOGLIA_IN, SOGLIA_OUT = 0.9, 0.4
 STOP = [0.08, 0.10, 0.12, 0.15, 0.20, 0.25, 0.30]
@@ -83,7 +83,7 @@ def simula(regola, stop, P, PC, R, U, univ, date, colonne):
 def main():
     close, vol = carica("prezzi_ampi"), carica("volumi_ampi")
     info = pd.read_csv(FILE_UNIVERSO_AMPIO)
-    tieni = [c for c in close.columns if c in set(info["Symbol"])]
+    tieni = [c for c in close.columns if c in simboli_classifica(info)]
     close, vol = close[tieni].ffill(limit=3), vol[tieni]
     f = fattori(close, vol, info)
     score, _ = punteggi(f)

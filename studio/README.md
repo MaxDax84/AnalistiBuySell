@@ -195,6 +195,36 @@ Per questo esiste `carta.py`: applica la stessa regola dal vivo, senza soldi, og
 stato in `carta/` e manda un messaggio Telegram con valore, P&L del giorno e totale, confronto con SPY e ordini
 per la seduta successiva. È l'unica verifica senza quei difetti; servono mesi prima di poterla leggere.
 
+### Le idee per migliorare la regola, messe alla prova (`modelli.py`, `piano.py --modelli`, `piano.py --rumore`)
+
+Stesse 39 partenze, 5 titoli, controllo ogni sera, costi e tasse inclusi (SPY: 2.275 € mediani):
+
+| modello | finale mediano | peggiore | batte SPY | calo peggiore mediano |
+|---|---|---|---|---|
+| base (regola di partenza) | 2.774 € | 1.890 € | 82% | −20% |
+| senza pari merito in cima alla classifica | 2.581 € | 1.778 € | 82% | −21% |
+| universo scelto con gli scambi di quel giorno | 2.693 € | 1.673 € | 90% | −19% |
+| + momentum "pulito" (salita regolare) | 2.436 € | 1.878 € | 72% | **−13%** |
+| + niente titoli gemelli (correlazione < 0,5) | 2.579 € | 1.952 € | 82% | −18% |
+| + freno di mercato (niente acquisti con SMALL SELL) | 2.705 € | 1.673 € | 90% | −19% |
+| tutto insieme | 2.452 € | **1.936 €** | 79% | **−13%** |
+| 5 titoli pescati A CASO tra i candidati (20 prove) | 2.290 € (2.196-2.398) | 1.700 € | 49% | |
+
+Cosa dicono:
+- **Nessuna idea aumenta il rendimento del backtest.** Il momentum pulito e "tutto insieme" rendono meno ma
+  dimezzano quasi il calo peggiore: scambiano guadagno con tranquillità.
+- **L'universo corretto non fa crollare il risultato** (2.693 contro 2.581 € a parità di segnale): il difetto della
+  capitalizzazione di oggi pesa meno del temuto. Restano fuori i titoli spariti dal listino, che non si possono recuperare.
+- **Stare nel 10% migliore non basta.** Pescando a caso tra i candidati si ottiene l'indice (49% di vittorie su SPY).
+  Tutto il vantaggio sta nei primissimi della classifica: è lì che conta l'ordine, ed è lì che il rischio di aver
+  misurato fortuna (pochi titoli estremi, sopravvissuti) è più alto.
+- Il freno di mercato e il filtro sui gemelli spostano poco: nel periodo c'è un solo episodio di mercato negativo.
+- Le revisioni degli utili attesi (`revisioni.py`) non hanno storico gratuito: si raccolgono ogni sera per i primi
+  60 candidati in `data/revisioni/` e si provano solo su carta.
+
+Su carta corrono tre portafogli da 2.000 € (`carta/base`, `carta/prudente`, `carta/utili`): la regola di partenza,
+"tutto insieme", e "tutto insieme" comprando solo titoli con utili attesi rivisti al rialzo negli ultimi 30 giorni.
+
 ## File
 
 | file | cosa contiene |
@@ -211,6 +241,8 @@ per la seduta successiva. È l'unica verifica senza quei difetti; servono mesi p
 | `classifica.py` | punteggio a 4 fattori, backtest a 10 fasce, classifica di oggi, confronto col portafoglio |
 | `uscita.py` | regole di uscita a confronto: classifica contro trailing stop (risultato: lo stop costa rendimento) |
 | `piano.py` | backtest del piano 2.000 € su K titoli con rotazione sulla classifica (costi, tasse 26%, partenze multiple) |
+| `modelli.py` | varianti della regola: universo alla data, graduatoria senza pari merito, momentum pulito, titoli gemelli, freno di mercato |
+| `revisioni.py` | revisioni degli utili attesi (fotografia serale dei candidati) |
 | `carta.py`, `telegram.py` | simulazione su carta della regola (stato in `carta/`) e invio del messaggio serale su Telegram |
 | `pagina.py` | genera la pagina web `docs/index.html` |
 | `analisi.py` | rendimenti in eccesso, studio degli eventi, fasce di consenso, riepilogo |
