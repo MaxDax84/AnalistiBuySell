@@ -1,0 +1,28 @@
+name: Prova Telegram
+
+on:
+  workflow_dispatch:
+
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Messaggio di prova
+        working-directory: studio
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python telegram.py "👋 Ciao Massimo!
+
+✅ Il bot funziona: i messaggi arrivano da GitHub.
+
+📊 Da ora ti scriverò qui cosa tenere, comprare o vendere, in base alla classifica momentum.
+🛡️ Niente acquisti finché la logica non è validata.
+
+🤖 Analisti BuySell"
