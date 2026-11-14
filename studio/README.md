@@ -227,7 +227,8 @@ Su carta corrono tre portafogli da 2.000 € (`carta/base`, `carta/prudente`, `c
 
 ### Come si giudica la simulazione (criteri fissati il 14/11/2026, prima di vedere i risultati)
 
-Ogni mese parte un nuovo gruppo dei tre portafogli (`carta/AAAA-MM/`), fino a 12 partenze.
+Ogni settimana parte un nuovo gruppo dei tre portafogli (`carta/AAAA-MM-GG/`), fino a 52 partenze. Partenze vicine
+comprano quasi gli stessi titoli: 26 partenze in sei mesi valgono come 6-8 prove indipendenti, non 26.
 1. Nessuna decisione prima di 6 mesi.
 2. Una regola passa se, sulla media delle sue partenze, non perde più di 5 punti rispetto a SPY, non ha cali
    peggiori del 25% e fa un numero di ordini vicino al backtest (~15 l'anno).

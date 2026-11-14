@@ -10,11 +10,11 @@ portafoglio. Gli ordini decisi la sera sono eseguiti alla chiusura del giorno di
 a ordine, imposta 26% sulle plusvalenze realizzate (le minusvalenze compensano). Tutto in euro, al cambio del giorno.
 Confronto: gli stessi 2.000 € messi su SPY il giorno del primo acquisto.
 
-Ogni mese parte un nuovo gruppo di portafogli (carta/AAAA-MM/): con più date di partenza il confronto tra le
-regole dipende meno dalla fortuna di un singolo giorno. Il messaggio mostra in dettaglio il primo gruppo e una
-riga di riepilogo per gli altri.
+Ogni settimana parte un nuovo gruppo di portafogli (carta/AAAA-MM-GG/): con più date di partenza il confronto tra
+le regole dipende meno dalla fortuna di un singolo giorno. Partenze vicine comprano quasi gli stessi titoli: non
+sono prove indipendenti. Il messaggio mostra in dettaglio il primo gruppo e la media di tutte le partenze.
 
-Stato in studio/carta/<AAAA-MM>/<portafoglio>/: stato.json (posizioni, cassa, ordini in attesa), storico.csv (un rigo per
+Stato in studio/carta/<AAAA-MM-GG>/<portafoglio>/: stato.json (posizioni, cassa, ordini in attesa), storico.csv (un rigo per
 sera), operazioni.csv (ogni acquisto e vendita). Il workflow serale li salva nel repository.
 """
 import csv
@@ -29,7 +29,7 @@ from telegram import invia
 DIR = CARTELLA / "carta"
 K = 5
 CONFERMA = 5        # sere di fila sotto soglia prima di vendere
-MAX_GRUPPI = 12     # partenze mensili: una al mese per un anno
+MAX_GRUPPI = 52     # partenze settimanali: una a settimana per un anno
 N_REVISIONI = 60    # di quanti candidati si salvano ogni sera le revisioni degli utili
 VALUTE = {".L": ("EURGBP=X", 0.01), ".SW": ("EURCHF=X", 1.0), ".ST": ("EURSEK=X", 1.0)}   # Londra quota in pence
 GIORNI = ["lun", "mar", "mer", "gio", "ven", "sab", "dom"]
@@ -43,8 +43,12 @@ PORTAFOGLI = {
 
 
 def gruppi() -> list[str]:
-    """Mesi di partenza già avviati (cartelle carta/AAAA-MM), dal più vecchio."""
-    return sorted(c.name for c in DIR.glob("*") if c.is_dir() and re.fullmatch(r"\d{4}-\d{2}", c.name))
+    """Partenze già avviate (cartelle carta/AAAA-MM-GG, la data del primo segnale), dalla più vecchia."""
+    return sorted(c.name for c in DIR.glob("*") if c.is_dir() and re.fullmatch(r"\d{4}-\d{2}-\d{2}", c.name))
+
+
+def settimana(giorno: str) -> tuple[int, int]:
+    return date.fromisoformat(giorno).isocalendar()[:2]
 
 
 def num(v: float, dec: int = 0, segno: bool = False) -> str:
@@ -113,8 +117,8 @@ def aggiorna() -> None:
         return None if pd.isna(p) else in_euro(ticker, float(p))
 
     avviati = gruppi()
-    if not avviati or (data[:7] > avviati[-1] and len(avviati) < MAX_GRUPPI):
-        avviati.append(data[:7])        # primo giorno di borsa di un mese nuovo: parte un altro gruppo
+    if not avviati or (settimana(data) > settimana(avviati[-1]) and len(avviati) < MAX_GRUPPI):
+        avviati.append(data)            # primo giorno di borsa di una settimana nuova: parte un altro gruppo
     for gruppo, nome, cfg in [(g, n, c) for g in avviati for n, c in PORTAFOGLI.items()]:
         cartella = DIR / gruppo / nome
         cartella.mkdir(parents=True, exist_ok=True)
@@ -259,24 +263,20 @@ def messaggio() -> str:
     a, m, g = (int(x) for x in max(st["ultima_data"] for st in primo.values()).split("-"))
     giorno = date(a, m, g)
     righe = [f"📊 Simulazione su carta · {GIORNI[giorno.weekday()]} {giorno:%d/%m/%Y}", f"🚦 Mercato: {verdetto()}",
-             "", f"📅 Partenza {avviati[0][5:]}/{avviati[0][:4]}"]
+             "", f"📅 Prima partenza ({date.fromisoformat(avviati[0]):%d/%m/%Y})"]
     for i, (n, st) in enumerate(primo.items()):
         righe += [""] + blocco(i, PORTAFOGLI[n]["etichetta"], st)
     if len(avviati) > 1:
-        righe += ["", "📅 Altre partenze (guadagno dall'inizio, e SPY negli stessi giorni):"]
-        somma = {n: [] for n in PORTAFOGLI}
-        for n, st in primo.items():
-            somma[n].append(st["valore"] - st["capitale"])
-        for gr in avviati[1:]:
-            pezzi, spy = [], None
-            for i, (n, st) in enumerate(stati(gr).items()):
-                pezzi.append(f"{NUMERI[i]} {num(st['valore'] - st['capitale'], 0, True)} €")
-                somma[n].append(st["valore"] - st["capitale"])
-                if st["spy"] and spy is None:
-                    spy = st["spy"]["valore"] - st["capitale"]
-            righe.append(f"  {gr[5:]}/{gr[:4]}: " + " · ".join(pezzi) + (f" · SPY {num(spy, 0, True)} €" if spy is not None else ""))
-        righe.append("  Media di tutte le partenze: " + " · ".join(
-            f"{NUMERI[i]} {num(sum(v) / len(v), 0, True)} €" for i, v in enumerate(somma.values()) if v))
+        # una partenza a settimana: per ogni regola la media del guadagno dall'inizio, e di SPY negli stessi giorni
+        tutti = [stati(g) for g in avviati]
+        righe += ["", f"📅 Media delle {len(avviati)} partenze settimanali (guadagno dall'inizio):"]
+        for i, n in enumerate(PORTAFOGLI):
+            attivi = [s[n] for s in tutti if n in s and s[n]["spy"]]      # solo le partenze che hanno già comprato
+            if not attivi:
+                continue
+            pl = sum(st["valore"] - st["capitale"] for st in attivi) / len(attivi)
+            spy = sum(st["spy"]["valore"] - st["capitale"] for st in attivi) / len(attivi)
+            righe.append(f"  {NUMERI[i]} {num(pl, 0, True)} € · SPY {num(spy, 0, True)} € · {'🟢' if pl >= spy else '🔴'} {num(pl - spy, 0, True)} €")
     righe += ["", "🧪 Solo simulazione: nessun soldo reale. Gli ordini indicati sono eseguiti alla chiusura della prossima seduta."]
     return "\n".join(righe)
 
