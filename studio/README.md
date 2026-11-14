@@ -225,6 +225,16 @@ Cosa dicono:
 Su carta corrono tre portafogli da 2.000 € (`carta/base`, `carta/prudente`, `carta/utili`): la regola di partenza,
 "tutto insieme", e "tutto insieme" comprando solo titoli con utili attesi rivisti al rialzo negli ultimi 30 giorni.
 
+### Come si giudica la simulazione (criteri fissati il 14/11/2026, prima di vedere i risultati)
+
+Ogni mese parte un nuovo gruppo dei tre portafogli (`carta/AAAA-MM/`), fino a 12 partenze.
+1. Nessuna decisione prima di 6 mesi.
+2. Una regola passa se, sulla media delle sue partenze, non perde più di 5 punti rispetto a SPY, non ha cali
+   peggiori del 25% e fa un numero di ordini vicino al backtest (~15 l'anno).
+3. Se ne passano più di una si sceglie quella con i cali minori, non quella che ha reso di più.
+4. Se non ne passa nessuna, l'alternativa è un ETF sull'indice.
+Con soldi veri si parte comunque da 2.000 €, tenendo la simulazione accesa accanto.
+
 ## File
 
 | file | cosa contiene |

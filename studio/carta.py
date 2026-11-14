@@ -10,7 +10,11 @@ portafoglio. Gli ordini decisi la sera sono eseguiti alla chiusura del giorno di
 a ordine, imposta 26% sulle plusvalenze realizzate (le minusvalenze compensano). Tutto in euro, al cambio del giorno.
 Confronto: gli stessi 2.000 € messi su SPY il giorno del primo acquisto.
 
-Stato in studio/carta/<portafoglio>/: stato.json (posizioni, cassa, ordini in attesa), storico.csv (un rigo per
+Ogni mese parte un nuovo gruppo di portafogli (carta/AAAA-MM/): con più date di partenza il confronto tra le
+regole dipende meno dalla fortuna di un singolo giorno. Il messaggio mostra in dettaglio il primo gruppo e una
+riga di riepilogo per gli altri.
+
+Stato in studio/carta/<AAAA-MM>/<portafoglio>/: stato.json (posizioni, cassa, ordini in attesa), storico.csv (un rigo per
 sera), operazioni.csv (ogni acquisto e vendita). Il workflow serale li salva nel repository.
 """
 import csv
@@ -25,6 +29,7 @@ from telegram import invia
 DIR = CARTELLA / "carta"
 K = 5
 CONFERMA = 5        # sere di fila sotto soglia prima di vendere
+MAX_GRUPPI = 12     # partenze mensili: una al mese per un anno
 N_REVISIONI = 60    # di quanti candidati si salvano ogni sera le revisioni degli utili
 VALUTE = {".L": ("EURGBP=X", 0.01), ".SW": ("EURCHF=X", 1.0), ".ST": ("EURSEK=X", 1.0)}   # Londra quota in pence
 GIORNI = ["lun", "mar", "mer", "gio", "ven", "sab", "dom"]
@@ -35,6 +40,11 @@ PORTAFOGLI = {
     "prudente": {"etichetta": "Regolari (salita regolare, niente gemelli, freno di mercato)", "modello": PRUDENTE},
     "utili": {"etichetta": "Regolari + utili attesi in rialzo", "modello": {**PRUDENTE, "utili": True}},
 }
+
+
+def gruppi() -> list[str]:
+    """Mesi di partenza già avviati (cartelle carta/AAAA-MM), dal più vecchio."""
+    return sorted(c.name for c in DIR.glob("*") if c.is_dir() and re.fullmatch(r"\d{4}-\d{2}", c.name))
 
 
 def num(v: float, dec: int = 0, segno: bool = False) -> str:
@@ -102,14 +112,17 @@ def aggiorna() -> None:
                 p = np.nan
         return None if pd.isna(p) else in_euro(ticker, float(p))
 
-    for nome, cfg in PORTAFOGLI.items():
-        cartella = DIR / nome
-        cartella.mkdir(exist_ok=True)
+    avviati = gruppi()
+    if not avviati or (data[:7] > avviati[-1] and len(avviati) < MAX_GRUPPI):
+        avviati.append(data[:7])        # primo giorno di borsa di un mese nuovo: parte un altro gruppo
+    for gruppo, nome, cfg in [(g, n, c) for g in avviati for n, c in PORTAFOGLI.items()]:
+        cartella = DIR / gruppo / nome
+        cartella.mkdir(parents=True, exist_ok=True)
         f_stato, f_storico, f_oper = cartella / "stato.json", cartella / "storico.csv", cartella / "operazioni.csv"
         if f_stato.exists():
             st = json.loads(f_stato.read_text(encoding="utf-8"))
             if st["ultima_data"] >= data:
-                print(f"[{nome}] già aggiornato al {st['ultima_data']}: non cambio nulla.")
+                print(f"[{gruppo}/{nome}] già aggiornato al {st['ultima_data']}: non cambio nulla.")
                 continue
         else:
             st = {"inizio": data, "ultima_data": None, "cassa": CAPITALE, "capitale": CAPITALE, "credito_minus": 0.0,
@@ -237,12 +250,33 @@ def blocco(i: int, etichetta: str, st: dict) -> list[str]:
 
 
 def messaggio() -> str:
-    stati = {n: json.loads((DIR / n / "stato.json").read_text(encoding="utf-8")) for n in PORTAFOGLI if (DIR / n / "stato.json").exists()}
-    a, m, g = (int(x) for x in max(st["ultima_data"] for st in stati.values()).split("-"))
+    def stati(gruppo: str) -> dict:
+        return {n: json.loads((DIR / gruppo / n / "stato.json").read_text(encoding="utf-8"))
+                for n in PORTAFOGLI if (DIR / gruppo / n / "stato.json").exists()}
+
+    avviati = gruppi()
+    primo = stati(avviati[0])
+    a, m, g = (int(x) for x in max(st["ultima_data"] for st in primo.values()).split("-"))
     giorno = date(a, m, g)
-    righe = [f"📊 Simulazione su carta · {GIORNI[giorno.weekday()]} {giorno:%d/%m/%Y}", f"🚦 Mercato: {verdetto()}"]
-    for i, (n, st) in enumerate(stati.items()):
+    righe = [f"📊 Simulazione su carta · {GIORNI[giorno.weekday()]} {giorno:%d/%m/%Y}", f"🚦 Mercato: {verdetto()}",
+             "", f"📅 Partenza {avviati[0][5:]}/{avviati[0][:4]}"]
+    for i, (n, st) in enumerate(primo.items()):
         righe += [""] + blocco(i, PORTAFOGLI[n]["etichetta"], st)
+    if len(avviati) > 1:
+        righe += ["", "📅 Altre partenze (guadagno dall'inizio, e SPY negli stessi giorni):"]
+        somma = {n: [] for n in PORTAFOGLI}
+        for n, st in primo.items():
+            somma[n].append(st["valore"] - st["capitale"])
+        for gr in avviati[1:]:
+            pezzi, spy = [], None
+            for i, (n, st) in enumerate(stati(gr).items()):
+                pezzi.append(f"{NUMERI[i]} {num(st['valore'] - st['capitale'], 0, True)} €")
+                somma[n].append(st["valore"] - st["capitale"])
+                if st["spy"] and spy is None:
+                    spy = st["spy"]["valore"] - st["capitale"]
+            righe.append(f"  {gr[5:]}/{gr[:4]}: " + " · ".join(pezzi) + (f" · SPY {num(spy, 0, True)} €" if spy is not None else ""))
+        righe.append("  Media di tutte le partenze: " + " · ".join(
+            f"{NUMERI[i]} {num(sum(v) / len(v), 0, True)} €" for i, v in enumerate(somma.values()) if v))
     righe += ["", "🧪 Solo simulazione: nessun soldo reale. Gli ordini indicati sono eseguiti alla chiusura della prossima seduta."]
     return "\n".join(righe)
 
