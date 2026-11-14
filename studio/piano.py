@@ -2,6 +2,7 @@
 
 Uso: python studio/piano.py             (numero di titoli e frequenza del controllo; serve data/prezzi_ampi.parquet)
      python studio/piano.py --modelli   (le varianti di modelli.py a confronto, 5 titoli, controllo ogni sera)
+     python studio/piano.py --lungo     (gli stessi modelli su 15 anni: prima serve prezzi_ampi.py --anni 15)
      python studio/piano.py --rumore    (quanto conta la fortuna: 5 titoli pescati a caso tra i candidati, 20 volte)
 
 Regola testata:
@@ -27,6 +28,7 @@ import sys
 from classifica import fattori, punteggi
 from config import DATI, RISULTATI
 from prezzi_ampi import carica
+import modelli
 from modelli import MODELLI, dati, freno_mercato, opzioni, punteggio, scegli
 from universo_ampio import FILE_UNIVERSO_AMPIO, simboli_classifica
 
@@ -223,19 +225,28 @@ def main():
     unica.to_csv(RISULTATI / "piano_unica.csv", index=False)
 
 
-def confronta_modelli():
-    """Ogni variante di modelli.py sulle stesse date di partenza: 5 titoli, controllo ogni sera, conferma 5 sere."""
+LUNGO = ["base", "universo alla data", "+ momentum pulito", "+ freno di mercato", "tutto insieme"]
+
+
+def confronta_modelli(lungo: bool = False):
+    """Ogni variante di modelli.py sulle stesse date di partenza: 5 titoli, controllo ogni sera, conferma 5 sere.
+    Con lungo=True usa l'archivio a 15 anni: più crolli e anni storti, ma mancano ancora di più i titoli spariti."""
+    if lungo:
+        modelli.ARCHIVIO = "lunghi"
     base = dati("oggi")
     date, T = base["close"].index, len(base["close"])
     primo = int(np.argmax(base["f"]["ammesso"].values.sum(axis=1) > 200))
     partenze = list(range(primo, T - ORIZZONTE - 2, PASSO_PARTENZE))
-    spy = pd.read_csv(DATI / "prezzi.csv", index_col=0, parse_dates=True)["SPY"].reindex(date).ffill().values
+    spy = base["spy"] if lungo else pd.read_csv(DATI / "prezzi.csv", index_col=0, parse_dates=True)["SPY"]
+    spy = spy.reindex(date).ffill().values
     bench = np.array([benchmark(spy, s, s + ORIZZONTE) for s in partenze])
     anni = np.array([date[s].year for s in partenze])
     freno = freno_mercato(date)
     print(f"{len(partenze)} partenze dal {date[primo]:%d/%m/%Y}; giorni con freno di mercato: {100 * freno[primo:].mean():.0f}%")
     righe, per_anno = [], []
     for nome, modello in MODELLI.items():
+        if lungo and nome not in LUNGO:
+            continue
         o = opzioni(modello)
         d = dati(o["universo"])
         score = punteggio(d, o["segnale"])
@@ -248,7 +259,9 @@ def confronta_modelli():
         riga = {"modello": nome, "finale mediano €": np.median(fin), "finale medio €": fin.mean(), "peggiore €": fin.min(),
                 "migliore €": fin.max(), "in guadagno %": 100 * (fin > CAPITALE).mean(), "batte SPY %": 100 * (fin > bench).mean(),
                 "vantaggio mediano su SPY €": np.median(fin - bench), "ordini medi": ris["ordini"].mean(),
-                "tasse medie €": ris["tasse"].mean(), "calo peggiore mediano %": 100 * ris["calo"].median()}
+                "tasse medie €": ris["tasse"].mean(), "calo peggiore mediano %": 100 * ris["calo"].median(),
+                "calo peggiore in assoluto %": 100 * ris["calo"].min(), "sotto -20% a fine anno %": 100 * (fin < 0.8 * CAPITALE).mean(),
+                "anni di partenza in cui batte SPY": f"{sum(np.median(fin[anni == a] - bench[anni == a]) > 0 for a in set(anni))}/{len(set(anni))}"}
         for a in sorted(set(anni)):
             m = anni == a
             riga[f"{a}: vs SPY €"] = np.median(fin[m] - bench[m])
@@ -256,7 +269,7 @@ def confronta_modelli():
     righe.append({"modello": "SPY", "finale mediano €": np.median(bench), "finale medio €": bench.mean(), "peggiore €": bench.min(),
                   "migliore €": bench.max(), "in guadagno %": 100 * (bench > CAPITALE).mean()})
     tab = pd.DataFrame(righe)
-    tab.to_csv(RISULTATI / "piano_modelli.csv", index=False)
+    tab.to_csv(RISULTATI / ("piano_modelli_lungo.csv" if lungo else "piano_modelli.csv"), index=False)
     pd.set_option("display.width", 250, "display.max_columns", 40)
     print(tab.round(0).T.to_string())
 
@@ -288,4 +301,11 @@ def rumore(prove: int = 20):
 if __name__ == "__main__":
     if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
         sys.stdout.reconfigure(encoding="utf-8")
-    rumore() if "--rumore" in sys.argv else confronta_modelli() if "--modelli" in sys.argv else main()
+    if "--rumore" in sys.argv:
+        rumore()
+    elif "--lungo" in sys.argv:
+        confronta_modelli(lungo=True)
+    elif "--modelli" in sys.argv:
+        confronta_modelli()
+    else:
+        main()

@@ -14,5 +14,7 @@ studio/risultati/consenso_giornaliero.csv
 studio/risultati/stato_giornaliero.csv
 studio/data/prezzi_ampi.*
 studio/data/volumi_ampi.*
+studio/data/prezzi_lunghi.*
+studio/data/volumi_lunghi.*
 studio/portafoglio.csv
 studio/*.log

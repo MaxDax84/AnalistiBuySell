@@ -52,13 +52,17 @@ def rango_per_mercato(tab: pd.DataFrame, ammesso: pd.DataFrame, mercato: pd.Seri
 
 
 _cache: dict = {}
+ARCHIVIO = "ampi"      # "lunghi" = 15 anni di prezzi (prezzi_ampi.py --anni 15), usato da piano.py --lungo
 
 
 def dati(universo: str) -> dict:
     """Prezzi, fattori e ammissione per un universo. Ritorna un dizionario riusato da tutti i modelli."""
-    if universo in _cache:
-        return _cache[universo]
-    close, vol = carica("prezzi_ampi"), carica("volumi_ampi")
+    chiave = (universo, ARCHIVIO)
+    if chiave in _cache:
+        return _cache[chiave]
+    close, vol = carica(f"prezzi_{ARCHIVIO}"), carica(f"volumi_{ARCHIVIO}")
+    spy = close["SPY"] if "SPY" in close else None      # presente solo nell'archivio lungo: è il confronto, non un titolo
+    close, vol = close.drop(columns="SPY", errors="ignore"), vol.drop(columns="SPY", errors="ignore")
     info = pd.read_csv(FILE_UNIVERSO_AMPIO)
     if universo == "oggi":
         tieni = [c for c in close.columns if c in simboli_classifica(info)]
@@ -68,8 +72,8 @@ def dati(universo: str) -> dict:
     if universo == "data":
         f["ammesso"] = f["ammesso"] & (f["controvalore"] > CONTROVALORE_DATA)
     r = close.pct_change(fill_method=None)
-    d = {"close": close, "info": info, "f": f, "r": r, "punteggi": {}}
-    _cache[universo] = d
+    d = {"close": close, "info": info, "f": f, "r": r, "punteggi": {}, "spy": spy}
+    _cache[chiave] = d
     return d
 
 

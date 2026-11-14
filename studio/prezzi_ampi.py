@@ -1,9 +1,12 @@
 """Scarica 5 anni di chiusure e volumi per tutto l'universo ampio, a blocchi.
 
-Uso: python studio/prezzi_ampi.py
-Scrive data/prezzi_ampi.parquet e data/volumi_ampi.parquet (o .csv.gz se manca pyarrow).
+Uso: python studio/prezzi_ampi.py              (5 anni -> data/prezzi_ampi.parquet e data/volumi_ampi.parquet)
+     python studio/prezzi_ampi.py --anni 15    (storia lunga per piano.py --lungo -> data/prezzi_lunghi.parquet e
+                                                volumi_lunghi.parquet; include SPY e i titoli già in prezzi_ampi)
+Scrive .csv.gz se manca pyarrow.
 """
 
+import sys
 import time
 from datetime import date, timedelta
 
@@ -40,11 +43,14 @@ def esistenti() -> tuple[pd.DataFrame, pd.DataFrame] | None:
         return None
 
 
-def main() -> None:
+def main(anni: int = ANNI_STORICO, nome: str = "ampi") -> None:
     tickers = pd.read_csv(FILE_UNIVERSO_AMPIO)["Symbol"].tolist()
-    inizio = (date.today() - timedelta(days=365 * ANNI_STORICO + 30)).isoformat()
-    chiusure, volumi = [], []
     vecchi = esistenti()
+    if nome != "ampi":      # archivio lungo: stessi titoli dell'archivio corrente, più SPY per il confronto
+        tickers = sorted(set(tickers) | set(vecchi[0].columns if vecchi else []) | {"SPY"})
+        vecchi = None
+    inizio = (date.today() - timedelta(days=365 * anni + 30)).isoformat()
+    chiusure, volumi = [], []
     if vecchi is not None and vecchi[0].index[-1] >= pd.Timestamp(date.today() - timedelta(days=4)):
         # archivio recente: scarico solo i titoli che mancano (es. europei appena aggiunti)
         mancanti = [t for t in tickers if t not in vecchi[0].columns]
@@ -80,9 +86,12 @@ def main() -> None:
     # tieni solo i titoli con almeno un anno di storia
     ok = close.notna().sum() >= 252
     close, vol = close.loc[:, ok], vol.loc[:, ok]
-    print(f"Chiusure: {close.shape[0]} giorni x {close.shape[1]} titoli -> {salva(close, 'prezzi_ampi')}")
-    print(f"Volumi -> {salva(vol, 'volumi_ampi')}")
+    print(f"Chiusure: {close.shape[0]} giorni x {close.shape[1]} titoli -> {salva(close, f'prezzi_{nome}')}")
+    print(f"Volumi -> {salva(vol, f'volumi_{nome}')}")
 
 
 if __name__ == "__main__":
-    main()
+    if "--anni" in sys.argv:
+        main(int(sys.argv[sys.argv.index("--anni") + 1]), "lunghi")
+    else:
+        main()

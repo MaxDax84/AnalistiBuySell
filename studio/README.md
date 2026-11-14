@@ -225,6 +225,28 @@ Cosa dicono:
 Su carta corrono tre portafogli da 2.000 € (`carta/base`, `carta/prudente`, `carta/utili`): la regola di partenza,
 "tutto insieme", e "tutto insieme" comprando solo titoli con utili attesi rivisti al rialzo negli ultimi 30 giorni.
 
+### Il backtest lungo: 14 anni di partenze (`prezzi_ampi.py --anni 15`, `piano.py --lungo`)
+
+162 partenze dal 10/2012, 12 mesi ciascuna, 5 titoli, controllo ogni sera, costi e tasse inclusi:
+
+| modello | finale mediano | peggiore | in guadagno | batte SPY | anni di partenza vinti | calo peggiore |
+|---|---|---|---|---|---|---|
+| SPY | 2.223 € | 1.594 € | 86% | — | — | |
+| base | 2.250 € | 1.256 € | 78% | 56% | 9/14 | −55% |
+| universo alla data | 2.276 € | 1.100 € | 71% | 59% | 8/14 | −52% |
+| + freno di mercato | 2.302 € | 1.148 € | 72% | 59% | 9/14 | −52% |
+| + momentum pulito | 2.132 € | 1.368 € | 65% | 41% | 6/14 | −52% |
+| tutto insieme | 2.109 € | 1.309 € | 59% | 36% | 4/14 | −52% |
+
+**Su 14 anni la regola rende quanto l'indice, con più rischio.** Il vantaggio visto sui 5 anni viene quasi tutto dalle
+partenze 2023-2024 (+555 e +757 € su SPY) e dal 2012, 2019-2020; dal 2014 al 2018 la regola ha perso contro SPY
+cinque anni di fila. E questo con un universo che la favorisce (mancano i titoli spariti dal listino): il dato
+vero è peggiore. Il momentum "pulito" e "tutto insieme", che sui 5 anni sembravano più tranquilli, su 14 anni
+perdono contro SPY nella maggioranza dei casi e non riducono il calo peggiore.
+
+Conseguenza: la simulazione su carta resta utile per vedere il comportamento dal vivo, ma l'aspettativa onesta
+è "circa come l'indice, con più oscillazioni", non "meglio dell'indice".
+
 ### Come si giudica la simulazione (criteri fissati il 14/11/2026, prima di vedere i risultati)
 
 Ogni settimana parte un nuovo gruppo dei tre portafogli (`carta/AAAA-MM-GG/`), fino a 52 partenze. Partenze vicine
