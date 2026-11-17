@@ -1,46 +1,37 @@
 {
  "inizio": "2026-11-13",
- "ultima_data": "2026-11-13",
- "cassa": 2000.0,
+ "ultima_data": "2026-11-16",
+ "cassa": 0.0,
  "capitale": 2000.0,
  "credito_minus": 0.0,
- "costi": 0.0,
+ "costi": 8.0,
  "tasse": 0.0,
- "posizioni": {},
- "ordini": [
-  {
-   "tipo": "compra",
-   "ticker": "PBAM",
+ "posizioni": {
+  "PBAM": {
    "nome": "PBAM",
-   "percentile": 0.999826147426982
+   "q": 13.292283971121822,
+   "costo_eur": 1000.0,
+   "data": "2026-11-16",
+   "prezzo_eur": 74.93068927536169,
+   "var_giorno": 0.0,
+   "percentile": 0.9983619983619983
   },
-  {
-   "tipo": "compra",
-   "ticker": "MPC",
+  "MPC": {
    "nome": "Marathon Petroleum Corporation Common St",
-   "percentile": 0.9986091794158554
-  },
-  {
-   "tipo": "compra",
-   "ticker": "CLDT",
-   "nome": "CLDT",
-   "percentile": 0.997913769123783
-  },
-  {
-   "tipo": "compra",
-   "ticker": "CAKE",
-   "nome": "Cheesecake Factory Incorporated (The) Co",
-   "percentile": 0.9975660639777468
-  },
-  {
-   "tipo": "compra",
-   "ticker": "LOTB.BR",
-   "nome": "Lotus Bakeries",
-   "percentile": 0.9972183588317107
+   "q": 2.7365204174463815,
+   "costo_eur": 1000.0,
+   "data": "2026-11-16",
+   "prezzo_eur": 363.9658573895933,
+   "var_giorno": 0.0,
+   "percentile": 0.9991809991809992
   }
- ],
- "spy": null,
- "valore": 2000.0,
+ },
+ "ordini": [],
+ "spy": {
+  "q": 2.9208642489575714,
+  "valore": 1994.0
+ },
+ "valore": 1992.0,
  "nota": "",
  "valore_prec": 2000.0
 }

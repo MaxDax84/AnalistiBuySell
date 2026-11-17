@@ -1,46 +1,46 @@
 {
  "inizio": "2026-11-13",
- "ultima_data": "2026-11-13",
- "cassa": 2000.0,
+ "ultima_data": "2026-11-16",
+ "cassa": 2.2737367544323206e-13,
  "capitale": 2000.0,
  "credito_minus": 0.0,
- "costi": 0.0,
+ "costi": 10.0,
  "tasse": 0.0,
- "posizioni": {},
- "ordini": [
-  {
-   "tipo": "compra",
-   "ticker": "SWED-A.ST",
+ "posizioni": {
+  "SWED-A.ST": {
    "nome": "Swedbank A",
-   "percentile": 0.999826147426982
+   "q": 17.37592238763276,
+   "costo_eur": 666.6666666666666,
+   "data": "2026-11-16",
+   "prezzo_eur": 38.17543141223156,
+   "var_giorno": 0.0,
+   "percentile": 0.9997952497952498
   },
-  {
-   "tipo": "compra",
-   "ticker": "PBAM",
+  "PBAM": {
    "nome": "PBAM",
-   "percentile": 0.999826147426982
+   "q": 8.852625536322765,
+   "costo_eur": 666.6666666666666,
+   "data": "2026-11-16",
+   "prezzo_eur": 74.93068927536169,
+   "var_giorno": 0.0,
+   "percentile": 0.9983619983619983
   },
-  {
-   "tipo": "compra",
-   "ticker": "MPC",
+  "MPC": {
    "nome": "Marathon Petroleum Corporation Common St",
-   "percentile": 0.9986091794158554
-  },
-  {
-   "tipo": "compra",
-   "ticker": "CLDT",
-   "nome": "CLDT",
-   "percentile": 0.997913769123783
-  },
-  {
-   "tipo": "compra",
-   "ticker": "CAKE",
-   "nome": "Cheesecake Factory Incorporated (The) Co",
-   "percentile": 0.9975660639777468
+   "q": 1.822515271324732,
+   "costo_eur": 666.6666666666666,
+   "data": "2026-11-16",
+   "prezzo_eur": 363.9658573895933,
+   "var_giorno": 0.0,
+   "percentile": 0.9991809991809992
   }
- ],
- "spy": null,
- "valore": 2000.0,
+ },
+ "ordini": [],
+ "spy": {
+  "q": 2.9208642489575714,
+  "valore": 1994.0
+ },
+ "valore": 1990.0,
  "nota": "",
  "valore_prec": 2000.0
 }

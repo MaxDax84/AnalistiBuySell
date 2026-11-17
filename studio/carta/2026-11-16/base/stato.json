@@ -1,0 +1,46 @@
+{
+ "inizio": "2026-11-16",
+ "ultima_data": "2026-11-16",
+ "cassa": 2000.0,
+ "capitale": 2000.0,
+ "credito_minus": 0.0,
+ "costi": 0.0,
+ "tasse": 0.0,
+ "posizioni": {},
+ "ordini": [
+  {
+   "tipo": "compra",
+   "ticker": "REP.MC",
+   "nome": "Repsol",
+   "percentile": 0.9934042553191489
+  },
+  {
+   "tipo": "compra",
+   "ticker": "DRTS",
+   "nome": "Alpha Tau Medical Ltd. Ordinary Shares",
+   "percentile": 0.9934042553191489
+  },
+  {
+   "tipo": "compra",
+   "ticker": "SPM.MI",
+   "nome": "Saipem",
+   "percentile": 0.9934042553191489
+  },
+  {
+   "tipo": "compra",
+   "ticker": "RNG",
+   "nome": "RingCentral, Inc. Class A Common Stock",
+   "percentile": 0.985531914893617
+  },
+  {
+   "tipo": "compra",
+   "ticker": "VLO",
+   "nome": "Valero Energy Corporation Common Stock",
+   "percentile": 0.9817021276595744
+  }
+ ],
+ "spy": null,
+ "valore": 2000.0,
+ "nota": "",
+ "valore_prec": 2000.0
+}

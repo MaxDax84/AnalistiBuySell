@@ -1,0 +1,15 @@
+{
+ "inizio": "2026-11-16",
+ "ultima_data": "2026-11-16",
+ "cassa": 2000.0,
+ "capitale": 2000.0,
+ "credito_minus": 0.0,
+ "costi": 0.0,
+ "tasse": 0.0,
+ "posizioni": {},
+ "ordini": [],
+ "spy": null,
+ "valore": 2000.0,
+ "nota": "",
+ "valore_prec": 2000.0
+}

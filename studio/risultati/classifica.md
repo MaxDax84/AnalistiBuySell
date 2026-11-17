@@ -1,54 +1,54 @@
-# Classifica di tutte le azioni comprabili (2072 titoli, al 13/11/2026)
+# Classifica di tutte le azioni comprabili (2350 titoli, al 16/11/2026)
 
 ## I primi 25
 
 | Ticker | Nome | mercato | percentile | prezzo | rend_12m_% | rend_1m_% | volatilita_annua_% | dal_max_52_% | market_cap_M$ |
 |---|---|---|---|---|---|---|---|---|---|
-| ASX | ASE Technology Holding Co., Ltd. American Depositary Shares (each representing Two Common Shares)  | USA | 100.0 | 35.5 | 206.2 | -15.1 | 77.5 | -25.3 | 80.858.7 |
-| DRTS | Alpha Tau Medical Ltd. Ordinary Shares | USA | 100.0 | 13.4 | 244.5 | 1.7 | 43.3 | -13.7 | 1.235.5 |
-| STMPA.PA | STMicroelectronics | Francia | 99.9 | 42.3 | 122.5 | 2.2 | 50.6 | -38.9 |  |
-| STMMI.MI | STMicroelectronics | Italia | 99.9 | 42.4 | 122.6 | 2.3 | 50.7 | -38.8 |  |
-| SPM.MI | Saipem | Italia | 99.8 | 4.3 | 102.4 | -3.2 | 30.3 | -11.5 |  |
-| SLS | SELLAS Life Sciences Group, Inc. Common Stock | USA | 99.8 | 7.9 | 641.2 | -30.7 | 93.4 | -49.2 | 1.637.0 |
-| TPRO.MI | Technoprobe | Italia | 99.7 | 22.6 | 146.8 | -19.2 | 66.9 | -40.7 |  |
-| KRSA | Korsana Biosciences, Inc. Common Stock | USA | 99.7 | 31.6 | 224.8 | -5.9 | 119.3 | -29.1 | 1.424.5 |
-| ICHR | Ichor Holdings Ordinary Shares | USA | 99.6 | 35.7 | 214.4 | -23.4 | 83.7 | -68.2 | 1.393.0 |
-| ETON | Eton Pharmaceuticals, Inc. Common Stock | USA | 99.6 | 63.9 | 211.8 | 24.5 | 73.1 | -6.5 | 1.772.4 |
-| SNDK | Sandisk Corporation Common Stock | USA | 99.5 | 885.0 | 596.5 | -36.6 | 91.8 | -62.1 | 133.390.6 |
-| AAOI | Applied Optoelectronics, Inc. Common Stock | USA | 99.5 | 49.9 | 306.9 | -40.4 | 108.0 | -77.6 | 4.797.2 |
-| BFLY | Butterfly Network, Inc. Class A Common Stock | USA | 99.4 | 6.1 | 196.2 | -22.5 | 95.3 | -38.8 | 1.786.6 |
-| BAND | Bandwidth Inc. Class A Common Stock | USA | 99.4 | 43.8 | 254.0 | -11.8 | 101.2 | -44.2 | 1.499.0 |
-| ATEX | Anterix Inc. Common Stock | USA | 99.3 | 80.1 | 315.1 | -5.1 | 68.9 | -25.9 | 1.626.7 |
-| ABCL | AbCellera Biologics Inc. Common Shares | USA | 99.3 | 11.5 | 261.3 | -9.4 | 80.4 | -22.5 | 3.795.3 |
-| AGL | agilon health, inc. Common Stock | USA | 99.2 | 115.7 | 469.7 | 30.8 | 60.5 | -10.9 | 1.851.3 |
-| ABSI | Absci Corporation Common Stock | USA | 99.2 | 8.4 | 203.1 | -4.8 | 106.2 | -30.2 | 1.578.0 |
-| MRNA | Moderna, Inc. Common Stock | USA | 99.1 | 223.4 | 897.0 | -5.6 | 93.7 | -17.0 | 93.609.1 |
-| LIND | Lindblad Expeditions Holdings Inc. Common Stock | USA | 99.1 | 34.5 | 196.8 | -2.6 | 54.2 | -7.6 | 2.240.9 |
-| AEHR | Aehr Test Systems Common Stock | USA | 99.0 | 57.0 | 241.4 | -17.7 | 119.6 | -60.9 | 2.001.8 |
-| AXTI | AXT Inc Common Stock | USA | 99.0 | 41.8 | 548.5 | -27.7 | 127.4 | -70.3 | 2.861.6 |
-| CLMT | Calumet, Inc. Common Stock | USA | 98.9 | 34.3 | 212.3 | -41.1 | 52.2 | -41.9 | 3.211.0 |
-| CDNA | CareDx, Inc. Common Stock | USA | 98.9 | 77.9 | 288.1 | 16.8 | 72.3 | -12.0 | 4.193.4 |
-| LITE | Lumentum Holdings Inc. Common Stock | USA | 98.8 | 596.6 | 240.2 | -31.4 | 100.8 | -47.4 | 56.655.8 |
+| PENG | Penguin Solutions, Inc. Common Stock | USA | 100.0 | 44.2 | 215.5 | -22.6 | 108.3 | -45.7 | 2.870.8 |
+| KRSA | Korsana Biosciences, Inc. Common Stock | USA | 100.0 | 32.7 | 210.5 | 0.9 | 119.4 | -26.8 | 1.441.4 |
+| BUUU | BUUU Group Limited Class A Ordinary Share | USA | 99.9 | 5.5 | 416.4 | 33.1 | 123.5 | -25.5 | 1.057.5 |
+| DRTS | Alpha Tau Medical Ltd. Ordinary Shares | USA | 99.9 | 12.0 | 236.7 | -2.6 | 48.2 | -22.8 | 1.237.4 |
+| LIND | Lindblad Expeditions Holdings Inc. Common Stock | USA | 99.8 | 33.3 | 194.5 | -3.6 | 54.6 | -10.9 | 2.268.5 |
+| SLS | SELLAS Life Sciences Group, Inc. Common Stock | USA | 99.8 | 7.5 | 543.9 | -25.2 | 92.8 | -51.7 | 1.602.3 |
+| KOD | Kodiak Sciences Inc Common Stock | USA | 99.7 | 100.7 | 292.1 | 17.5 | 370.6 | -9.4 | 7.271.3 |
+| STMMI.MI | STMicroelectronics | Italia | 99.7 | 41.9 | 117.3 | 1.9 | 50.5 | -39.4 |  |
+| REP.MC | Repsol | Spagna | 99.7 | 30.9 | 102.0 | 3.7 | 33.7 | -2.1 |  |
+| SPM.MI | Saipem | Italia | 99.6 | 4.2 | 104.8 | -8.1 | 30.3 | -12.5 |  |
+| AXTI | AXT Inc Common Stock | USA | 99.6 | 38.5 | 451.1 | -25.3 | 127.5 | -72.7 | 2.749.8 |
+| AAOI | Applied Optoelectronics, Inc. Common Stock | USA | 99.5 | 45.2 | 236.3 | -40.2 | 106.2 | -79.8 | 4.528.6 |
+| MXL | MaxLinear, Inc. Common Stock | USA | 99.5 | 52.0 | 382.2 | -27.1 | 117.8 | -59.4 | 5.076.0 |
+| ABCL | AbCellera Biologics Inc. Common Shares | USA | 99.4 | 11.1 | 230.5 | -5.8 | 79.6 | -25.0 | 3.752.8 |
+| AEHR | Aehr Test Systems Common Stock | USA | 99.4 | 51.0 | 190.4 | -15.9 | 121.0 | -65.0 | 1.868.6 |
+| MU | Micron Technology, Inc. Common Stock | USA | 99.4 | 719.0 | 292.9 | -18.2 | 71.0 | -40.7 | 880.598.0 |
+| CLMT | Calumet, Inc. Common Stock | USA | 99.3 | 32.0 | 211.2 | -44.7 | 53.5 | -45.9 | 3.021.6 |
+| ECO | Okeanis Eco Tankers Corp. Common Stock | USA | 99.3 | 84.8 | 183.1 | -5.4 | 57.2 | -16.5 | 3.471.9 |
+| IOVA | Iovance Biotherapeutics, Inc. Common Stock | USA | 99.2 | 7.6 | 444.8 | -44.6 | 119.9 | -49.2 | 3.590.2 |
+| CDNA | CareDx, Inc. Common Stock | USA | 99.2 | 73.7 | 256.3 | 15.2 | 73.2 | -16.7 | 4.092.0 |
+| SNDK | Sandisk Corporation Common Stock | USA | 99.1 | 809.1 | 472.5 | -37.7 | 92.5 | -65.3 | 125.927.5 |
+| DELL | Dell Technologies Inc. Class C Common Stock  | USA | 99.1 | 320.5 | 258.3 | -28.9 | 88.9 | -45.4 | 218.897.6 |
+| TPRO.MI | Technoprobe | Italia | 99.1 | 22.0 | 131.0 | -17.1 | 66.8 | -42.3 |  |
+| BAND | Bandwidth Inc. Class A Common Stock | USA | 99.0 | 40.9 | 211.1 | -5.6 | 102.0 | -47.8 | 1.417.1 |
+| ATEX | Anterix Inc. Common Stock | USA | 99.0 | 76.7 | 299.6 | -4.6 | 69.1 | -29.1 | 1.576.5 |
 
 ## I primi 15 europei
 
 | Ticker | Nome | mercato | percentile | prezzo | rend_12m_% | rend_1m_% | volatilita_annua_% | dal_max_52_% |
 |---|---|---|---|---|---|---|---|---|
-| STMPA.PA | STMicroelectronics | Francia | 99.9 | 42.3 | 122.5 | 2.2 | 50.6 | -38.9 |
-| STMMI.MI | STMicroelectronics | Italia | 99.9 | 42.4 | 122.6 | 2.3 | 50.7 | -38.8 |
-| SPM.MI | Saipem | Italia | 99.8 | 4.3 | 102.4 | -3.2 | 30.3 | -11.5 |
-| TPRO.MI | Technoprobe | Italia | 99.7 | 22.6 | 146.8 | -19.2 | 66.9 | -40.7 |
-| AIXA.DE | Aixtron | Germania | 98.2 | 33.7 | 90.4 | 8.8 | 70.1 | -44.2 |
-| CCC.L | Computacenter | Regno Unito | 97.5 | 4.974.0 | 79.7 | -3.6 | 51.7 | -12.7 |
-| DIS.MI | D'Amico International Shipping | Italia | 96.6 | 8.5 | 68.4 | -1.4 | 37.7 | -6.8 |
-| ENI.MI | Eni | Italia | 96.5 | 25.5 | 68.4 | -1.2 | 24.7 | -7.9 |
-| MT.AS | ArcelorMittal | Francia | 96.5 | 58.8 | 67.7 | 4.0 | 32.9 | -12.7 |
-| BAYN.DE | Bayer | Germania | 95.7 | 56.6 | 61.5 | 27.4 | 31.9 | -0.9 |
-| MB.MI | Mediobanca | Italia | 94.9 | 27.2 | 55.7 | 7.0 | 25.8 | -6.4 |
-| TEN.MI | Tenaris | Italia | 94.9 | 27.6 | 55.5 | 7.4 | 31.8 | -0.5 |
-| WAF.DE | Siltronic | Germania | 94.2 | 56.8 | 52.7 | -13.0 | 69.2 | -45.8 |
-| SWED-A.ST | Swedbank A | Svezia | 94.1 | 420.7 | 52.2 | 6.0 | 19.8 | 0.0 |
-| ACX.MC | Acerinox | Spagna | 93.9 | 15.9 | 51.6 | -4.7 | 27.7 | -13.7 |
+| STMMI.MI | STMicroelectronics | Italia | 99.7 | 41.9 | 117.3 | 1.9 | 50.5 | -39.4 |
+| REP.MC | Repsol | Spagna | 99.7 | 30.9 | 102.0 | 3.7 | 33.7 | -2.1 |
+| SPM.MI | Saipem | Italia | 99.6 | 4.2 | 104.8 | -8.1 | 30.3 | -12.5 |
+| TPRO.MI | Technoprobe | Italia | 99.1 | 22.0 | 131.0 | -17.1 | 66.8 | -42.3 |
+| JEN.DE | Jenoptik | Germania | 98.4 | 36.1 | 92.5 | -1.5 | 53.9 | -23.9 |
+| AIXA.DE | Aixtron | Germania | 98.3 | 32.1 | 91.0 | -2.3 | 70.5 | -46.8 |
+| EVK.DE | Evonik | Germania | 97.6 | 21.3 | 73.7 | -0.5 | 25.1 | -0.9 |
+| ASML.AS | ASML Holding | Paesi Bassi | 97.4 | 1.338.8 | 72.8 | -9.2 | 39.9 | -22.0 |
+| ENI.MI | Eni | Italia | 97.3 | 26.0 | 70.9 | 0.1 | 24.4 | -6.1 |
+| GLEN.L | Glencore | Regno Unito | 97.2 | 510.4 | 69.8 | -12.5 | 28.2 | -18.9 |
+| TKA.DE | ThyssenKrupp | Germania | 97.2 | 12.1 | 69.0 | -15.5 | 54.1 | -22.5 |
+| DIS.MI | D'Amico International Shipping | Italia | 96.6 | 8.2 | 64.4 | 2.9 | 37.4 | -6.0 |
+| MT.AS | ArcelorMittal | Francia | 96.4 | 57.0 | 62.9 | 0.6 | 33.4 | -15.4 |
+| MTS.MC | ArcelorMittal | Spagna | 96.4 | 57.0 | 62.8 | 0.7 | 33.2 | -15.4 |
+| ABN.AS | ABN AMRO | Paesi Bassi | 96.1 | 42.1 | 60.8 | 2.8 | 26.9 | -4.2 |
 
 ## Il tuo portafoglio
 

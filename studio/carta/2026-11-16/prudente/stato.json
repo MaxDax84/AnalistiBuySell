@@ -1,0 +1,46 @@
+{
+ "inizio": "2026-11-16",
+ "ultima_data": "2026-11-16",
+ "cassa": 2000.0,
+ "capitale": 2000.0,
+ "credito_minus": 0.0,
+ "costi": 0.0,
+ "tasse": 0.0,
+ "posizioni": {},
+ "ordini": [
+  {
+   "tipo": "compra",
+   "ticker": "SWED-A.ST",
+   "nome": "Swedbank A",
+   "percentile": 0.9997952497952498
+  },
+  {
+   "tipo": "compra",
+   "ticker": "MPC",
+   "nome": "Marathon Petroleum Corporation Common St",
+   "percentile": 0.9991809991809992
+  },
+  {
+   "tipo": "compra",
+   "ticker": "PBAM",
+   "nome": "Private Bancorp of America, Inc. Common ",
+   "percentile": 0.9983619983619983
+  },
+  {
+   "tipo": "compra",
+   "ticker": "REP.MC",
+   "nome": "Repsol",
+   "percentile": 0.9967239967239967
+  },
+  {
+   "tipo": "compra",
+   "ticker": "PAA",
+   "nome": "Plains All American Pipeline, L.P. Commo",
+   "percentile": 0.9954954954954955
+  }
+ ],
+ "spy": null,
+ "valore": 2000.0,
+ "nota": "",
+ "valore_prec": 2000.0
+}

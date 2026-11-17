@@ -1,46 +1,55 @@
 {
  "inizio": "2026-11-13",
- "ultima_data": "2026-11-13",
- "cassa": 2000.0,
+ "ultima_data": "2026-11-16",
+ "cassa": 0.0,
  "capitale": 2000.0,
  "credito_minus": 0.0,
- "costi": 0.0,
+ "costi": 12.0,
  "tasse": 0.0,
- "posizioni": {},
- "ordini": [
-  {
-   "tipo": "compra",
-   "ticker": "SPM.MI",
+ "posizioni": {
+  "SPM.MI": {
    "nome": "Saipem",
-   "percentile": 0.9929262844378257
+   "q": 117.77251770371032,
+   "costo_eur": 500.0,
+   "data": "2026-11-16",
+   "prezzo_eur": 4.21999979019165,
+   "var_giorno": 0.0,
+   "percentile": 0.9934042553191489
   },
-  {
-   "tipo": "compra",
-   "ticker": "REP.MC",
+  "REP.MC": {
    "nome": "Repsol",
-   "percentile": 0.9929262844378257
+   "q": 16.089349621889273,
+   "costo_eur": 500.0,
+   "data": "2026-11-16",
+   "prezzo_eur": 30.889999389648438,
+   "var_giorno": 0.0,
+   "percentile": 0.9934042553191489
   },
-  {
-   "tipo": "compra",
-   "ticker": "DRTS",
+  "DRTS": {
    "nome": "Alpha Tau Medical Ltd. Ordinary Shares",
-   "percentile": 0.9929262844378257
+   "q": 45.88099776081737,
+   "costo_eur": 500.0,
+   "data": "2026-11-16",
+   "prezzo_eur": 10.832371226774862,
+   "var_giorno": 0.0,
+   "percentile": 0.9934042553191489
   },
-  {
-   "tipo": "compra",
-   "ticker": "RNG",
+  "RNG": {
    "nome": "RingCentral, Inc. Class A Common Stock",
-   "percentile": 0.9847356664184661
-  },
-  {
-   "tipo": "compra",
-   "ticker": "IRDM",
-   "nome": "Iridium Communications Inc Common Stock",
-   "percentile": 0.9832464631422189
+   "q": 7.392590505860995,
+   "costo_eur": 500.0,
+   "data": "2026-11-16",
+   "prezzo_eur": 67.22947789492308,
+   "var_giorno": 0.0,
+   "percentile": 0.985531914893617
   }
- ],
- "spy": null,
- "valore": 2000.0,
+ },
+ "ordini": [],
+ "spy": {
+  "q": 2.9208642489575714,
+  "valore": 1994.0
+ },
+ "valore": 1988.0,
  "cambi": {
   "EURCHF=X": 0.9236900210380554,
   "EURGBP=X": 0.8350200057029724,
@@ -48,5 +57,6 @@
   "EURUSD=X": 1.1050212383270264,
   "SPY": 754.3699951171875
  },
- "valore_prec": 2000.0
+ "valore_prec": 2000.0,
+ "nota": ""
 }
