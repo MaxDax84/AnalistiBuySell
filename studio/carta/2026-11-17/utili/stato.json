@@ -12,31 +12,36 @@
    "tipo": "compra",
    "ticker": "PBAM",
    "nome": "Private Bancorp of America, Inc. Common ",
-   "percentile": 0.9993021632937893
+   "percentile": 0.9993021632937893,
+   "isin": ""
   },
   {
    "tipo": "compra",
    "ticker": "MPC",
    "nome": "Marathon Petroleum Corporation Common St",
-   "percentile": 0.9989532449406838
+   "percentile": 0.9989532449406838,
+   "isin": "US56585A1025"
   },
   {
    "tipo": "compra",
    "ticker": "REP.MC",
    "nome": "Repsol",
-   "percentile": 0.9972086531751571
+   "percentile": 0.9972086531751571,
+   "isin": "ES0173516115"
   },
   {
    "tipo": "compra",
    "ticker": "CLDT",
    "nome": "Chatham Lodging Trust (REIT) Common Shar",
-   "percentile": 0.9968597348220516
+   "percentile": 0.9968597348220516,
+   "isin": "US16208T1025"
   },
   {
    "tipo": "compra",
    "ticker": "CAKE",
    "nome": "Cheesecake Factory Incorporated (The) Co",
-   "percentile": 0.9965108164689462
+   "percentile": 0.9965108164689462,
+   "isin": "US1630721017"
   }
  ],
  "rif": null,

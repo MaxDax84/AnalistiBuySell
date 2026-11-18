@@ -12,31 +12,36 @@
    "tipo": "compra",
    "ticker": "SWED-A.ST",
    "nome": "Swedbank A",
-   "percentile": 0.9998255408234473
+   "percentile": 0.9998255408234473,
+   "isin": "SE0000242455"
   },
   {
    "tipo": "compra",
    "ticker": "WCCB",
    "nome": "West Coast Community Bancorp Common Stoc",
-   "percentile": 0.9998255408234473
+   "percentile": 0.9998255408234473,
+   "isin": "US9521701089"
   },
   {
    "tipo": "compra",
    "ticker": "PBAM",
    "nome": "Private Bancorp of America, Inc. Common ",
-   "percentile": 0.9993021632937893
+   "percentile": 0.9993021632937893,
+   "isin": ""
   },
   {
    "tipo": "compra",
    "ticker": "MPC",
    "nome": "Marathon Petroleum Corporation Common St",
-   "percentile": 0.9989532449406838
+   "percentile": 0.9989532449406838,
+   "isin": "US56585A1025"
   },
   {
    "tipo": "compra",
    "ticker": "REP.MC",
    "nome": "Repsol",
-   "percentile": 0.9972086531751571
+   "percentile": 0.9972086531751571,
+   "isin": "ES0173516115"
   }
  ],
  "rif": null,

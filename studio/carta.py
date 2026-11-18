@@ -58,6 +58,11 @@ def num(v: float, dec: int = 0, segno: bool = False) -> str:
     return t.replace(",", "X").replace(".", ",").replace("X", ".")
 
 
+def breve(nome: str) -> str:
+    """Nome dell'azienda senza la coda del listino americano ("Common Stock", "Class A", "Ordinary Shares"...)."""
+    return re.split(r",? (Common|Ordinary|Class [A-Z]|American Depositary|\(The\))", nome)[0].strip()
+
+
 def scrivi_riga(percorso, riga: dict) -> None:
     nuovo = not percorso.exists()
     with percorso.open("a", newline="", encoding="utf-8") as fh:
@@ -77,6 +82,7 @@ def aggiorna() -> str:
 
     from modelli import RIFERIMENTO, dati, freno_mercato, opzioni, punteggio, scarica_cambi, scegli
     from piano import CAPITALE, FISSO, SOGLIA_IN, SOGLIA_OUT, SPREAD, tassa_vendita
+    from isin import isin_di
     from revisioni import raccogli
 
     larga = dati("data")                    # tutti i titoli scaricati: da qui si leggono i prezzi
@@ -210,7 +216,15 @@ def aggiorna() -> str:
                                 d["r"].values, len(d["close"]) - 1, o["corr_max"])
                 for j in scelti:
                     t = colonne[j]
-                    st["ordini"].append({"tipo": "compra", "ticker": t, "nome": str(nomi.get(t, t))[:40], "percentile": float(pct[t].iloc[-1])})
+                    st["ordini"].append({"tipo": "compra", "ticker": t, "nome": str(nomi.get(t, t))[:60], "percentile": float(pct[t].iloc[-1])})
+
+        # ISIN verificato di ogni titolo citato nel messaggio (vuoto se non si è potuto verificare)
+        citati = {**{t: p["nome"] for t, p in st["posizioni"].items()}, **{x["ticker"]: x["nome"] for x in st["ordini"]}}
+        codici = isin_di({t: str(nomi.get(t, n)) for t, n in citati.items()})
+        for t, pos in st["posizioni"].items():
+            pos["isin"] = codici.get(t, "")
+        for x in st["ordini"]:
+            x["isin"] = codici.get(x["ticker"], "")
 
         st["valore_prec"], st["ultima_data"] = valore_prec, data
         scrivi_riga(f_storico, {"data": data, "valore_eur": round(st["valore"], 2), "pl_giorno_eur": round(st["valore"] - valore_prec, 2),
@@ -246,13 +260,13 @@ def blocco(i: int, etichetta: str, st: dict) -> list[str]:
         for t, p in sorted(st["posizioni"].items(), key=lambda kv: -kv[1]["q"] * kv[1]["prezzo_eur"]):
             tot = p["q"] * p["prezzo_eur"] / p["costo_eur"] - 1
             perc = f"{100 * p['percentile']:.0f}°" if p["percentile"] is not None else "fuori classifica"
-            righe.append(f"  {'🟢' if tot >= 0 else '🔴'} {t}: oggi {num(100 * p['var_giorno'], 1, True)}% · "
+            righe.append(f"  {'🟢' if tot >= 0 else '🔴'} {t}{' (' + p['isin'] + ')' if p.get('isin') else ''}: oggi {num(100 * p['var_giorno'], 1, True)}% · "
                          f"totale {num(100 * tot, 1, True)}% · {perc}")
         if st["cassa"] >= 1:
             righe.append(f"  💶 Cassa: {num(st['cassa'])} €")
     for o in st["ordini"]:
-        righe.append(f"  {'🛒 COMPRA' if o['tipo'] == 'compra' else '💸 VENDI'} {o['ticker']} ({o['nome']})"
-                     + (" · in attesa del prezzo" if o.get("tentativi") else ""))
+        righe.append(f"  {'🛒 COMPRA' if o['tipo'] == 'compra' else '💸 VENDI'} {o['ticker']} · {breve(o['nome'])}"
+                     + (f" · ISIN {o['isin']}" if o.get("isin") else "") + (" · in attesa del prezzo" if o.get("tentativi") else ""))
     if st.get("nota"):
         righe.append(f"  ✋ {st['nota']}")
     if st["posizioni"] and not st["ordini"] and not st.get("nota"):

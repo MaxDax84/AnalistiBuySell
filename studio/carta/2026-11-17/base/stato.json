@@ -12,31 +12,36 @@
    "tipo": "compra",
    "ticker": "DRTS",
    "nome": "Alpha Tau Medical Ltd. Ordinary Shares",
-   "percentile": 0.9928918817807707
+   "percentile": 0.9928918817807707,
+   "isin": "IL0011839383"
   },
   {
    "tipo": "compra",
    "ticker": "REP.MC",
    "nome": "Repsol",
-   "percentile": 0.9928918817807707
+   "percentile": 0.9928918817807707,
+   "isin": "ES0173516115"
   },
   {
    "tipo": "compra",
    "ticker": "SPM.MI",
    "nome": "Saipem",
-   "percentile": 0.9928918817807707
+   "percentile": 0.9928918817807707,
+   "isin": "IT0005495657"
   },
   {
    "tipo": "compra",
    "ticker": "RNG",
    "nome": "RingCentral, Inc. Class A Common Stock",
-   "percentile": 0.9854096520763187
+   "percentile": 0.9854096520763187,
+   "isin": "US76680R2067"
   },
   {
    "tipo": "compra",
    "ticker": "IRDM",
    "nome": "Iridium Communications Inc Common Stock",
-   "percentile": 0.9831649831649831
+   "percentile": 0.9831649831649831,
+   "isin": "US46269C1027"
   }
  ],
  "rif": null,
