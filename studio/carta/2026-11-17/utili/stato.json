@@ -1,0 +1,46 @@
+{
+ "inizio": "2026-11-17",
+ "ultima_data": "2026-11-17",
+ "cassa": 2000.0,
+ "capitale": 2000.0,
+ "credito_minus": 0.0,
+ "costi": 0.0,
+ "tasse": 0.0,
+ "posizioni": {},
+ "ordini": [
+  {
+   "tipo": "compra",
+   "ticker": "PBAM",
+   "nome": "Private Bancorp of America, Inc. Common ",
+   "percentile": 0.9993021632937893
+  },
+  {
+   "tipo": "compra",
+   "ticker": "MPC",
+   "nome": "Marathon Petroleum Corporation Common St",
+   "percentile": 0.9989532449406838
+  },
+  {
+   "tipo": "compra",
+   "ticker": "REP.MC",
+   "nome": "Repsol",
+   "percentile": 0.9972086531751571
+  },
+  {
+   "tipo": "compra",
+   "ticker": "CLDT",
+   "nome": "Chatham Lodging Trust (REIT) Common Shar",
+   "percentile": 0.9968597348220516
+  },
+  {
+   "tipo": "compra",
+   "ticker": "CAKE",
+   "nome": "Cheesecake Factory Incorporated (The) Co",
+   "percentile": 0.9965108164689462
+  }
+ ],
+ "rif": null,
+ "valore": 2000.0,
+ "nota": "",
+ "valore_prec": 2000.0
+}

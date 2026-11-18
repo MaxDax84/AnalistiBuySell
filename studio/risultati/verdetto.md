@@ -1,12 +1,12 @@
-## VERDETTO DI OGGI (17/11/2026): BUY
+## VERDETTO DI OGGI (18/11/2026): BUY
 
 occasione ordinaria: una tranche più grande del solito.
 
-Lettura al 17/11/2026: S&P 500 7,341 (-6.1% dal massimo di 1 anno, MM200 7,351), VIX 25.5, spread HY 3.34 (+0.64 in 60 gg), HYG -2.7% in 60 gg, curva 10a-3m +0.77, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 74°
+Lettura al 18/11/2026: S&P 500 7,341 (-6.1% dal massimo di 1 anno, MM200 7,354), VIX 24.0, spread HY 3.34 (+0.67 in 60 gg), HYG -2.6% in 60 gg, curva 10a-3m +0.77, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 75°
   - Tendenza (prezzo vs media 200 giorni): **sotto MM200**
   - Momentum 12 mesi: **12 mesi positivi**
   - Paura (VIX): **VIX 20-30**
-  - Sentiment: struttura a termine del VIX (dal 2006): **inversione (VIX sopra il VIX3M)**
+  - Sentiment: struttura a termine del VIX (dal 2006): **normale (VIX sotto il VIX3M)**
   - Sentiment: SKEW, costo della protezione (dal 2000): **SKEW alto (top 20%)**
   - Sentiment: VVIX, volatilità della volatilità (dal 2007): **VVIX > 110**
   - Credito (HYG, variazione 60 gg, dal 2007): **credito tranquillo**
@@ -42,7 +42,6 @@ Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usa
 
 | data | SP | VIX | dal_massimo_% | HYG_60gg_% | verdetto |
 |---|---|---|---|---|---|
-| 2026-08-26 00:00:00 | 7.675.7 | 15.2 | -1.6 | 1.0 | WAIT |
 | 2026-08-27 00:00:00 | 7.731.0 | 14.5 | -0.9 | 0.9 | WAIT |
 | 2026-08-28 00:00:00 | 7.711.8 | 14.4 | -1.1 | 1.0 | WAIT |
 | 2026-08-31 00:00:00 | 7.686.1 | 14.9 | -1.4 | 0.9 | WAIT |
@@ -102,3 +101,4 @@ Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usa
 | 2026-11-13 00:00:00 | 7.561.7 | 19.3 | -3.3 | -1.9 | WAIT |
 | 2026-11-16 00:00:00 | 7.416.6 | 22.9 | -5.1 | -2.3 | BUY |
 | 2026-11-17 00:00:00 | 7.340.5 | 25.5 | -6.1 | -2.7 | BUY |
+| 2026-11-18 00:00:00 | 7.340.5 | 24.0 | -6.1 | -2.6 | BUY |

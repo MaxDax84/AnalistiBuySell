@@ -1,0 +1,46 @@
+{
+ "inizio": "2026-11-17",
+ "ultima_data": "2026-11-17",
+ "cassa": 2000.0,
+ "capitale": 2000.0,
+ "credito_minus": 0.0,
+ "costi": 0.0,
+ "tasse": 0.0,
+ "posizioni": {},
+ "ordini": [
+  {
+   "tipo": "compra",
+   "ticker": "DRTS",
+   "nome": "Alpha Tau Medical Ltd. Ordinary Shares",
+   "percentile": 0.9928918817807707
+  },
+  {
+   "tipo": "compra",
+   "ticker": "REP.MC",
+   "nome": "Repsol",
+   "percentile": 0.9928918817807707
+  },
+  {
+   "tipo": "compra",
+   "ticker": "SPM.MI",
+   "nome": "Saipem",
+   "percentile": 0.9928918817807707
+  },
+  {
+   "tipo": "compra",
+   "ticker": "RNG",
+   "nome": "RingCentral, Inc. Class A Common Stock",
+   "percentile": 0.9854096520763187
+  },
+  {
+   "tipo": "compra",
+   "ticker": "IRDM",
+   "nome": "Iridium Communications Inc Common Stock",
+   "percentile": 0.9831649831649831
+  }
+ ],
+ "rif": null,
+ "valore": 2000.0,
+ "nota": "",
+ "valore_prec": 2000.0
+}
