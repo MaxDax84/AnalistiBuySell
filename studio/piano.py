@@ -29,7 +29,7 @@ from classifica import fattori, punteggi
 from config import DATI, RISULTATI
 from prezzi_ampi import carica
 import modelli
-from modelli import MODELLI, dati, freno_mercato, opzioni, punteggio, scegli
+from modelli import MODELLI, NOME_RIFERIMENTO, RIFERIMENTO, dati, freno_mercato, in_euro, opzioni, punteggio, scegli, scarica_cambi
 from universo_ampio import FILE_UNIVERSO_AMPIO, simboli_classifica
 
 CAPITALE = 2000.0
@@ -237,9 +237,9 @@ def confronta_modelli(lungo: bool = False):
     date, T = base["close"].index, len(base["close"])
     primo = int(np.argmax(base["f"]["ammesso"].values.sum(axis=1) > 200))
     partenze = list(range(primo, T - ORIZZONTE - 2, PASSO_PARTENZE))
-    spy = base["spy"] if lungo else pd.read_csv(DATI / "prezzi.csv", index_col=0, parse_dates=True)["SPY"]
-    spy = spy.reindex(date).ffill().values
-    bench = np.array([benchmark(spy, s, s + ORIZZONTE) for s in partenze])
+    cambi = scarica_cambi()      # tutto in euro: titoli al cambio del giorno, confronto con l'ETF MSCI World in euro
+    rif = cambi[RIFERIMENTO].reindex(date, method="ffill").values
+    bench = np.array([benchmark(rif, s, s + ORIZZONTE) for s in partenze])
     anni = np.array([date[s].year for s in partenze])
     freno = freno_mercato(date)
     print(f"{len(partenze)} partenze dal {date[primo]:%d/%m/%Y}; giorni con freno di mercato: {100 * freno[primo:].mean():.0f}%")
@@ -250,23 +250,24 @@ def confronta_modelli(lungo: bool = False):
         o = opzioni(modello)
         d = dati(o["universo"])
         score = punteggio(d, o["segnale"])
-        P, PC, SC = d["close"].values, score.rank(axis=1, pct=True).values, score.fillna(-9).values
+        P, PC, SC = in_euro(d, cambi), score.rank(axis=1, pct=True).values, score.fillna(-9).values
         VOLA, AMM = (d["f"]["volatilita_60"] * np.sqrt(252)).values, d["f"]["ammesso"].values.astype(bool)
         print("...", nome, flush=True)
         ris = pd.DataFrame([corsa(s, s + ORIZZONTE, 5, "prudente" if o["vol_max"] else "puro", 1, P, PC, SC, VOLA, AMM, conferma=5,
                                   R=d["r"].values, corr_max=o["corr_max"], freno=freno if o["freno"] else None) for s in partenze])
         fin = ris["finale"].values
         riga = {"modello": nome, "finale mediano €": np.median(fin), "finale medio €": fin.mean(), "peggiore €": fin.min(),
-                "migliore €": fin.max(), "in guadagno %": 100 * (fin > CAPITALE).mean(), "batte SPY %": 100 * (fin > bench).mean(),
-                "vantaggio mediano su SPY €": np.median(fin - bench), "ordini medi": ris["ordini"].mean(),
+                "migliore €": fin.max(), "in guadagno %": 100 * (fin > CAPITALE).mean(),
+                f"batte {NOME_RIFERIMENTO} %": 100 * (fin > bench).mean(),
+                f"vantaggio mediano su {NOME_RIFERIMENTO} €": np.median(fin - bench), "ordini medi": ris["ordini"].mean(),
                 "tasse medie €": ris["tasse"].mean(), "calo peggiore mediano %": 100 * ris["calo"].median(),
                 "calo peggiore in assoluto %": 100 * ris["calo"].min(), "sotto -20% a fine anno %": 100 * (fin < 0.8 * CAPITALE).mean(),
-                "anni di partenza in cui batte SPY": f"{sum(np.median(fin[anni == a] - bench[anni == a]) > 0 for a in set(anni))}/{len(set(anni))}"}
+                f"anni di partenza in cui batte {NOME_RIFERIMENTO}": f"{sum(np.median(fin[anni == a] - bench[anni == a]) > 0 for a in set(anni))}/{len(set(anni))}"}
         for a in sorted(set(anni)):
             m = anni == a
-            riga[f"{a}: vs SPY €"] = np.median(fin[m] - bench[m])
+            riga[f"{a}: vs {NOME_RIFERIMENTO} €"] = np.median(fin[m] - bench[m])
         righe.append(riga)
-    righe.append({"modello": "SPY", "finale mediano €": np.median(bench), "finale medio €": bench.mean(), "peggiore €": bench.min(),
+    righe.append({"modello": NOME_RIFERIMENTO, "finale mediano €": np.median(bench), "finale medio €": bench.mean(), "peggiore €": bench.min(),
                   "migliore €": bench.max(), "in guadagno %": 100 * (bench > CAPITALE).mean()})
     tab = pd.DataFrame(righe)
     tab.to_csv(RISULTATI / ("piano_modelli_lungo.csv" if lungo else "piano_modelli.csv"), index=False)
@@ -282,16 +283,17 @@ def rumore(prove: int = 20):
     date, T = d["close"].index, len(d["close"])
     primo = int(np.argmax(dati("oggi")["f"]["ammesso"].values.sum(axis=1) > 200))
     partenze = list(range(primo, T - ORIZZONTE - 2, PASSO_PARTENZE))
-    spy = pd.read_csv(DATI / "prezzi.csv", index_col=0, parse_dates=True)["SPY"].reindex(date).ffill().values
-    bench = np.array([benchmark(spy, s, s + ORIZZONTE) for s in partenze])
-    P, PC, SC = d["close"].values, score.rank(axis=1, pct=True).values, score.fillna(-9).values
+    cambi = scarica_cambi()
+    bench = np.array([benchmark(cambi[RIFERIMENTO].reindex(date, method="ffill").values, s, s + ORIZZONTE) for s in partenze])
+    P, PC, SC = in_euro(d, cambi), score.rank(axis=1, pct=True).values, score.fillna(-9).values
     VOLA, AMM = (d["f"]["volatilita_60"] * np.sqrt(252)).values, d["f"]["ammesso"].values.astype(bool)
     righe = []
     for seme in range(prove):
         rng = np.random.default_rng(seme)
         fin = np.array([corsa(s, s + ORIZZONTE, 5, "prudente", 1, P, PC, SC, VOLA, AMM, conferma=5, rng=rng)["finale"] for s in partenze])
-        righe.append({"prova": seme, "finale mediano €": np.median(fin), "peggiore €": fin.min(), "batte SPY %": 100 * (fin > bench).mean(),
-                      "vantaggio mediano su SPY €": np.median(fin - bench)})
+        righe.append({"prova": seme, "finale mediano €": np.median(fin), "peggiore €": fin.min(),
+                      f"batte {NOME_RIFERIMENTO} %": 100 * (fin > bench).mean(),
+                      f"vantaggio mediano su {NOME_RIFERIMENTO} €": np.median(fin - bench)})
         print(righe[-1], flush=True)
     tab = pd.DataFrame(righe)
     tab.to_csv(RISULTATI / "piano_rumore.csv", index=False)

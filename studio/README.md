@@ -247,12 +247,37 @@ perdono contro SPY nella maggioranza dei casi e non riducono il calo peggiore.
 Conseguenza: la simulazione su carta resta utile per vedere il comportamento dal vivo, ma l'aspettativa onesta
 è "circa come l'indice, con più oscillazioni", non "meglio dell'indice".
 
+### Tutto in euro, contro l'ETF che si comprerebbe davvero (dal 18/11/2026)
+
+Il riferimento non è più SPY (ETF americano, non acquistabile dai privati in Italia) ma **iShares Core MSCI World
+UCITS ETF USD (Acc)**, quotato in euro (SWDA.MI). `piano.py --modelli`, `--lungo` e `--rumore` convertono ogni titolo
+in euro al cambio del giorno (`modelli.in_euro`): è il conto di un investitore italiano. Le tabelle qui sopra, fatte
+prima, sono in valuta locale contro SPY; i numeri aggiornati:
+
+| modello | 5 anni: finale mediano | batte MSCI World | 14 anni: finale mediano | batte MSCI World | anni vinti | peggiore |
+|---|---|---|---|---|---|---|
+| MSCI World | 2.256 € | — | 2.160 € | — | — | 1.735 € |
+| base | 2.695 € | 79% | 2.285 € | 61% | 9/14 | 1.268 € |
+| universo alla data | 2.703 € | 90% | 2.276 € | 63% | 9/14 | 1.077 € |
+| + freno di mercato | 2.712 € | 90% | 2.282 € | 62% | 10/14 | 1.134 € |
+| + momentum pulito | 2.459 € | 72% | 2.121 € | 46% | 6/14 | 1.390 € |
+| tutto insieme | 2.448 € | 82% | 2.096 € | 41% | 5/14 | 1.324 € |
+
+La conclusione non cambia: su 14 anni la regola base rende circa 80-100 € più dell'ETF su 2.000 € in un anno tipico,
+chiude in guadagno meno spesso (78% contro 86%), nel caso peggiore perde molto di più, e il vantaggio viene da pochi
+anni (2012, 2019-2020, 2023-2024). Mancano sempre i titoli spariti dal listino, che abbasserebbero questi numeri.
+
+Dati serali: Yahoo limita i download da GitHub. `prezzi_ampi.py` ora riprova i titoli falliti dopo una pausa e scarta
+la seduta ancora in corso; `carta.py` salta la serata (e lo dice nel messaggio) se i prezzi coprono meno del 90% dei
+titoli o mancano cambi ed ETF, e tiene in attesa fino a 3 sere un acquisto rimasto senza prezzo. La simulazione è
+ripartita da capo il 18/11/2026: i primi due giorni avevano portafogli incompleti.
+
 ### Come si giudica la simulazione (criteri fissati il 14/11/2026, prima di vedere i risultati)
 
 Ogni settimana parte un nuovo gruppo dei tre portafogli (`carta/AAAA-MM-GG/`), fino a 52 partenze. Partenze vicine
 comprano quasi gli stessi titoli: 26 partenze in sei mesi valgono come 6-8 prove indipendenti, non 26.
 1. Nessuna decisione prima di 6 mesi.
-2. Una regola passa se, sulla media delle sue partenze, non perde più di 5 punti rispetto a SPY, non ha cali
+2. Una regola passa se, sulla media delle sue partenze, non perde più di 5 punti rispetto all'ETF MSCI World, non ha cali
    peggiori del 25% e fa un numero di ordini vicino al backtest (~15 l'anno).
 3. Se ne passano più di una si sceglie quella con i cali minori, non quella che ha reso di più.
 4. Se non ne passa nessuna, l'alternativa è un ETF sull'indice.

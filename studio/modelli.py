@@ -122,3 +122,41 @@ def scegli(candidati: list[int], gia_scelti: list[int], posti: int, R: np.ndarra
                 break
         (scartati if gemello else presi).append(j)
     return presi + scartati[:posti - len(presi)]
+
+
+# ─── tutto in euro, e l'ETF di riferimento ───────────────────────────────────
+
+RIFERIMENTO = "SWDA.MI"          # iShares Core MSCI World UCITS ETF USD (Acc), quotato in euro a Milano
+NOME_RIFERIMENTO = "MSCI World"
+CAMBI = {".L": ("EURGBP=X", 0.01), ".SW": ("EURCHF=X", 1.0), ".ST": ("EURSEK=X", 1.0)}   # Londra quota in pence
+
+
+def scarica_cambi(periodo: str = "max") -> pd.DataFrame:
+    """Cambi (unità di valuta estera per 1 euro) e ETF di riferimento, giornalieri. Riprova se Yahoo limita."""
+    import time
+
+    import yfinance as yf
+    simboli = ["EURUSD=X", RIFERIMENTO] + [c for c, _ in CAMBI.values()]
+    for tentativo in range(4):
+        try:
+            q = yf.download(simboli, period=periodo, auto_adjust=True, progress=False)["Close"]
+            q.index = pd.to_datetime(q.index).tz_localize(None).normalize()
+            if q[simboli].ffill().iloc[-1].notna().all():
+                return q[simboli].ffill()
+        except Exception as err:
+            print(f"cambi: {err}")
+        time.sleep(30 * (tentativo + 1))
+    raise RuntimeError("cambi e ETF di riferimento non scaricabili")
+
+
+def in_euro(d: dict, cambi: pd.DataFrame) -> np.ndarray:
+    """Prezzi di d["close"] convertiti in euro al cambio di ogni giorno (i segnali restano in valuta locale)."""
+    close = d["close"]
+    c = cambi.reindex(close.index, method="ffill").bfill()
+    P = close.values.astype(float).copy()
+    usa = (d["f"]["mercato"] == "USA").values
+    P[:, usa] /= c["EURUSD=X"].values[:, None]
+    for suff, (simbolo, scala) in CAMBI.items():
+        col = np.array([t.endswith(suff) for t in close.columns]) & ~usa
+        P[:, col] *= scala / c[simbolo].values[:, None]
+    return P

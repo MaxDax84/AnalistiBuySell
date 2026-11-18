@@ -8,7 +8,7 @@ Scrive .csv.gz se manca pyarrow.
 
 import sys
 import time
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 
 import pandas as pd
 import yfinance as yf
@@ -17,6 +17,9 @@ from config import ANNI_STORICO, DATI
 from universo_ampio import FILE_UNIVERSO_AMPIO
 
 BLOCCO = 300
+RESTO_NORMALE = 40       # titoli che Yahoo non ha mai: sotto questo numero non si riprova
+PAUSA_LIMITE = 90        # secondi di attesa quando Yahoo limita le richieste
+ORA_CHIUSURA_UTC = 21    # Wall Street chiude alle 21 UTC (20 con l'ora legale): prima, la seduta di oggi è incompleta
 
 
 def salva(tab: pd.DataFrame, nome: str) -> str:
@@ -62,27 +65,47 @@ def main(anni: int = ANNI_STORICO, nome: str = "ampi") -> None:
             print("Niente da scaricare")
             return
     t0 = time.time()
-    for i in range(0, len(tickers), BLOCCO):
-        blocco = tickers[i:i + BLOCCO]
-        for tentativo in range(3):
-            try:
-                d = yf.download(blocco, start=inizio, auto_adjust=True, progress=False, threads=True)
-                break
-            except Exception as err:
-                print(f"  blocco {i // BLOCCO + 1}: errore {err}, riprovo")
-                time.sleep(10)
-        else:
-            continue
-        chiusure.append(d["Close"])
-        volumi.append(d["Volume"])
-        print(f"  {min(i + BLOCCO, len(tickers))}/{len(tickers)} titoli, {time.time() - t0:.0f} s")
+
+    def scarica(lista: list[str], blocco: int, pausa: float) -> None:
+        for i in range(0, len(lista), blocco):
+            pezzo = lista[i:i + blocco]
+            for tentativo in range(3):
+                try:
+                    d = yf.download(pezzo, start=inizio, auto_adjust=True, progress=False, threads=True)
+                    break
+                except Exception as err:
+                    print(f"  blocco {i // blocco + 1}: errore {err}, riprovo")
+                    time.sleep(10)
+            else:
+                continue
+            chiusure.append(d["Close"].dropna(axis=1, how="all"))
+            volumi.append(d["Volume"])
+            print(f"  {min(i + blocco, len(lista))}/{len(lista)} titoli, {time.time() - t0:.0f} s")
+            time.sleep(pausa)
+
+    scarica(tickers, BLOCCO, 2)
+    # Yahoo limita le richieste (soprattutto da GitHub): i titoli rimasti senza prezzi si richiedono dopo una pausa,
+    # a blocchi più piccoli. Un piccolo resto è normale (warrant, classi di azioni che Yahoo non ha).
+    for giro in range(4):
+        presi = set().union(*(c.columns for c in chiusure)) if chiusure else set()
+        mancanti = [t for t in tickers if t not in presi]
+        if len(mancanti) <= RESTO_NORMALE:
+            break
+        print(f"Mancano {len(mancanti)} titoli: pausa di {PAUSA_LIMITE * (giro + 1)} s e riprovo")
+        time.sleep(PAUSA_LIMITE * (giro + 1))
+        scarica(mancanti, 100, 5)
     for lista in (chiusure, volumi):
         for i, tab in enumerate(lista):
             tab.index = pd.to_datetime(tab.index).tz_localize(None).normalize()
             lista[i] = tab.loc[:, ~tab.columns.duplicated()]
     close = pd.concat(chiusure, axis=1).sort_index()
-    vol = pd.concat(volumi, axis=1).reindex(close.index)
-    close, vol = close.loc[:, ~close.columns.duplicated()], vol.loc[:, ~vol.columns.duplicated()]
+    close = close.loc[:, ~close.columns.duplicated()]
+    vol = pd.concat(volumi, axis=1)
+    vol = vol.loc[:, ~vol.columns.duplicated()].reindex(index=close.index, columns=close.columns)
+    # una seduta ancora in corso non è una chiusura: se oggi (UTC) Wall Street non ha ancora chiuso, la riga di oggi si scarta
+    ora = datetime.now(timezone.utc)
+    if ora.hour < ORA_CHIUSURA_UTC and close.index[-1].date() >= ora.date():
+        close, vol = close[close.index < pd.Timestamp(ora.date())], vol[vol.index < pd.Timestamp(ora.date())]
     # tieni solo i titoli con almeno un anno di storia
     ok = close.notna().sum() >= 252
     close, vol = close.loc[:, ok], vol.loc[:, ok]
