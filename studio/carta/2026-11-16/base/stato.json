@@ -1,46 +1,64 @@
 {
  "inizio": "2026-11-16",
- "ultima_data": "2026-11-16",
- "cassa": 2000.0,
+ "ultima_data": "2026-11-17",
+ "cassa": 0.0,
  "capitale": 2000.0,
  "credito_minus": 0.0,
- "costi": 0.0,
+ "costi": 14.0,
  "tasse": 0.0,
- "posizioni": {},
- "ordini": [
-  {
-   "tipo": "compra",
-   "ticker": "REP.MC",
+ "posizioni": {
+  "REP.MC": {
    "nome": "Repsol",
-   "percentile": 0.9934042553191489
+   "q": 13.061492995495746,
+   "costo_eur": 400.0,
+   "data": "2026-11-17",
+   "prezzo_eur": 30.40999984741211,
+   "var_giorno": 0.0,
+   "percentile": 0.9928892215568862
   },
-  {
-   "tipo": "compra",
-   "ticker": "DRTS",
+  "DRTS": {
    "nome": "Alpha Tau Medical Ltd. Ordinary Shares",
-   "percentile": 0.9934042553191489
+   "q": 36.11872965849783,
+   "costo_eur": 400.0,
+   "data": "2026-11-17",
+   "prezzo_eur": 10.997064507958099,
+   "var_giorno": 0.0,
+   "percentile": 0.9928892215568862
   },
-  {
-   "tipo": "compra",
-   "ticker": "SPM.MI",
+  "SPM.MI": {
    "nome": "Saipem",
-   "percentile": 0.9934042553191489
+   "q": 95.7108411740489,
+   "costo_eur": 400.0,
+   "data": "2026-11-17",
+   "prezzo_eur": 4.150000095367432,
+   "var_giorno": 0.0,
+   "percentile": 0.9928892215568862
   },
-  {
-   "tipo": "compra",
-   "ticker": "RNG",
+  "RNG": {
    "nome": "RingCentral, Inc. Class A Common Stock",
-   "percentile": 0.985531914893617
+   "q": 6.062410863292009,
+   "costo_eur": 400.0,
+   "data": "2026-11-17",
+   "prezzo_eur": 65.51848908906061,
+   "var_giorno": 0.0,
+   "percentile": 0.9854041916167665
   },
-  {
-   "tipo": "compra",
-   "ticker": "VLO",
+  "VLO": {
    "nome": "Valero Energy Corporation Common Stock",
-   "percentile": 0.9817021276595744
+   "q": 1.200416362731087,
+   "costo_eur": 400.0,
+   "data": "2026-11-17",
+   "prezzo_eur": 330.8851931144321,
+   "var_giorno": 0.0,
+   "percentile": 0.9801646706586826
   }
- ],
- "spy": null,
- "valore": 2000.0,
+ },
+ "ordini": [],
+ "spy": {
+  "q": 2.99297185103002,
+  "valore": 1994.0
+ },
+ "valore": 1986.0,
  "nota": "",
  "valore_prec": 2000.0
 }

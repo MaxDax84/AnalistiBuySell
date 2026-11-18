@@ -1,6 +1,6 @@
 {
  "inizio": "2026-11-13",
- "ultima_data": "2026-11-16",
+ "ultima_data": "2026-11-17",
  "cassa": 0.0,
  "capitale": 2000.0,
  "credito_minus": 0.0,
@@ -12,26 +12,26 @@
    "q": 13.292283971121822,
    "costo_eur": 1000.0,
    "data": "2026-11-16",
-   "prezzo_eur": 74.93068927536169,
-   "var_giorno": 0.0,
-   "percentile": 0.9983619983619983
+   "prezzo_eur": 76.22448533468426,
+   "var_giorno": 0.017266570904853396,
+   "percentile": 0.9993021632937893
   },
   "MPC": {
    "nome": "Marathon Petroleum Corporation Common St",
    "q": 2.7365204174463815,
    "costo_eur": 1000.0,
    "data": "2026-11-16",
-   "prezzo_eur": 363.9658573895933,
-   "var_giorno": 0.0,
-   "percentile": 0.9991809991809992
+   "prezzo_eur": 359.8468547556012,
+   "var_giorno": -0.01131700281870951,
+   "percentile": 0.9989532449406838
   }
  },
  "ordini": [],
  "spy": {
   "q": 2.9208642489575714,
-  "valore": 1994.0
+  "valore": 1945.9599362476526
  },
- "valore": 1992.0,
+ "valore": 1997.9257698137992,
  "nota": "",
- "valore_prec": 2000.0
+ "valore_prec": 1992.0
 }

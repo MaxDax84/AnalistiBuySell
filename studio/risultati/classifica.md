@@ -1,54 +1,54 @@
-# Classifica di tutte le azioni comprabili (2350 titoli, al 16/11/2026)
+# Classifica di tutte le azioni comprabili (2672 titoli, al 17/11/2026)
 
 ## I primi 25
 
 | Ticker | Nome | mercato | percentile | prezzo | rend_12m_% | rend_1m_% | volatilita_annua_% | dal_max_52_% | market_cap_M$ |
 |---|---|---|---|---|---|---|---|---|---|
-| PENG | Penguin Solutions, Inc. Common Stock | USA | 100.0 | 44.2 | 215.5 | -22.6 | 108.3 | -45.7 | 2.870.8 |
-| KRSA | Korsana Biosciences, Inc. Common Stock | USA | 100.0 | 32.7 | 210.5 | 0.9 | 119.4 | -26.8 | 1.441.4 |
-| BUUU | BUUU Group Limited Class A Ordinary Share | USA | 99.9 | 5.5 | 416.4 | 33.1 | 123.5 | -25.5 | 1.057.5 |
-| DRTS | Alpha Tau Medical Ltd. Ordinary Shares | USA | 99.9 | 12.0 | 236.7 | -2.6 | 48.2 | -22.8 | 1.237.4 |
-| LIND | Lindblad Expeditions Holdings Inc. Common Stock | USA | 99.8 | 33.3 | 194.5 | -3.6 | 54.6 | -10.9 | 2.268.5 |
-| SLS | SELLAS Life Sciences Group, Inc. Common Stock | USA | 99.8 | 7.5 | 543.9 | -25.2 | 92.8 | -51.7 | 1.602.3 |
-| KOD | Kodiak Sciences Inc Common Stock | USA | 99.7 | 100.7 | 292.1 | 17.5 | 370.6 | -9.4 | 7.271.3 |
-| STMMI.MI | STMicroelectronics | Italia | 99.7 | 41.9 | 117.3 | 1.9 | 50.5 | -39.4 |  |
-| REP.MC | Repsol | Spagna | 99.7 | 30.9 | 102.0 | 3.7 | 33.7 | -2.1 |  |
-| SPM.MI | Saipem | Italia | 99.6 | 4.2 | 104.8 | -8.1 | 30.3 | -12.5 |  |
-| AXTI | AXT Inc Common Stock | USA | 99.6 | 38.5 | 451.1 | -25.3 | 127.5 | -72.7 | 2.749.8 |
-| AAOI | Applied Optoelectronics, Inc. Common Stock | USA | 99.5 | 45.2 | 236.3 | -40.2 | 106.2 | -79.8 | 4.528.6 |
-| MXL | MaxLinear, Inc. Common Stock | USA | 99.5 | 52.0 | 382.2 | -27.1 | 117.8 | -59.4 | 5.076.0 |
-| ABCL | AbCellera Biologics Inc. Common Shares | USA | 99.4 | 11.1 | 230.5 | -5.8 | 79.6 | -25.0 | 3.752.8 |
-| AEHR | Aehr Test Systems Common Stock | USA | 99.4 | 51.0 | 190.4 | -15.9 | 121.0 | -65.0 | 1.868.6 |
-| MU | Micron Technology, Inc. Common Stock | USA | 99.4 | 719.0 | 292.9 | -18.2 | 71.0 | -40.7 | 880.598.0 |
-| CLMT | Calumet, Inc. Common Stock | USA | 99.3 | 32.0 | 211.2 | -44.7 | 53.5 | -45.9 | 3.021.6 |
-| ECO | Okeanis Eco Tankers Corp. Common Stock | USA | 99.3 | 84.8 | 183.1 | -5.4 | 57.2 | -16.5 | 3.471.9 |
-| IOVA | Iovance Biotherapeutics, Inc. Common Stock | USA | 99.2 | 7.6 | 444.8 | -44.6 | 119.9 | -49.2 | 3.590.2 |
-| CDNA | CareDx, Inc. Common Stock | USA | 99.2 | 73.7 | 256.3 | 15.2 | 73.2 | -16.7 | 4.092.0 |
-| SNDK | Sandisk Corporation Common Stock | USA | 99.1 | 809.1 | 472.5 | -37.7 | 92.5 | -65.3 | 125.927.5 |
-| DELL | Dell Technologies Inc. Class C Common Stock  | USA | 99.1 | 320.5 | 258.3 | -28.9 | 88.9 | -45.4 | 218.897.6 |
-| TPRO.MI | Technoprobe | Italia | 99.1 | 22.0 | 131.0 | -17.1 | 66.8 | -42.3 |  |
-| BAND | Bandwidth Inc. Class A Common Stock | USA | 99.0 | 40.9 | 211.1 | -5.6 | 102.0 | -47.8 | 1.417.1 |
-| ATEX | Anterix Inc. Common Stock | USA | 99.0 | 76.7 | 299.6 | -4.6 | 69.1 | -29.1 | 1.576.5 |
+| CDNA | CareDx, Inc. Common Stock | USA | 100.0 | 74.6 | 274.7 | 11.2 | 72.0 | -15.7 | 3.873.5 |
+| DRTS | Alpha Tau Medical Ltd. Ordinary Shares | USA | 100.0 | 12.1 | 223.6 | -4.2 | 48.3 | -22.0 | 1.107.0 |
+| SLS | SELLAS Life Sciences Group, Inc. Common Stock | USA | 99.9 | 19.1 | 628.5 | 82.6 | 335.4 | 0.0 | 1.522.8 |
+| ATEX | Anterix Inc. Common Stock | USA | 99.9 | 78.9 | 279.9 | 1.3 | 69.2 | -27.1 | 1.509.6 |
+| BAND | Bandwidth Inc. Class A Common Stock | USA | 99.9 | 40.2 | 202.5 | -7.6 | 102.0 | -48.8 | 1.325.1 |
+| MU | Micron Technology, Inc. Common Stock | USA | 99.8 | 712.4 | 303.5 | -21.3 | 70.8 | -41.3 | 813.515.9 |
+| ERAS | Erasca, Inc. Common Stock | USA | 99.8 | 13.9 | 343.6 | 2.0 | 72.1 | -38.2 | 5.303.0 |
+| MRVL | Marvell Technology, Inc. Common Stock | USA | 99.7 | 148.7 | 184.7 | -37.3 | 85.8 | -53.0 | 127.466.2 |
+| IOVA | Iovance Biotherapeutics, Inc. Common Stock | USA | 99.7 | 7.5 | 473.0 | -47.0 | 119.5 | -49.3 | 3.493.0 |
+| AEHR | Aehr Test Systems Common Stock | USA | 99.7 | 49.7 | 194.6 | -21.5 | 121.0 | -65.8 | 1.671.9 |
+| MXL | MaxLinear, Inc. Common Stock | USA | 99.6 | 51.4 | 398.8 | -33.3 | 117.2 | -59.8 | 4.729.3 |
+| SLN | Silence Therapeutics Plc American Depository Share | USA | 99.6 | 19.8 | 208.3 | 1.1 | 262.1 | -0.2 | 1.231.6 |
+| ETON | Eton Pharmaceuticals, Inc. Common Stock | USA | 99.6 | 63.7 | 202.3 | 29.3 | 72.9 | -6.9 | 1.842.4 |
+| MRNA | Moderna, Inc. Common Stock | USA | 99.5 | 206.8 | 816.7 | -8.9 | 89.7 | -23.1 | 87.102.8 |
+| ECO | Okeanis Eco Tankers Corp. Common Stock | USA | 99.5 | 84.9 | 181.7 | -4.6 | 57.2 | -16.4 | 3.313.3 |
+| KRSA | Korsana Biosciences, Inc. Common Stock | USA | 99.4 | 32.5 | 205.2 | 3.5 | 119.4 | -27.2 | 1.488.3 |
+| BUUU | BUUU Group Limited Class A Ordinary Share | USA | 99.4 | 5.3 | 415.2 | 23.6 | 123.8 | -27.5 | 1.093.3 |
+| ASX | ASE Technology Holding Co., Ltd. American Depositary Shares (each representing Two Common Shares)  | USA | 99.4 | 31.8 | 190.6 | -22.0 | 79.2 | -33.1 | 73.042.3 |
+| KOD | Kodiak Sciences Inc Common Stock | USA | 99.3 | 96.8 | 297.3 | 6.0 | 370.8 | -12.9 | 6.587.3 |
+| AGL | agilon health, inc. Common Stock | USA | 99.3 | 115.2 | 456.1 | 29.7 | 60.1 | -11.3 | 1.965.1 |
+| SYRE | Spyre Therapeutics, Inc. Common Stock | USA | 99.3 | 93.8 | 190.1 | 10.7 | 63.3 | -13.9 | 9.437.1 |
+| TXG | 10x Genomics, Inc. Class A Common Stock | USA | 99.2 | 56.3 | 266.5 | -19.4 | 88.9 | -42.4 | 7.233.1 |
+| CLMT | Calumet, Inc. Common Stock | USA | 99.2 | 31.8 | 191.7 | -42.7 | 53.5 | -46.1 | 2.815.4 |
+| SNDK | Sandisk Corporation Common Stock | USA | 99.1 | 797.2 | 521.8 | -41.9 | 92.5 | -65.9 | 115.127.7 |
+| REP.MC | Repsol | Spagna | 99.1 | 30.4 | 101.2 | 2.7 | 33.8 | -3.6 |  |
 
 ## I primi 15 europei
 
 | Ticker | Nome | mercato | percentile | prezzo | rend_12m_% | rend_1m_% | volatilita_annua_% | dal_max_52_% |
 |---|---|---|---|---|---|---|---|---|
-| STMMI.MI | STMicroelectronics | Italia | 99.7 | 41.9 | 117.3 | 1.9 | 50.5 | -39.4 |
-| REP.MC | Repsol | Spagna | 99.7 | 30.9 | 102.0 | 3.7 | 33.7 | -2.1 |
-| SPM.MI | Saipem | Italia | 99.6 | 4.2 | 104.8 | -8.1 | 30.3 | -12.5 |
-| TPRO.MI | Technoprobe | Italia | 99.1 | 22.0 | 131.0 | -17.1 | 66.8 | -42.3 |
-| JEN.DE | Jenoptik | Germania | 98.4 | 36.1 | 92.5 | -1.5 | 53.9 | -23.9 |
-| AIXA.DE | Aixtron | Germania | 98.3 | 32.1 | 91.0 | -2.3 | 70.5 | -46.8 |
-| EVK.DE | Evonik | Germania | 97.6 | 21.3 | 73.7 | -0.5 | 25.1 | -0.9 |
-| ASML.AS | ASML Holding | Paesi Bassi | 97.4 | 1.338.8 | 72.8 | -9.2 | 39.9 | -22.0 |
-| ENI.MI | Eni | Italia | 97.3 | 26.0 | 70.9 | 0.1 | 24.4 | -6.1 |
-| GLEN.L | Glencore | Regno Unito | 97.2 | 510.4 | 69.8 | -12.5 | 28.2 | -18.9 |
-| TKA.DE | ThyssenKrupp | Germania | 97.2 | 12.1 | 69.0 | -15.5 | 54.1 | -22.5 |
-| DIS.MI | D'Amico International Shipping | Italia | 96.6 | 8.2 | 64.4 | 2.9 | 37.4 | -6.0 |
-| MT.AS | ArcelorMittal | Francia | 96.4 | 57.0 | 62.9 | 0.6 | 33.4 | -15.4 |
-| MTS.MC | ArcelorMittal | Spagna | 96.4 | 57.0 | 62.8 | 0.7 | 33.2 | -15.4 |
-| ABN.AS | ABN AMRO | Paesi Bassi | 96.1 | 42.1 | 60.8 | 2.8 | 26.9 | -4.2 |
+| REP.MC | Repsol | Spagna | 99.1 | 30.4 | 101.2 | 2.7 | 33.8 | -3.6 |
+| SPM.MI | Saipem | Italia | 99.1 | 4.2 | 102.6 | -9.8 | 30.4 | -13.9 |
+| STMMI.MI | STMicroelectronics | Italia | 99.0 | 41.1 | 115.4 | -0.3 | 50.7 | -40.7 |
+| STMPA.PA | STMicroelectronics | Francia | 98.9 | 41.1 | 115.3 | -0.3 | 50.7 | -40.7 |
+| TPRO.MI | Technoprobe | Italia | 98.8 | 21.1 | 128.3 | -21.5 | 67.1 | -44.7 |
+| AIXA.DE | Aixtron | Germania | 98.4 | 31.2 | 90.6 | -4.7 | 70.7 | -48.3 |
+| JEN.DE | Jenoptik | Germania | 98.2 | 35.8 | 87.2 | -1.5 | 53.8 | -24.7 |
+| ASML.AS | ASML Holding | Paesi Bassi | 97.8 | 1.306.6 | 74.7 | -12.5 | 40.1 | -23.9 |
+| ENI.MI | Eni | Italia | 97.5 | 25.8 | 72.4 | -1.1 | 24.3 | -6.5 |
+| CCC.L | Computacenter | Regno Unito | 97.4 | 4.804.0 | 71.1 | -4.4 | 51.8 | -15.6 |
+| EVK.DE | Evonik | Germania | 97.3 | 21.2 | 70.7 | -0.7 | 25.1 | -1.5 |
+| LOTB.BR | Lotus Bakeries | Belgio | 97.2 | 14.060.0 | 67.4 | 8.2 | 21.7 | -1.0 |
+| DIS.MI | D'Amico International Shipping | Italia | 97.2 | 8.4 | 67.3 | 3.6 | 37.5 | -4.4 |
+| GLEN.L | Glencore | Regno Unito | 96.6 | 501.0 | 62.7 | -11.1 | 28.2 | -20.3 |
+| ASM.AS | ASM International | Paesi Bassi | 96.5 | 669.8 | 62.7 | -11.9 | 55.7 | -37.9 |
 
 ## Il tuo portafoglio
 

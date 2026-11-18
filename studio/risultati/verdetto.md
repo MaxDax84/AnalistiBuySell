@@ -1,12 +1,12 @@
-## VERDETTO DI OGGI (16/11/2026): BUY
+## VERDETTO DI OGGI (17/11/2026): BUY
 
 occasione ordinaria: una tranche più grande del solito.
 
-Lettura al 16/11/2026: S&P 500 7,417 (-5.1% dal massimo di 1 anno, MM200 7,349), VIX 22.9, spread HY 3.23 (+0.54 in 60 gg), HYG -2.3% in 60 gg, curva 10a-3m +0.78, sussidi +0% dal minimo, EPU al 72° percentile, GPR al 74°
-  - Tendenza (prezzo vs media 200 giorni): **sopra MM200**
+Lettura al 17/11/2026: S&P 500 7,341 (-6.1% dal massimo di 1 anno, MM200 7,351), VIX 25.5, spread HY 3.34 (+0.64 in 60 gg), HYG -2.7% in 60 gg, curva 10a-3m +0.77, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 74°
+  - Tendenza (prezzo vs media 200 giorni): **sotto MM200**
   - Momentum 12 mesi: **12 mesi positivi**
   - Paura (VIX): **VIX 20-30**
-  - Sentiment: struttura a termine del VIX (dal 2006): **normale (VIX sotto il VIX3M)**
+  - Sentiment: struttura a termine del VIX (dal 2006): **inversione (VIX sopra il VIX3M)**
   - Sentiment: SKEW, costo della protezione (dal 2000): **SKEW alto (top 20%)**
   - Sentiment: VVIX, volatilità della volatilità (dal 2007): **VVIX > 110**
   - Credito (HYG, variazione 60 gg, dal 2007): **credito tranquillo**
@@ -15,14 +15,14 @@ Lettura al 16/11/2026: S&P 500 7,417 (-5.1% dal massimo di 1 anno, MM200 7,349),
   - Incertezza politica (EPU, 30 gg): **EPU alto**
   - Rischio geopolitico (GPR, 30 gg): **GPR alto**
   - Distanza dal massimo di 1 anno: **5-10% sotto**
-  - **VERDE (5-6)**, 6 condizioni favorevoli su 6
+  - **VERDE (5-6)**, 5 condizioni favorevoli su 6
 
 ## Cosa è successo dopo ogni verdetto (1990-oggi)
 
 | verdetto | quota_tempo_% | episodi | durata_media_gg | 3 mesi: vs sempre investito | 6 mesi: vs sempre investito | 12 mesi: vs sempre investito | 6 mesi: positivi % | 12 mesi: positivi % | decenni coerenti |
 |---|---|---|---|---|---|---|---|---|---|
 | STRONG BUY | 11.5 | 94 | 11.0 | 2.7 | 5.1 | 7.0 | 76.5 | 80.9 | 4/4 |
-| BUY | 13.2 | 197 | 6.1 | 2.6 | 2.7 | 2.4 | 83.2 | 87.7 | 4/4 |
+| BUY | 13.2 | 197 | 6.1 | 2.6 | 2.8 | 2.4 | 83.2 | 87.7 | 4/4 |
 | WAIT | 62.4 | 177 | 31.8 | -0.5 | -0.2 | -0.0 | 76.5 | 84.1 | 3/4 |
 | SMALL SELL | 13.0 | 129 | 9.1 | -2.6 | -6.3 | -8.5 | 52.3 | 57.9 | 2/4 |
 
@@ -30,10 +30,10 @@ Lettura al 16/11/2026: S&P 500 7,417 (-5.1% dal massimo di 1 anno, MM200 7,349),
 
 | politica | versato_€ | valore_finale_€ | moltiplicatore | peggior_calo_% | liquidità_rimasta_€ |
 |---|---|---|---|---|---|
-| ogni mese tutto subito | 443.000.0 | 3.056.431.8 | 6.9 | -50.4 | 0.0 |
-| frena su WAIT (0,5), accelera su BUY (1,5) e STRONG BUY (3), zero su SMALL SELL | 443.000.0 | 2.616.239.2 | 5.9 | -43.8 | 68.000.0 |
-| tranche normale su WAIT, zero su SMALL SELL, la cassa accumulata va su BUY (2) e STRONG BUY (tutta) | 443.000.0 | 3.026.828.2 | 6.8 | -50.2 | 0.0 |
-| tranche normale sempre, STRONG BUY spende anche la cassa (solo accelerazione) | 443.000.0 | 3.056.431.8 | 6.9 | -50.4 | 0.0 |
+| ogni mese tutto subito | 443.000.0 | 3.025.097.2 | 6.8 | -50.4 | 0.0 |
+| frena su WAIT (0,5), accelera su BUY (1,5) e STRONG BUY (3), zero su SMALL SELL | 443.000.0 | 2.590.121.4 | 5.8 | -43.8 | 68.000.0 |
+| tranche normale su WAIT, zero su SMALL SELL, la cassa accumulata va su BUY (2) e STRONG BUY (tutta) | 443.000.0 | 2.995.797.2 | 6.8 | -50.2 | 0.0 |
+| tranche normale sempre, STRONG BUY spende anche la cassa (solo accelerazione) | 443.000.0 | 3.025.097.2 | 6.8 | -50.4 | 0.0 |
 
 Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usata si accumula per i verdetti dopo).
 
@@ -42,7 +42,6 @@ Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usa
 
 | data | SP | VIX | dal_massimo_% | HYG_60gg_% | verdetto |
 |---|---|---|---|---|---|
-| 2026-08-25 00:00:00 | 7.677.3 | 15.4 | -1.6 | 1.0 | WAIT |
 | 2026-08-26 00:00:00 | 7.675.7 | 15.2 | -1.6 | 1.0 | WAIT |
 | 2026-08-27 00:00:00 | 7.731.0 | 14.5 | -0.9 | 0.9 | WAIT |
 | 2026-08-28 00:00:00 | 7.711.8 | 14.4 | -1.1 | 1.0 | WAIT |
@@ -102,3 +101,4 @@ Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usa
 | 2026-11-12 00:00:00 | 7.592.4 | 18.7 | -2.9 | -1.8 | WAIT |
 | 2026-11-13 00:00:00 | 7.561.7 | 19.3 | -3.3 | -1.9 | WAIT |
 | 2026-11-16 00:00:00 | 7.416.6 | 22.9 | -5.1 | -2.3 | BUY |
+| 2026-11-17 00:00:00 | 7.340.5 | 25.5 | -6.1 | -2.7 | BUY |

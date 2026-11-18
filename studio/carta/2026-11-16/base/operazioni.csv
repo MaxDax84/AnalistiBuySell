@@ -1,0 +1,6 @@
+data,tipo,ticker,quantita,prezzo_eur,importo_eur,costo_eur,imposta_eur,guadagno_eur
+2026-11-17,compra,REP.MC,13.0615,30.41,400.0,2.8,0.0,0.0
+2026-11-17,compra,DRTS,36.1187,10.9971,400.0,2.8,0.0,0.0
+2026-11-17,compra,SPM.MI,95.7108,4.15,400.0,2.8,0.0,0.0
+2026-11-17,compra,RNG,6.0624,65.5185,400.0,2.8,0.0,0.0
+2026-11-17,compra,VLO,1.2004,330.8852,400.0,2.8,0.0,0.0
