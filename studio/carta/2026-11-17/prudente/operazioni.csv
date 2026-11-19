@@ -1,0 +1,6 @@
+data,tipo,ticker,quantita,prezzo_eur,importo_eur,costo_eur,imposta_eur,guadagno_eur
+2026-11-18,compra,SWED-A.ST,10.5751,37.5601,400.0,2.8,0.0,0.0
+2026-11-18,compra,WCCB,7.1381,55.6451,400.0,2.8,0.0,0.0
+2026-11-18,compra,PBAM,5.267,75.4125,400.0,2.8,0.0,0.0
+2026-11-18,compra,MPC,1.1679,340.093,400.0,2.8,0.0,0.0
+2026-11-18,compra,REP.MC,13.8349,28.71,400.0,2.8,0.0,0.0

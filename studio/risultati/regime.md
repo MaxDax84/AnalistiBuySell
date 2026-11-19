@@ -6,11 +6,11 @@ Riferimento 'sempre investito': 1 mese +0.8% (positivo 64%), 3 mesi +2.4% (posit
 
 ## Lettura di oggi
 
-Lettura al 18/11/2026: S&P 500 7,341 (-6.1% dal massimo di 1 anno, MM200 7,354), VIX 24.0, spread HY 3.34 (+0.67 in 60 gg), HYG -2.6% in 60 gg, curva 10a-3m +0.77, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 75°
+Lettura al 18/11/2026: S&P 500 7,324 (-6.3% dal massimo di 1 anno, MM200 7,354), VIX 24.6, spread HY 3.43 (+0.76 in 60 gg), HYG -2.6% in 60 gg, curva 10a-3m +0.73, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 75°
   - Tendenza (prezzo vs media 200 giorni): **sotto MM200**
   - Momentum 12 mesi: **12 mesi positivi**
   - Paura (VIX): **VIX 20-30**
-  - Sentiment: struttura a termine del VIX (dal 2006): **normale (VIX sotto il VIX3M)**
+  - Sentiment: struttura a termine del VIX (dal 2006): **inversione (VIX sopra il VIX3M)**
   - Sentiment: SKEW, costo della protezione (dal 2000): **SKEW alto (top 20%)**
   - Sentiment: VVIX, volatilità della volatilità (dal 2007): **VVIX > 110**
   - Credito (HYG, variazione 60 gg, dal 2007): **credito tranquillo**
@@ -68,13 +68,13 @@ Lettura al 18/11/2026: S&P 500 7,341 (-6.1% dal massimo di 1 anno, MM200 7,354),
 
 | regola | investito_% | rendimento_annuo_% | peggior_calo_% | peggior_anno_% | anni_meglio_del_sempre_investito | 10.000€_nel_1990 |
 |---|---|---|---|---|---|---|
-| sempre investito | 100.0 | 9.0 | -56.8 | -38.5 | 0/36 | 223.306.5 |
+| sempre investito | 100.0 | 9.0 | -56.8 | -38.5 | 0/36 | 222.792.3 |
 | solo sopra la MM200 | 76.7 | 6.9 | -28.3 | -18.0 | 5/36 | 110.450.7 |
-| solo con 12 mesi positivi | 80.8 | 8.4 | -25.0 | -17.1 | 12/36 | 177.963.0 |
-| solo con VIX < 30 | 92.1 | 6.3 | -56.6 | -25.7 | 7/36 | 88.743.6 |
-| solo senza forte stress del credito | 97.7 | 8.7 | -49.1 | -23.4 | 4/36 | 201.082.3 |
-| solo semaforo VERDE o GIALLO | 92.3 | 7.8 | -47.2 | -28.6 | 11/36 | 150.335.7 |
-| solo semaforo VERDE | 76.6 | 6.9 | -24.8 | -18.4 | 7/36 | 111.199.2 |
+| solo con 12 mesi positivi | 80.8 | 8.3 | -25.0 | -17.1 | 12/36 | 177.553.3 |
+| solo con VIX < 30 | 92.1 | 6.3 | -56.6 | -25.7 | 7/36 | 88.539.3 |
+| solo senza forte stress del credito | 97.7 | 8.7 | -49.1 | -23.4 | 4/36 | 200.619.4 |
+| solo semaforo VERDE o GIALLO | 92.3 | 7.8 | -47.2 | -28.6 | 11/36 | 149.989.6 |
+| solo semaforo VERDE | 76.6 | 6.9 | -24.8 | -18.4 | 7/36 | 110.943.1 |
 | sopra MM200 oppure > 20% sotto il massimo | 83.2 | 8.3 | -45.9 | -18.0 | 9/36 | 172.926.7 |
 
 ## Come leggerlo
