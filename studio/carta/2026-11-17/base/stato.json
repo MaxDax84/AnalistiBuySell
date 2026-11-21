@@ -1,10 +1,10 @@
 {
  "inizio": "2026-11-17",
- "ultima_data": "2026-11-18",
- "cassa": 0.0,
+ "ultima_data": "2026-11-20",
+ "cassa": 760.6917376179158,
  "capitale": 2000.0,
- "credito_minus": 0.0,
- "costi": 14.0,
+ "credito_minus": 39.30826238208414,
+ "costi": 19.532448371979793,
  "tasse": 0.0,
  "posizioni": {
   "DRTS": {
@@ -12,73 +12,53 @@
    "q": 36.35612306146442,
    "costo_eur": 400.0,
    "data": "2026-11-18",
-   "prezzo_eur": 10.925257330889911,
-   "var_giorno": 0.0,
-   "percentile": 0.9937135159407274,
+   "prezzo_eur": 10.71585820191998,
+   "var_giorno": -0.019166516872593853,
+   "percentile": 0.9924414210128496,
    "isin": "IL0011839383"
-  },
-  "REP.MC": {
-   "nome": "Repsol",
-   "q": 13.8349011726308,
-   "costo_eur": 400.0,
-   "data": "2026-11-18",
-   "prezzo_eur": 28.709999084472656,
-   "var_giorno": 0.0,
-   "percentile": null,
-   "isin": "ES0173516115"
   },
   "SPM.MI": {
    "nome": "Saipem",
    "q": 95.91886495017563,
    "costo_eur": 400.0,
    "data": "2026-11-18",
-   "prezzo_eur": 4.140999794006348,
-   "var_giorno": 0.0,
-   "percentile": 0.9937135159407274,
+   "prezzo_eur": 4.21999979019165,
+   "var_giorno": 0.019077517535655675,
+   "percentile": 0.9924414210128496,
    "isin": "IT0005495657"
-  },
-  "RNG": {
-   "nome": "RingCentral, Inc. Class A Common Stock",
-   "q": 6.134265867061178,
-   "costo_eur": 400.0,
-   "data": "2026-11-18",
-   "prezzo_eur": 64.75102459005282,
-   "var_giorno": 0.0,
-   "percentile": null,
-   "isin": "US76680R2067"
   },
   "IRDM": {
    "nome": "Iridium Communications Inc Common Stock",
    "q": 9.84303517316799,
    "costo_eur": 400.0,
    "data": "2026-11-18",
-   "prezzo_eur": 40.35340654707432,
-   "var_giorno": 0.0,
-   "percentile": 0.9847328244274809,
+   "prezzo_eur": 38.360130018557776,
+   "var_giorno": -0.04939549592154724,
+   "percentile": 0.9924414210128496,
    "isin": "US46269C1027"
   }
  },
  "ordini": [
   {
-   "tipo": "vendi",
-   "ticker": "REP.MC",
-   "nome": "Repsol",
-   "percentile": null,
-   "isin": "ES0173516115"
-  },
-  {
-   "tipo": "vendi",
+   "tipo": "compra",
    "ticker": "RNG",
    "nome": "RingCentral, Inc. Class A Common Stock",
-   "percentile": null,
+   "percentile": 0.9924414210128496,
    "isin": "US76680R2067"
+  },
+  {
+   "tipo": "compra",
+   "ticker": "DHER.DE",
+   "nome": "Delivery Hero",
+   "percentile": 0.9924414210128496,
+   "isin": "DE000A2E4K43"
   }
  ],
  "rif": {
   "q": 15.67979892042596,
-  "valore": 1994.0
+  "valore": 1986.3169320246554
  },
- "valore": 1986.0,
+ "valore": 1932.6364961012455,
  "nota": "",
- "valore_prec": 2000.0
+ "valore_prec": 1986.0
 }

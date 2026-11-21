@@ -1,16 +1,16 @@
 # Indicatore di regime: quando conviene essere investiti
 
-S&P 500 dal 02/01/1990 al 18/11/2026 (9291 giorni di borsa). Per ogni condizione: rendimento medio dell'indice nei mesi successivi, differenza rispetto allo stare sempre investito, quota di esiti positivi, e in quanti decenni il segno della differenza a 6 mesi è lo stesso.
+S&P 500 dal 02/01/1990 al 20/11/2026 (9291 giorni di borsa). Per ogni condizione: rendimento medio dell'indice nei mesi successivi, differenza rispetto allo stare sempre investito, quota di esiti positivi, e in quanti decenni il segno della differenza a 6 mesi è lo stesso.
 
 Riferimento 'sempre investito': 1 mese +0.8% (positivo 64%), 3 mesi +2.4% (positivo 70%), 6 mesi +4.9% (positivo 74%), 12 mesi +10.2% (positivo 79%)
 
 ## Lettura di oggi
 
-Lettura al 18/11/2026: S&P 500 7,324 (-6.3% dal massimo di 1 anno, MM200 7,354), VIX 24.6, spread HY 3.43 (+0.76 in 60 gg), HYG -2.6% in 60 gg, curva 10a-3m +0.73, sussidi +0% dal minimo, EPU al 70° percentile, GPR al 75°
+Lettura al 20/11/2026: S&P 500 6,910 (-11.6% dal massimo di 1 anno, MM200 7,349), VIX 35.9, spread HY 3.52 (+0.89 in 60 gg), HYG -3.0% in 60 gg, curva 10a-3m +0.60, sussidi +1% dal minimo, EPU al 69° percentile, GPR al 77°
   - Tendenza (prezzo vs media 200 giorni): **sotto MM200**
   - Momentum 12 mesi: **12 mesi positivi**
-  - Paura (VIX): **VIX 20-30**
-  - Sentiment: struttura a termine del VIX (dal 2006): **inversione (VIX sopra il VIX3M)**
+  - Paura (VIX): **VIX > 30**
+  - Sentiment: struttura a termine del VIX (dal 2006): **forte inversione (VIX > 110%)**
   - Sentiment: SKEW, costo della protezione (dal 2000): **SKEW alto (top 20%)**
   - Sentiment: VVIX, volatilità della volatilità (dal 2007): **VVIX > 110**
   - Credito (HYG, variazione 60 gg, dal 2007): **credito tranquillo**
@@ -18,8 +18,8 @@ Lettura al 18/11/2026: S&P 500 7,324 (-6.3% dal massimo di 1 anno, MM200 7,354),
   - Lavoro (sussidi settimanali vs minimo 1 anno): **sussidi vicini ai minimi**
   - Incertezza politica (EPU, 30 gg): **EPU alto**
   - Rischio geopolitico (GPR, 30 gg): **GPR alto**
-  - Distanza dal massimo di 1 anno: **5-10% sotto**
-  - **VERDE (5-6)**, 5 condizioni favorevoli su 6
+  - Distanza dal massimo di 1 anno: **10-20% sotto**
+  - **GIALLO (3-4)**, 4 condizioni favorevoli su 6
 
 ## Cosa ha reso ogni condizione (1990-oggi)
 
@@ -59,7 +59,7 @@ Lettura al 18/11/2026: S&P 500 7,324 (-6.3% dal massimo di 1 anno, MM200 7,354),
 | Sentiment: SKEW, costo della protezione (dal 2000) | SKEW medio | 51.7 | 0.1 | 0.4 | -0.2 | 74.2 | 78.2 | 3/4 |
 | Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX 90-110 | 19.5 | 0.1 | 0.7 | 1.9 | 76.2 | 84.9 | 2/3 |
 | Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX < 90 | 25.0 | -0.6 | -1.2 | -2.5 | 71.4 | 78.2 | 2/3 |
-| Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX > 110 | 8.0 | 1.8 | 2.4 | 3.2 | 73.3 | 70.1 | 2/2 |
+| Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX > 110 | 8.0 | 1.8 | 2.4 | 3.1 | 73.3 | 70.1 | 2/2 |
 | SEMAFORO (condizioni favorevoli) | GIALLO (3-4) | 18.3 | -0.3 | -0.7 | -0.2 | 65.1 | 77.5 | 1/4 |
 | SEMAFORO (condizioni favorevoli) | ROSSO (0-2) | 7.7 | -0.7 | -2.5 | -3.9 | 51.1 | 52.8 | 1/1 |
 | SEMAFORO (condizioni favorevoli) | VERDE (5-6) | 74.0 | 0.1 | 0.4 | 0.4 | 78.9 | 84.6 | 1/4 |
@@ -68,14 +68,14 @@ Lettura al 18/11/2026: S&P 500 7,324 (-6.3% dal massimo di 1 anno, MM200 7,354),
 
 | regola | investito_% | rendimento_annuo_% | peggior_calo_% | peggior_anno_% | anni_meglio_del_sempre_investito | 10.000€_nel_1990 |
 |---|---|---|---|---|---|---|
-| sempre investito | 100.0 | 9.0 | -56.8 | -38.5 | 0/36 | 222.792.3 |
-| solo sopra la MM200 | 76.7 | 6.9 | -28.3 | -18.0 | 5/36 | 110.450.7 |
-| solo con 12 mesi positivi | 80.8 | 8.3 | -25.0 | -17.1 | 12/36 | 177.553.3 |
-| solo con VIX < 30 | 92.1 | 6.3 | -56.6 | -25.7 | 7/36 | 88.539.3 |
-| solo senza forte stress del credito | 97.7 | 8.7 | -49.1 | -23.4 | 4/36 | 200.619.4 |
-| solo semaforo VERDE o GIALLO | 92.3 | 7.8 | -47.2 | -28.6 | 11/36 | 149.989.6 |
-| solo semaforo VERDE | 76.6 | 6.9 | -24.8 | -18.4 | 7/36 | 110.943.1 |
-| sopra MM200 oppure > 20% sotto il massimo | 83.2 | 8.3 | -45.9 | -18.0 | 9/36 | 172.926.7 |
+| sempre investito | 100.0 | 8.9 | -56.8 | -38.5 | 0/36 | 210.221.2 |
+| solo sopra la MM200 | 76.7 | 6.9 | -28.3 | -18.0 | 6/36 | 110.450.7 |
+| solo con 12 mesi positivi | 80.8 | 8.2 | -25.0 | -17.1 | 12/36 | 167.534.8 |
+| solo con VIX < 30 | 92.1 | 6.1 | -56.6 | -25.7 | 7/36 | 83.543.4 |
+| solo senza forte stress del credito | 97.7 | 8.5 | -49.1 | -23.4 | 4/36 | 189.299.3 |
+| solo semaforo VERDE o GIALLO | 92.3 | 7.7 | -47.2 | -28.6 | 11/36 | 141.526.3 |
+| solo semaforo VERDE | 76.6 | 6.8 | -24.8 | -18.4 | 7/36 | 104.683.1 |
+| sopra MM200 oppure > 20% sotto il massimo | 83.2 | 8.3 | -45.9 | -18.0 | 10/36 | 172.926.7 |
 
 ## Come leggerlo
 - Un indicatore 'funziona' se la colonna 'vs sempre investito' ha segno sensato, 'positivi %' si sposta davvero rispetto al riferimento e 'decenni coerenti' è pieno. Dove i decenni sono discordi, è rumore.
@@ -106,7 +106,7 @@ Lettura al 18/11/2026: S&P 500 7,324 (-6.3% dal massimo di 1 anno, MM200 7,354),
 | Incertezza politica (EPU, 30 gg) | EPU alto | 3457 | 38.2 | 0.5 | -0.3 | 64.2 | 1.3 | -1.1 | 65.3 | 3.2 | -1.6 | 69.5 | 8.0 | -2.2 | 77.8 | 3/4 |
 | Incertezza politica (EPU, 30 gg) | EPU basso | 4066 | 45.0 | 0.8 | 0.0 | 63.3 | 2.7 | 0.3 | 73.3 | 5.7 | 0.8 | 80.8 | 11.3 | 1.0 | 84.3 | 3/4 |
 | Incertezza politica (EPU, 30 gg) | EPU estremo (top 10%) | 1238 | 13.7 | 1.5 | 0.7 | 67.0 | 4.1 | 1.7 | 73.3 | 6.6 | 1.8 | 69.8 | 12.2 | 2.0 | 75.0 | 3/4 |
-| Rischio geopolitico (GPR, 30 gg) | GPR alto | 3179 | 35.2 | 0.8 | -0.1 | 64.9 | 2.0 | -0.4 | 70.4 | 5.0 | 0.2 | 78.6 | 11.7 | 1.4 | 90.0 | 1/4 |
+| Rischio geopolitico (GPR, 30 gg) | GPR alto | 3179 | 35.2 | 0.8 | -0.1 | 64.9 | 2.0 | -0.4 | 70.4 | 5.0 | 0.2 | 78.6 | 11.6 | 1.4 | 90.0 | 1/4 |
 | Rischio geopolitico (GPR, 30 gg) | GPR basso | 4626 | 51.2 | 0.8 | 0.0 | 63.7 | 2.6 | 0.2 | 70.3 | 5.1 | 0.2 | 73.5 | 9.5 | -0.7 | 75.9 | 3/4 |
 | Rischio geopolitico (GPR, 30 gg) | GPR estremo (top 10%) | 956 | 10.6 | 0.9 | 0.1 | 64.1 | 2.6 | 0.2 | 68.7 | 3.2 | -1.7 | 68.4 | 7.9 | -2.3 | 70.1 | 3/3 |
 | Distanza dal massimo di 1 anno | 10-20% sotto | 1034 | 11.4 | 0.4 | -0.4 | 54.5 | 1.0 | -1.4 | 55.0 | 0.7 | -4.1 | 50.7 | 2.4 | -7.8 | 55.9 | 1/4 |
@@ -122,7 +122,7 @@ Lettura al 18/11/2026: S&P 500 7,324 (-6.3% dal massimo di 1 anno, MM200 7,354),
 | Sentiment: SKEW, costo della protezione (dal 2000) | SKEW medio | 4670 | 51.7 | 0.8 | -0.0 | 64.8 | 2.5 | 0.1 | 70.1 | 5.2 | 0.4 | 74.2 | 10.0 | -0.2 | 78.2 | 3/4 |
 | Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX 90-110 | 1764 | 19.5 | 0.8 | -0.0 | 67.2 | 2.5 | 0.1 | 70.3 | 5.5 | 0.7 | 76.2 | 12.1 | 1.9 | 84.9 | 2/3 |
 | Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX < 90 | 2262 | 25.0 | 0.6 | -0.2 | 63.0 | 1.8 | -0.6 | 72.0 | 3.6 | -1.2 | 71.4 | 7.7 | -2.5 | 78.2 | 2/3 |
-| Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX > 110 | 726 | 8.0 | 1.6 | 0.8 | 70.1 | 4.2 | 1.8 | 72.6 | 7.2 | 2.4 | 73.3 | 13.4 | 3.2 | 70.1 | 2/2 |
+| Sentiment: VVIX, volatilità della volatilità (dal 2007) | VVIX > 110 | 726 | 8.0 | 1.6 | 0.8 | 70.1 | 4.2 | 1.8 | 72.6 | 7.2 | 2.4 | 73.3 | 13.4 | 3.1 | 70.1 | 2/2 |
 | SEMAFORO (condizioni favorevoli) | GIALLO (3-4) | 1655 | 18.3 | 0.4 | -0.4 | 57.4 | 2.1 | -0.3 | 62.6 | 4.1 | -0.7 | 65.1 | 10.1 | -0.2 | 77.5 | 1/4 |
 | SEMAFORO (condizioni favorevoli) | ROSSO (0-2) | 695 | 7.7 | 1.3 | 0.5 | 63.2 | 1.7 | -0.7 | 60.1 | 2.3 | -2.5 | 51.1 | 6.3 | -3.9 | 52.8 | 1/1 |
 | SEMAFORO (condizioni favorevoli) | VERDE (5-6) | 6689 | 74.0 | 0.9 | 0.1 | 65.6 | 2.6 | 0.1 | 72.9 | 5.3 | 0.4 | 78.9 | 10.7 | 0.4 | 84.6 | 1/4 |
