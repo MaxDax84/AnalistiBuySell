@@ -270,7 +270,14 @@ anni (2012, 2019-2020, 2023-2024). Mancano sempre i titoli spariti dal listino, 
 Dati serali: Yahoo limita i download da GitHub. `prezzi_ampi.py` ora riprova i titoli falliti dopo una pausa e scarta
 la seduta ancora in corso; `carta.py` salta la serata (e lo dice nel messaggio) se i prezzi coprono meno del 90% dei
 titoli o mancano cambi ed ETF, e tiene in attesa fino a 3 sere un acquisto rimasto senza prezzo. La simulazione è
-ripartita da capo il 18/11/2026: i primi due giorni avevano portafogli incompleti.
+ripartita da capo il 18/11/2026: i primi due giorni avevano portafogli incompleti. Dal 21/11 un titolo in portafoglio
+senza prezzi stasera non si vende: si aspetta che manchi 5 sere di fila (il 18/11 erano stati venduti per errore
+Repsol e RingCentral, ancora al 99° percentile).
+
+Controllo esterno con testfol.io (21/11/2026): i rendimenti annui di SWDA.MI in euro coincidono al centesimo con i
+nostri (2010-2026, CAGR 11,7%, calo massimo -33,6%); stessa fonte di prezzi, quindi conferma il calcolo e non il dato.
+Il gemello americano URTH convertito in euro da testfol.io e dal nostro `in_euro` differisce di al massimo 1,5 punti
+l'anno (cambio preso a orari diversi): la conversione dei titoli esteri in euro è corretta.
 
 ### Come si giudica la simulazione (criteri fissati il 14/11/2026, prima di vedere i risultati)
 
