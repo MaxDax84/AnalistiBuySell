@@ -15,7 +15,8 @@
    "prezzo_eur": 73.90341239488372,
    "var_giorno": -0.020010790100616016,
    "percentile": null,
-   "isin": ""
+   "isin": "",
+   "risultati": ""
   },
   "MPC": {
    "nome": "Marathon Petroleum Corporation Common St",
@@ -25,7 +26,8 @@
    "prezzo_eur": 334.73040927417316,
    "var_giorno": -0.01576790128565042,
    "percentile": 0.9986013986013986,
-   "isin": "US56585A1025"
+   "isin": "US56585A1025",
+   "risultati": "2027-02-02"
   },
   "CAKE": {
    "nome": "Cheesecake Factory Incorporated (The) Co",
@@ -35,7 +37,8 @@
    "prezzo_eur": 98.40721811427015,
    "var_giorno": -0.09889350487371706,
    "percentile": 0.9965034965034965,
-   "isin": "US1630721017"
+   "isin": "US1630721017",
+   "risultati": "2026-10-27"
   }
  },
  "ordini": [
@@ -44,14 +47,16 @@
    "ticker": "LOTB.BR",
    "nome": "Lotus Bakeries",
    "percentile": 0.9998251748251749,
-   "isin": "BE0003604155"
+   "isin": "BE0003604155",
+   "risultati": ""
   },
   {
    "tipo": "compra",
    "ticker": "CLDT",
    "nome": "Chatham Lodging Trust (REIT) Common Shares of Beneficial Int",
    "percentile": 0.9993006993006993,
-   "isin": "US16208T1025"
+   "isin": "US16208T1025",
+   "risultati": "2026-11-05"
   }
  ],
  "rif": {

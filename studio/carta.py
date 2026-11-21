@@ -32,6 +32,7 @@ CONFERMA = 5        # sere di fila sotto soglia prima di vendere
 MAX_GRUPPI = 52     # partenze settimanali: una a settimana per un anno
 COPERTURA_MINIMA = 0.9   # sotto questa quota di titoli con prezzi la serata si salta
 N_REVISIONI = 60    # di quanti candidati si salvano ogni sera le revisioni degli utili
+GIORNI_RISULTATI = 7     # avviso nel messaggio se i risultati trimestrali arrivano entro questi giorni
 VALUTE = {".L": ("EURGBP=X", 0.01), ".SW": ("EURCHF=X", 1.0), ".ST": ("EURSEK=X", 1.0)}   # Londra quota in pence
 GIORNI = ["lun", "mar", "mer", "gio", "ven", "sab", "dom"]
 NUMERI = "①②③④⑤"
@@ -61,6 +62,27 @@ def num(v: float, dec: int = 0, segno: bool = False) -> str:
 def breve(nome: str) -> str:
     """Nome dell'azienda senza la coda del listino americano ("Common Stock", "Class A", "Ordinary Shares"...)."""
     return re.split(r",? (Common|Ordinary|Class [A-Z]|American Depositary|\(The\))", nome)[0].strip()
+
+
+def prossimi_risultati(tickers: list[str], cache: dict) -> dict[str, str]:
+    """Data dei prossimi risultati trimestrali (AAAA-MM-GG) secondo Yahoo; vuota se non nota o se Yahoo non risponde."""
+    import yfinance as yf
+    for t in tickers:
+        if t not in cache:
+            try:
+                date_note = yf.Ticker(t).calendar.get("Earnings Date") or []
+                cache[t] = f"{min(date_note):%Y-%m-%d}" if date_note else ""
+            except Exception:
+                cache[t] = ""
+    return {t: cache[t] for t in tickers}
+
+
+def avviso_risultati(giorno: str, oggi: date) -> str:
+    """" · 📅 risultati gio 26/11" se l'azienda pubblica i conti entro GIORNI_RISULTATI giorni: in quei giorni il prezzo salta."""
+    if not giorno:
+        return ""
+    g = date.fromisoformat(giorno)
+    return f" · 📅 risultati {GIORNI[g.weekday()]} {g:%d/%m}" if 0 <= (g - oggi).days <= GIORNI_RISULTATI else ""
 
 
 def scrivi_riga(percorso, riga: dict) -> None:
@@ -124,6 +146,7 @@ def aggiorna() -> str:
                 p = np.nan
         return None if pd.isna(p) else in_euro(ticker, float(p))
 
+    date_risultati = {}      # una richiesta a Yahoo per titolo, anche se compare in più portafogli
     avviati = gruppi()
     if not avviati or (settimana(data) > settimana(avviati[-1]) and len(avviati) < MAX_GRUPPI):
         avviati.append(data)            # primo giorno di borsa di una settimana nuova: parte un altro gruppo
@@ -193,7 +216,18 @@ def aggiorna() -> str:
             st["rif"]["valore"] = st["rif"]["q"] * cambi[RIFERIMENTO]
 
         # 3. decisioni di stasera (eseguite domani): vendo chi è sotto soglia da CONFERMA sere, compro i migliori
-        deboli = [t for t in st["posizioni"] if t not in pct.columns or not (pct[t].iloc[-CONFERMA:] >= SOGLIA_OUT).any()]
+        # Un titolo senza prezzi stasera non è un titolo debole: Yahoo a volte salta dei titoli (il 18/11/2026 ha fatto
+        # vendere Repsol e RingCentral al 99° percentile). Si vende solo se manca per CONFERMA sere di fila.
+        deboli = []
+        for t, pos in st["posizioni"].items():
+            if t in pct.columns and pd.notna(pct[t].iloc[-1]):
+                pos["assente"] = 0
+                if not (pct[t].iloc[-CONFERMA:] >= SOGLIA_OUT).any():
+                    deboli.append(t)
+            else:
+                pos["assente"] = pos.get("assente", 0) + 1
+                if pos["assente"] >= CONFERMA:
+                    deboli.append(t)
         for t in deboli:
             st["ordini"].append({"tipo": "vendi", "ticker": t, "nome": st["posizioni"][t]["nome"],
                                  "percentile": st["posizioni"][t]["percentile"]})
@@ -221,10 +255,11 @@ def aggiorna() -> str:
         # ISIN verificato di ogni titolo citato nel messaggio (vuoto se non si è potuto verificare)
         citati = {**{t: p["nome"] for t, p in st["posizioni"].items()}, **{x["ticker"]: x["nome"] for x in st["ordini"]}}
         codici = isin_di({t: str(nomi.get(t, n)) for t, n in citati.items()})
+        conti = prossimi_risultati(list(citati), date_risultati)
         for t, pos in st["posizioni"].items():
-            pos["isin"] = codici.get(t, "")
+            pos["isin"], pos["risultati"] = codici.get(t, ""), conti.get(t, "")
         for x in st["ordini"]:
-            x["isin"] = codici.get(x["ticker"], "")
+            x["isin"], x["risultati"] = codici.get(x["ticker"], ""), conti.get(x["ticker"], "")
 
         st["valore_prec"], st["ultima_data"] = valore_prec, data
         scrivi_riga(f_storico, {"data": data, "valore_eur": round(st["valore"], 2), "pl_giorno_eur": round(st["valore"] - valore_prec, 2),
@@ -246,6 +281,7 @@ def verdetto() -> str:
 
 def blocco(i: int, etichetta: str, st: dict) -> list[str]:
     cap = st["capitale"]
+    oggi = date.fromisoformat(st["ultima_data"]) if st.get("ultima_data") else date.today()
     righe = [f"{NUMERI[i]} {etichetta}"]
     if not st["posizioni"]:
         righe.append(f"💼 {num(st['valore'])} € in cassa · P&L 0 €")
@@ -259,14 +295,16 @@ def blocco(i: int, etichetta: str, st: dict) -> list[str]:
             righe.append(f"🆚 Stessi soldi su {NOME_RIF}: {num(pl_s, 0, True)} € ({num(100 * pl_s / cap, 1, True)}%)")
         for t, p in sorted(st["posizioni"].items(), key=lambda kv: -kv[1]["q"] * kv[1]["prezzo_eur"]):
             tot = p["q"] * p["prezzo_eur"] / p["costo_eur"] - 1
-            perc = f"{100 * p['percentile']:.0f}°" if p["percentile"] is not None else "fuori classifica"
+            perc = (f"{100 * p['percentile']:.0f}°" if p["percentile"] is not None
+                    else "senza prezzi stasera" if p.get("assente") else "fuori classifica")
             righe.append(f"  {'🟢' if tot >= 0 else '🔴'} {t}{' (' + p['isin'] + ')' if p.get('isin') else ''}: oggi {num(100 * p['var_giorno'], 1, True)}% · "
-                         f"totale {num(100 * tot, 1, True)}% · {perc}")
+                         f"totale {num(100 * tot, 1, True)}% · {perc}" + avviso_risultati(p.get("risultati", ""), oggi))
         if st["cassa"] >= 1:
             righe.append(f"  💶 Cassa: {num(st['cassa'])} €")
     for o in st["ordini"]:
         righe.append(f"  {'🛒 COMPRA' if o['tipo'] == 'compra' else '💸 VENDI'} {o['ticker']} · {breve(o['nome'])}"
-                     + (f" · ISIN {o['isin']}" if o.get("isin") else "") + (" · in attesa del prezzo" if o.get("tentativi") else ""))
+                     + (f" · ISIN {o['isin']}" if o.get("isin") else "") + (" · in attesa del prezzo" if o.get("tentativi") else "")
+                     + avviso_risultati(o.get("risultati", ""), oggi))
     if st.get("nota"):
         righe.append(f"  ✋ {st['nota']}")
     if st["posizioni"] and not st["ordini"] and not st.get("nota"):

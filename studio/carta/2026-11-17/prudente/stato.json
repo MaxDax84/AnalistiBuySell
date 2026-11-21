@@ -15,7 +15,8 @@
    "prezzo_eur": 36.87674352861718,
    "var_giorno": -0.0181930791690037,
    "percentile": 0.9863636363636363,
-   "isin": "SE0000242455"
+   "isin": "SE0000242455",
+   "risultati": "2026-10-22"
   },
   "PBAM": {
    "nome": "Private Bancorp of America, Inc. Common ",
@@ -25,7 +26,8 @@
    "prezzo_eur": 73.90341239488372,
    "var_giorno": -0.020010790100616016,
    "percentile": null,
-   "isin": ""
+   "isin": "",
+   "risultati": ""
   },
   "MPC": {
    "nome": "Marathon Petroleum Corporation Common St",
@@ -35,7 +37,8 @@
    "prezzo_eur": 334.73040927417316,
    "var_giorno": -0.01576790128565042,
    "percentile": 0.9986013986013986,
-   "isin": "US56585A1025"
+   "isin": "US56585A1025",
+   "risultati": "2027-02-02"
   }
  },
  "ordini": [
@@ -44,14 +47,16 @@
    "ticker": "LOTB.BR",
    "nome": "Lotus Bakeries",
    "percentile": 0.9998251748251749,
-   "isin": "BE0003604155"
+   "isin": "BE0003604155",
+   "risultati": ""
   },
   {
    "tipo": "compra",
    "ticker": "CLDT",
    "nome": "Chatham Lodging Trust (REIT) Common Shares of Beneficial Int",
    "percentile": 0.9993006993006993,
-   "isin": "US16208T1025"
+   "isin": "US16208T1025",
+   "risultati": "2026-11-05"
   }
  ],
  "rif": {
