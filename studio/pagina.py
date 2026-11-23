@@ -4,6 +4,7 @@ Uso: python studio/pagina.py
 Legge data/regime.csv e i file in risultati/. Nessun dato sensibile: solo serie pubbliche di mercato.
 """
 
+import json
 from datetime import datetime
 
 import pandas as pd
@@ -117,14 +118,35 @@ def sezione_classifica() -> str:
     if not f_oggi.exists():
         return ""
     oggi = pd.read_csv(f_oggi)
-    top = oggi.head(25)
-    righe = "".join(
-        f"<tr><td>{i + 1}</td><td><b>{r['Ticker']}</b><br><small>{str(r['Nome'])[:38]}</small></td><td>{r['mercato']}</td>"
-        f"<td>{r['prezzo']:.2f}</td><td>{r['rend_12m_%']:+.0f}%</td><td>{r['rend_1m_%']:+.0f}%</td>"
-        f"<td>{r['volatilita_annua_%']:.0f}%</td><td>{r['dal_max_52_%']:+.0f}%</td></tr>"
-        for i, (_, r) in enumerate(top.iterrows()))
-    tabella = f"""<table class="tab"><thead><tr><th>#</th><th>titolo</th><th>mercato</th><th>prezzo</th><th>12 mesi</th><th>1 mese</th>
-    <th>volatilità</th><th>dal max 52 sett.</th></tr></thead><tbody>{righe}</tbody></table>"""
+    # tutti i titoli vanno nella pagina come dati: la tabella mostra i primi 25, la casella di ricerca trova gli altri
+    titoli = [[i + 1, r["Ticker"], str(r["Nome"])[:38], r["mercato"], round(r["prezzo"], 2), round(r["rend_12m_%"]),
+               round(r["rend_1m_%"]), round(r["volatilita_annua_%"]), round(r["dal_max_52_%"]), round(r["percentile"])]
+              for i, (_, r) in enumerate(oggi.fillna({"prezzo": 0, "rend_12m_%": 0, "rend_1m_%": 0, "volatilita_annua_%": 0,
+                                                      "dal_max_52_%": 0, "percentile": 0}).iterrows())]
+    dati_js = json.dumps(titoli, allow_nan=False, default=str).replace("</", "<\\/")
+    tabella = """<input id="cerca" type="search" placeholder="Cerca un titolo per sigla o nome (es. ENI, Apple, ASML)"
+    style="width:100%;box-sizing:border-box;padding:.6em .8em;font-size:1rem;border:1px solid #ccc;border-radius:8px;margin:.4em 0">
+    <p class="nota" id="esito"></p>
+    <table class="tab"><thead><tr><th>#</th><th>titolo</th><th>mercato</th><th>prezzo</th><th>12 mesi</th><th>1 mese</th>
+    <th>volatilità</th><th>dal max 52 sett.</th><th>percentile</th></tr></thead><tbody id="righe"></tbody></table>
+    <script>
+    const TITOLI = """ + dati_js + """;
+    const segno = v => (v > 0 ? "+" : "") + v + "%";
+    const esc = t => String(t).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+    function mostra() {
+      const q = document.getElementById("cerca").value.trim().toLowerCase();
+      const trovati = q ? TITOLI.filter(r => r[1].toLowerCase().includes(q) || r[2].toLowerCase().includes(q)) : TITOLI.slice(0, 25);
+      document.getElementById("righe").innerHTML = trovati.slice(0, 50).map(r =>
+        `<tr><td>${r[0]}</td><td><b>${esc(r[1])}</b><br><small>${esc(r[2])}</small></td><td>${esc(r[3])}</td><td>${r[4].toFixed(2)}</td>` +
+        `<td>${segno(r[5])}</td><td>${segno(r[6])}</td><td>${r[7]}%</td><td>${segno(r[8])}</td><td>${r[9]}°</td></tr>`).join("");
+      document.getElementById("esito").textContent = !q ? "I primi 25 di " + TITOLI.length + " titoli." :
+        trovati.length === 0 ? "Nessun titolo trovato: forse non è nell'elenco (troppo piccolo, o borsa non coperta)." :
+        trovati.length === 1 ? "1 titolo trovato." :
+        trovati.length + " titoli trovati" + (trovati.length > 50 ? ": mostro i primi 50." : ".");
+    }
+    document.getElementById("cerca").addEventListener("input", mostra);
+    mostra();
+    </script>"""
     grafico = ""
     if f_fasce.exists():
         fasce = pd.read_csv(f_fasce)
@@ -137,7 +159,7 @@ def sezione_classifica() -> str:
     return f"""
 <h2>Classifica di tutte le azioni comprabili ({len(oggi)} titoli)</h2>
 <div class="card">
-<p class="nota">Ogni sera tutti i titoli USA con capitalizzazione &gt; 1 mld $ e le grandi e medie europee (Italia, Germania, Francia, Spagna, Paesi Bassi, Belgio, Svizzera, Regno Unito, Svezia) vengono ordinati con quattro fattori: momentum a 12 mesi, inversione dell'ultimo mese, bassa volatilità, vicinanza al massimo annuale. Questi sono i 25 in cima. Non è una lista della spesa: è dove, storicamente, le probabilità sono un po' più alte. Dettagli e portafoglio in <a href="https://github.com/MaxDax84/AnalistiBuySell/blob/master/studio/risultati/classifica.md">classifica.md</a>.</p>
+<p class="nota">Ogni sera tutti i titoli USA con capitalizzazione &gt; 1 mld $ e le grandi e medie europee (Italia, Germania, Francia, Spagna, Paesi Bassi, Belgio, Svizzera, Regno Unito, Svezia) vengono ordinati con quattro fattori: momentum a 12 mesi, inversione dell'ultimo mese, bassa volatilità, vicinanza al massimo annuale. Qui sotto i 25 in cima; con la casella di ricerca trovi la posizione di qualsiasi titolo (il percentile dice quanti titoli ha dietro: 90° = meglio del 90%). Non è una lista della spesa: è dove, storicamente, le probabilità sono un po' più alte. Dettagli e portafoglio in <a href="https://github.com/MaxDax84/AnalistiBuySell/blob/master/studio/risultati/classifica.md">classifica.md</a>.</p>
 {tabella}
 </div>
 {grafico}"""
