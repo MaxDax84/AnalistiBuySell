@@ -1,0 +1,56 @@
+{
+ "inizio": "2026-11-23",
+ "ultima_data": "2026-11-23",
+ "cassa": 2000.0,
+ "capitale": 2000.0,
+ "credito_minus": 0.0,
+ "costi": 0.0,
+ "tasse": 0.0,
+ "posizioni": {},
+ "ordini": [
+  {
+   "tipo": "compra",
+   "ticker": "RNG",
+   "nome": "RingCentral, Inc. Class A Common Stock",
+   "percentile": 0.9927360774818402,
+   "isin": "US76680R2067",
+   "risultati": ""
+  },
+  {
+   "tipo": "compra",
+   "ticker": "SPM.MI",
+   "nome": "Saipem",
+   "percentile": 0.9927360774818402,
+   "isin": "IT0005495657",
+   "risultati": ""
+  },
+  {
+   "tipo": "compra",
+   "ticker": "DHER.DE",
+   "nome": "Delivery Hero",
+   "percentile": 0.9927360774818402,
+   "isin": "DE000A2E4K43",
+   "risultati": ""
+  },
+  {
+   "tipo": "compra",
+   "ticker": "REP.MC",
+   "nome": "Repsol",
+   "percentile": 0.9927360774818402,
+   "isin": "ES0173516115",
+   "risultati": ""
+  },
+  {
+   "tipo": "compra",
+   "ticker": "IRDM",
+   "nome": "Iridium Communications Inc Common Stock",
+   "percentile": 0.9850686037126715,
+   "isin": "US46269C1027",
+   "risultati": ""
+  }
+ ],
+ "rif": null,
+ "valore": 2000.0,
+ "nota": "",
+ "valore_prec": 2000.0
+}
