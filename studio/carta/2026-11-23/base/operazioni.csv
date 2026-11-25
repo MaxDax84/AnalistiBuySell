@@ -1,0 +1,6 @@
+data,tipo,ticker,quantita,prezzo_eur,importo_eur,costo_eur,imposta_eur,guadagno_eur
+2026-11-24,compra,RNG,6.2162,63.8975,400.0,2.8,0.0,0.0
+2026-11-24,compra,SPM.MI,91.8169,4.326,400.0,2.8,0.0,0.0
+2026-11-24,compra,DHER.DE,10.9693,36.21,400.0,2.8,0.0,0.0
+2026-11-24,compra,REP.MC,14.2775,27.82,400.0,2.8,0.0,0.0
+2026-11-24,compra,IRDM,10.1683,39.0627,400.0,2.8,0.0,0.0

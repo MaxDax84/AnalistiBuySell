@@ -1,13 +1,54 @@
 {
  "inizio": "2026-11-23",
- "ultima_data": "2026-11-23",
+ "ultima_data": "2026-11-24",
  "cassa": 2000.0,
  "capitale": 2000.0,
  "credito_minus": 0.0,
  "costi": 0.0,
  "tasse": 0.0,
  "posizioni": {},
- "ordini": [],
+ "ordini": [
+  {
+   "tipo": "compra",
+   "ticker": "PAGP",
+   "nome": "Plains GP Holdings, L.P. Class A Units representing Limited ",
+   "percentile": 0.9998254189944135,
+   "isin": "US72651A2078",
+   "risultati": "2027-02-05"
+  },
+  {
+   "tipo": "compra",
+   "ticker": "LOTB.BR",
+   "nome": "Lotus Bakeries",
+   "percentile": 0.9998254189944135,
+   "isin": "BE0003604155",
+   "risultati": "2027-02-05"
+  },
+  {
+   "tipo": "compra",
+   "ticker": "CLDT",
+   "nome": "Chatham Lodging Trust (REIT) Common Shares of Beneficial Int",
+   "percentile": 0.9986033519553073,
+   "isin": "US16208T1025",
+   "risultati": "2026-11-05"
+  },
+  {
+   "tipo": "compra",
+   "ticker": "CON",
+   "nome": "Concentra Group Holdings Parent, Inc. Common Stock",
+   "percentile": 0.9975558659217877,
+   "isin": "US20603L1026",
+   "risultati": "2026-11-05"
+  },
+  {
+   "tipo": "compra",
+   "ticker": "EVK.DE",
+   "nome": "Evonik",
+   "percentile": 0.9972067039106145,
+   "isin": "DE000EVNK013",
+   "risultati": "2026-11-03"
+  }
+ ],
  "rif": null,
  "valore": 2000.0,
  "nota": "",

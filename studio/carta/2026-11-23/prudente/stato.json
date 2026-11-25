@@ -1,56 +1,79 @@
 {
  "inizio": "2026-11-23",
- "ultima_data": "2026-11-23",
- "cassa": 2000.0,
+ "ultima_data": "2026-11-24",
+ "cassa": 0.0,
  "capitale": 2000.0,
  "credito_minus": 0.0,
- "costi": 0.0,
+ "costi": 14.0,
  "tasse": 0.0,
- "posizioni": {},
- "ordini": [
-  {
-   "tipo": "compra",
-   "ticker": "LOTB.BR",
+ "posizioni": {
+  "LOTB.BR": {
    "nome": "Lotus Bakeries",
-   "percentile": 0.9998137802607077,
+   "q": 0.028950437317784256,
+   "costo_eur": 400.0,
+   "data": "2026-11-24",
+   "prezzo_eur": 13720.0,
+   "var_giorno": 0.0,
+   "percentile": 0.9998254189944135,
+   "assente": 0,
    "isin": "BE0003604155",
-   "risultati": ""
+   "risultati": "2027-02-05"
   },
-  {
-   "tipo": "compra",
-   "ticker": "PAGP",
+  "PAGP": {
    "nome": "Plains GP Holdings, L.P. Class A Units representing Limited ",
-   "percentile": 0.9998137802607077,
+   "q": 16.99096896788653,
+   "costo_eur": 400.0,
+   "data": "2026-11-24",
+   "prezzo_eur": 23.377124680218095,
+   "var_giorno": 0.0,
+   "percentile": 0.9998254189944135,
+   "assente": 0,
    "isin": "US72651A2078",
-   "risultati": ""
+   "risultati": "2027-02-05"
   },
-  {
-   "tipo": "compra",
-   "ticker": "CLDT",
+  "CLDT": {
    "nome": "Chatham Lodging Trust (REIT) Common Shares of Beneficial Int",
-   "percentile": 0.9988826815642458,
+   "q": 27.33562765005629,
+   "costo_eur": 400.0,
+   "data": "2026-11-24",
+   "prezzo_eur": 14.530487650945966,
+   "var_giorno": 0.0,
+   "percentile": 0.9986033519553073,
+   "assente": 0,
    "isin": "US16208T1025",
-   "risultati": ""
+   "risultati": "2026-11-05"
   },
-  {
-   "tipo": "compra",
-   "ticker": "MPC",
+  "MPC": {
    "nome": "Marathon Petroleum Corporation Common Stock",
-   "percentile": 0.9985102420856611,
+   "q": 1.219928213237966,
+   "costo_eur": 400.0,
+   "data": "2026-11-24",
+   "prezzo_eur": 325.5929289033665,
+   "var_giorno": 0.0,
+   "percentile": 0.9993016759776536,
+   "assente": 0,
    "isin": "US56585A1025",
-   "risultati": ""
+   "risultati": "2027-02-02"
   },
-  {
-   "tipo": "compra",
-   "ticker": "CON",
+  "CON": {
    "nome": "Concentra Group Holdings Parent, Inc. Common Stock",
-   "percentile": 0.9977653631284916,
+   "q": 10.017796732511133,
+   "costo_eur": 400.0,
+   "data": "2026-11-24",
+   "prezzo_eur": 39.64943695762481,
+   "var_giorno": 0.0,
+   "percentile": 0.9975558659217877,
+   "assente": 0,
    "isin": "US20603L1026",
-   "risultati": ""
+   "risultati": "2026-11-05"
   }
- ],
- "rif": null,
- "valore": 2000.0,
+ },
+ "ordini": [],
+ "rif": {
+  "q": 15.736721761561038,
+  "valore": 1994.0
+ },
+ "valore": 1986.0,
  "nota": "",
  "valore_prec": 2000.0
 }

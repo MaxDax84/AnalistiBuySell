@@ -1,56 +1,79 @@
 {
  "inizio": "2026-11-23",
- "ultima_data": "2026-11-23",
- "cassa": 2000.0,
+ "ultima_data": "2026-11-24",
+ "cassa": 0.0,
  "capitale": 2000.0,
  "credito_minus": 0.0,
- "costi": 0.0,
+ "costi": 14.0,
  "tasse": 0.0,
- "posizioni": {},
- "ordini": [
-  {
-   "tipo": "compra",
-   "ticker": "RNG",
+ "posizioni": {
+  "RNG": {
    "nome": "RingCentral, Inc. Class A Common Stock",
-   "percentile": 0.9927360774818402,
+   "q": 6.216208431154508,
+   "costo_eur": 400.0,
+   "data": "2026-11-24",
+   "prezzo_eur": 63.89747132823052,
+   "var_giorno": 0.0,
+   "percentile": 0.9928463855421686,
+   "assente": 0,
    "isin": "US76680R2067",
-   "risultati": ""
+   "risultati": "2027-02-18"
   },
-  {
-   "tipo": "compra",
-   "ticker": "SPM.MI",
+  "SPM.MI": {
    "nome": "Saipem",
-   "percentile": 0.9927360774818402,
+   "q": 91.81691640910553,
+   "costo_eur": 400.0,
+   "data": "2026-11-24",
+   "prezzo_eur": 4.326000213623047,
+   "var_giorno": 0.0,
+   "percentile": 0.9928463855421686,
+   "assente": 0,
    "isin": "IT0005495657",
-   "risultati": ""
+   "risultati": "2026-11-18"
   },
-  {
-   "tipo": "compra",
-   "ticker": "DHER.DE",
+  "DHER.DE": {
    "nome": "Delivery Hero",
-   "percentile": 0.9927360774818402,
+   "q": 10.969345762019772,
+   "costo_eur": 400.0,
+   "data": "2026-11-24",
+   "prezzo_eur": 36.209999084472656,
+   "var_giorno": 0.0,
+   "percentile": 0.9928463855421686,
+   "assente": 0,
    "isin": "DE000A2E4K43",
-   "risultati": ""
+   "risultati": "2026-08-27"
   },
-  {
-   "tipo": "compra",
-   "ticker": "REP.MC",
+  "REP.MC": {
    "nome": "Repsol",
-   "percentile": 0.9927360774818402,
+   "q": 14.277498359351068,
+   "costo_eur": 400.0,
+   "data": "2026-11-24",
+   "prezzo_eur": 27.81999969482422,
+   "var_giorno": 0.0,
+   "percentile": 0.9928463855421686,
+   "assente": 0,
    "isin": "ES0173516115",
-   "risultati": ""
+   "risultati": "2027-02-18"
   },
-  {
-   "tipo": "compra",
-   "ticker": "IRDM",
+  "IRDM": {
    "nome": "Iridium Communications Inc Common Stock",
-   "percentile": 0.9850686037126715,
+   "q": 10.168263376552243,
+   "costo_eur": 400.0,
+   "data": "2026-11-24",
+   "prezzo_eur": 39.06271752519049,
+   "var_giorno": 0.0,
+   "percentile": 0.9838102409638554,
+   "assente": 0,
    "isin": "US46269C1027",
-   "risultati": ""
+   "risultati": "2027-02-11"
   }
- ],
- "rif": null,
- "valore": 2000.0,
+ },
+ "ordini": [],
+ "rif": {
+  "q": 15.736721761561038,
+  "valore": 1994.0
+ },
+ "valore": 1986.0,
  "nota": "",
  "valore_prec": 2000.0
 }
