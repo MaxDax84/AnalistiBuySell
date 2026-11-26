@@ -1,56 +1,79 @@
 {
  "inizio": "2026-11-23",
- "ultima_data": "2026-11-24",
- "cassa": 2000.0,
+ "ultima_data": "2026-11-25",
+ "cassa": 0.0,
  "capitale": 2000.0,
  "credito_minus": 0.0,
- "costi": 0.0,
+ "costi": 14.0,
  "tasse": 0.0,
- "posizioni": {},
- "ordini": [
-  {
-   "tipo": "compra",
-   "ticker": "PAGP",
+ "posizioni": {
+  "PAGP": {
    "nome": "Plains GP Holdings, L.P. Class A Units representing Limited ",
-   "percentile": 0.9998254189944135,
+   "q": 17.088747932270856,
+   "costo_eur": 400.0,
+   "data": "2026-11-25",
+   "prezzo_eur": 23.24336467330744,
+   "var_giorno": 0.0,
+   "percentile": 0.9982572324851865,
+   "assente": 0,
    "isin": "US72651A2078",
    "risultati": "2027-02-05"
   },
-  {
-   "tipo": "compra",
-   "ticker": "LOTB.BR",
+  "LOTB.BR": {
    "nome": "Lotus Bakeries",
-   "percentile": 0.9998254189944135,
+   "q": 0.02861671469740634,
+   "costo_eur": 400.0,
+   "data": "2026-11-25",
+   "prezzo_eur": 13880.0,
+   "var_giorno": 0.0,
+   "percentile": 0.9998257232485186,
+   "assente": 0,
    "isin": "BE0003604155",
    "risultati": "2027-02-05"
   },
-  {
-   "tipo": "compra",
-   "ticker": "CLDT",
+  "CLDT": {
    "nome": "Chatham Lodging Trust (REIT) Common Shares of Beneficial Int",
-   "percentile": 0.9986033519553073,
+   "q": 27.698554840670568,
+   "costo_eur": 400.0,
+   "data": "2026-11-25",
+   "prezzo_eur": 14.340098329490463,
+   "var_giorno": 0.0,
+   "percentile": 0.9989543394911119,
+   "assente": 0,
    "isin": "US16208T1025",
    "risultati": "2026-11-05"
   },
-  {
-   "tipo": "compra",
-   "ticker": "CON",
+  "CON": {
    "nome": "Concentra Group Holdings Parent, Inc. Common Stock",
-   "percentile": 0.9975558659217877,
+   "q": 10.111966456223428,
+   "costo_eur": 400.0,
+   "data": "2026-11-25",
+   "prezzo_eur": 39.28019359236922,
+   "var_giorno": 0.0,
+   "percentile": 0.9993028929940746,
+   "assente": 0,
    "isin": "US20603L1026",
    "risultati": "2026-11-05"
   },
-  {
-   "tipo": "compra",
-   "ticker": "EVK.DE",
+  "EVK.DE": {
    "nome": "Evonik",
-   "percentile": 0.9972067039106145,
+   "q": 21.52845439431397,
+   "costo_eur": 400.0,
+   "data": "2026-11-25",
+   "prezzo_eur": 18.450000762939453,
+   "var_giorno": 0.0,
+   "percentile": 0.9972115719762984,
+   "assente": 0,
    "isin": "DE000EVNK013",
    "risultati": "2026-11-03"
   }
- ],
- "rif": null,
- "valore": 2000.0,
+ },
+ "ordini": [],
+ "rif": {
+  "q": 16.004495213180927,
+  "valore": 1993.9999999999998
+ },
+ "valore": 1986.0,
  "nota": "",
  "valore_prec": 2000.0
 }

@@ -1,0 +1,6 @@
+data,tipo,ticker,quantita,prezzo_eur,importo_eur,costo_eur,imposta_eur,guadagno_eur
+2026-11-25,compra,PAGP,17.0887,23.2434,400.0,2.8,0.0,0.0
+2026-11-25,compra,LOTB.BR,0.0286,13880.0,400.0,2.8,0.0,0.0
+2026-11-25,compra,CLDT,27.6986,14.3401,400.0,2.8,0.0,0.0
+2026-11-25,compra,CON,10.112,39.2802,400.0,2.8,0.0,0.0
+2026-11-25,compra,EVK.DE,21.5285,18.45,400.0,2.8,0.0,0.0
