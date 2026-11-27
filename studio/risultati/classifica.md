@@ -1,54 +1,54 @@
-# Classifica di tutte le azioni comprabili (2663 titoli, al 25/11/2026)
+# Classifica di tutte le azioni comprabili (2363 titoli, al 26/11/2026)
 
 ## I primi 25
 
 | Ticker | Nome | mercato | percentile | prezzo | rend_12m_% | rend_1m_% | volatilita_annua_% | dal_max_52_% | market_cap_M$ |
 |---|---|---|---|---|---|---|---|---|---|
-| DHER.DE | Delivery Hero | Germania | 100.0 | 36.0 | 100.6 | -3.5 | 8.1 | -8.5 |  |
-| AGL | agilon health, inc. Common Stock | USA | 100.0 | 87.6 | 434.0 | -3.4 | 77.3 | -32.6 | 1.418.4 |
-| ABSI | Absci Corporation Common Stock | USA | 99.9 | 9.0 | 221.3 | -14.9 | 111.3 | -25.6 | 1.575.2 |
-| BAND | Bandwidth Inc. Class A Common Stock | USA | 99.9 | 36.4 | 234.5 | -26.2 | 106.2 | -53.6 | 1.260.4 |
-| TPRO.MI | Technoprobe | Italia | 99.8 | 18.0 | 92.8 | -30.3 | 74.8 | -52.8 |  |
-| IBRX | ImmunityBio, Inc. Common Stock | USA | 99.8 | 5.6 | 292.3 | -34.6 | 87.6 | -51.1 | 6.388.7 |
-| ATEX | Anterix Inc. Common Stock | USA | 99.8 | 75.7 | 326.0 | -11.6 | 75.7 | -30.1 | 1.455.7 |
-| KOD | Kodiak Sciences Inc Common Stock | USA | 99.7 | 110.4 | 297.7 | 20.9 | 371.0 | -3.7 | 7.455.1 |
-| ORKA | Oruka Therapeutics, Inc. Common Stock | USA | 99.7 | 106.0 | 223.7 | 10.6 | 55.9 | -6.3 | 7.132.2 |
-| TWST | Twist Bioscience Corporation Common Stock | USA | 99.7 | 108.1 | 412.8 | -32.4 | 106.2 | -47.3 | 7.280.1 |
-| LIND | Lindblad Expeditions Holdings Inc. Common Stock | USA | 99.6 | 31.8 | 191.7 | -9.5 | 53.8 | -15.0 | 2.164.1 |
-| AXTI | AXT Inc Common Stock | USA | 99.6 | 32.0 | 407.2 | -45.1 | 140.6 | -77.3 | 2.053.8 |
-| SYRE | Spyre Therapeutics, Inc. Common Stock | USA | 99.5 | 102.4 | 207.6 | 3.3 | 62.7 | -6.1 | 9.733.4 |
-| ETON | Eton Pharmaceuticals, Inc. Common Stock | USA | 99.5 | 65.2 | 210.1 | 27.5 | 74.2 | -4.6 | 1.970.5 |
-| TXG | 10x Genomics, Inc. Class A Common Stock | USA | 99.5 | 55.7 | 336.6 | -28.6 | 93.1 | -43.0 | 7.146.4 |
-| SPM.MI | Saipem | Italia | 99.4 | 4.3 | 99.5 | -4.8 | 31.9 | -10.5 |  |
-| JEN.DE | Jenoptik | Germania | 99.4 | 32.6 | 112.5 | -18.4 | 67.8 | -31.4 |  |
-| STMMI.MI | STMicroelectronics | Italia | 99.4 | 35.9 | 105.8 | -17.2 | 61.7 | -48.1 |  |
-| RNG | RingCentral, Inc. Class A Common Stock | USA | 99.3 | 71.1 | 194.3 | -16.8 | 49.0 | -17.4 | 5.802.4 |
-| ERAS | Erasca, Inc. Common Stock | USA | 99.3 | 15.8 | 362.6 | 3.9 | 74.1 | -29.6 | 5.562.7 |
-| DELL | Dell Technologies Inc. Class C Common Stock  | USA | 99.2 | 297.1 | 279.6 | -40.8 | 96.6 | -49.4 | 189.415.0 |
-| STMPA.PA | STMicroelectronics | Francia | 99.2 | 35.9 | 105.5 | -17.2 | 61.6 | -48.1 |  |
-| IOVA | Iovance Biotherapeutics, Inc. Common Stock | USA | 99.2 | 7.1 | 559.7 | -51.1 | 120.4 | -52.0 | 3.360.3 |
-| MXL | MaxLinear, Inc. Common Stock | USA | 99.1 | 42.0 | 316.5 | -43.7 | 132.2 | -67.2 | 3.813.8 |
-| PLSE | Pulse Biosciences, Inc Common Stock (DE) | USA | 99.1 | 47.9 | 294.4 | -10.0 | 70.6 | -17.7 | 3.526.7 |
+| SLS | SELLAS Life Sciences Group, Inc. Common Stock | USA | 100.0 | 12.8 | 496.6 | 23.0 | 336.4 | -33.3 | 2.603.3 |
+| ASX | ASE Technology Holding Co., Ltd. American Depositary Shares (each representing Two Common Shares)  | USA | 100.0 | 29.5 | 192.6 | -32.9 | 96.6 | -38.0 | 65.649.0 |
+| TXG | 10x Genomics, Inc. Class A Common Stock | USA | 99.9 | 55.7 | 360.7 | -33.4 | 92.9 | -43.0 | 7.323.8 |
+| ORKA | Oruka Therapeutics, Inc. Common Stock | USA | 99.9 | 106.0 | 210.3 | 10.5 | 55.9 | -6.3 | 7.189.8 |
+| TOP | TOP Financial Group Limited Class A Ordinary Shares | USA | 99.8 | 17.3 | 189.4 | 10.6 | 90.8 | -0.9 | 2.138.9 |
+| STMPA.PA | STMicroelectronics | Francia | 99.8 | 34.2 | 98.8 | -21.1 | 62.3 | -50.6 |  |
+| LIND | Lindblad Expeditions Holdings Inc. Common Stock | USA | 99.7 | 31.8 | 199.2 | -11.3 | 53.7 | -15.0 | 2.085.3 |
+| BAND | Bandwidth Inc. Class A Common Stock | USA | 99.7 | 36.4 | 229.4 | -24.9 | 106.2 | -53.6 | 1.177.8 |
+| DFTX | Definium Therapeutics, Inc. Common Shares | USA | 99.7 | 31.1 | 206.5 | -18.4 | 64.5 | -35.8 | 4.256.2 |
+| PENG | Penguin Solutions, Inc. Common Stock | USA | 99.6 | 37.0 | 180.4 | -39.1 | 119.5 | -54.5 | 2.244.6 |
+| SSL | Sasol Ltd. American Depositary Shares | USA | 99.6 | 11.7 | 181.8 | -32.4 | 54.0 | -35.1 | 7.572.3 |
+| TWST | Twist Bioscience Corporation Common Stock | USA | 99.5 | 108.1 | 428.6 | -37.7 | 106.1 | -47.3 | 7.368.1 |
+| DELL | Dell Technologies Inc. Class C Common Stock  | USA | 99.5 | 297.1 | 259.0 | -39.8 | 96.0 | -49.4 | 188.874.5 |
+| JEN.DE | Jenoptik | Germania | 99.4 | 31.5 | 113.2 | -23.0 | 68.1 | -33.7 |  |
+| DRTS | Alpha Tau Medical Ltd. Ordinary Shares | USA | 99.4 | 11.8 | 228.8 | -11.3 | 51.8 | -23.6 | 1.094.9 |
+| LITE | Lumentum Holdings Inc. Common Stock | USA | 99.4 | 476.6 | 178.8 | -47.9 | 111.5 | -58.0 | 43.225.8 |
+| ABSI | Absci Corporation Common Stock | USA | 99.3 | 9.0 | 218.5 | -24.2 | 111.3 | -25.6 | 1.554.7 |
+| ETON | Eton Pharmaceuticals, Inc. Common Stock | USA | 99.3 | 65.2 | 208.1 | 25.9 | 73.8 | -4.6 | 1.881.4 |
+| SNDK | Sandisk Corporation Common Stock | USA | 99.2 |  | 558.6 |  | 93.1 |  | 94.265.4 |
+| AMN | AMN Healthcare Services Inc | USA | 99.2 | 34.7 | 182.0 | -25.6 | 65.5 | -29.1 | 1.339.7 |
+| ECO | Okeanis Eco Tankers Corp. Common Stock | USA | 99.2 | 81.6 | 219.4 | -10.0 | 62.0 | -12.3 | 3.184.1 |
+| IOVA | Iovance Biotherapeutics, Inc. Common Stock | USA | 99.1 | 7.1 | 573.2 | -51.9 | 120.4 | -52.0 | 3.298.7 |
+| PLSE | Pulse Biosciences, Inc Common Stock (DE) | USA | 99.1 | 47.9 | 304.4 | -10.8 | 70.1 | -17.7 | 3.520.1 |
+| DHER.DE | Delivery Hero | Germania | 99.0 | 36.6 | 101.8 | -2.5 | 8.8 | -7.0 |  |
+| ABCL | AbCellera Biologics Inc. Common Shares | USA | 99.0 | 10.6 | 273.7 | -22.4 | 73.5 | -28.5 | 3.458.9 |
 
 ## I primi 15 europei
 
 | Ticker | Nome | mercato | percentile | prezzo | rend_12m_% | rend_1m_% | volatilita_annua_% | dal_max_52_% |
 |---|---|---|---|---|---|---|---|---|
-| DHER.DE | Delivery Hero | Germania | 100.0 | 36.0 | 100.6 | -3.5 | 8.1 | -8.5 |
-| TPRO.MI | Technoprobe | Italia | 99.8 | 18.0 | 92.8 | -30.3 | 74.8 | -52.8 |
-| SPM.MI | Saipem | Italia | 99.4 | 4.3 | 99.5 | -4.8 | 31.9 | -10.5 |
-| JEN.DE | Jenoptik | Germania | 99.4 | 32.6 | 112.5 | -18.4 | 67.8 | -31.4 |
-| STMMI.MI | STMicroelectronics | Italia | 99.4 | 35.9 | 105.8 | -17.2 | 61.7 | -48.1 |
-| STMPA.PA | STMicroelectronics | Francia | 99.2 | 35.9 | 105.5 | -17.2 | 61.6 | -48.1 |
-| REP.MC | Repsol | Spagna | 98.3 | 28.0 | 83.8 | -1.8 | 35.9 | -11.3 |
-| DIS.MI | D'Amico International Shipping | Italia | 98.1 | 7.6 | 78.5 | -11.3 | 40.0 | -13.0 |
-| EVK.DE | Evonik | Germania | 98.0 | 18.5 | 77.4 | -13.5 | 42.7 | -16.4 |
-| LOTB.BR | Lotus Bakeries | Belgio | 97.9 | 13.880.0 | 76.3 | 3.9 | 19.9 | -2.3 |
-| ITH.L | Ithaca Energy | Regno Unito | 97.9 | 231.0 | 75.9 | -24.5 | 40.6 | -26.1 |
-| AIXA.DE | Aixtron | Germania | 97.9 | 26.8 | 75.6 | -12.0 | 82.4 | -55.6 |
-| CCC.L | Computacenter | Regno Unito | 97.7 | 4.564.0 | 74.1 | -13.1 | 51.1 | -19.9 |
-| ENI.MI | Eni | Italia | 97.2 | 23.8 | 67.4 | -9.0 | 24.7 | -12.9 |
-| DSFIR.AS | DSM Firmenich AG | Paesi Bassi | 97.1 | 106.3 | 66.0 | -2.4 | 26.8 | -6.2 |
+| STMPA.PA | STMicroelectronics | Francia | 99.8 | 34.2 | 98.8 | -21.1 | 62.3 | -50.6 |
+| JEN.DE | Jenoptik | Germania | 99.4 | 31.5 | 113.2 | -23.0 | 68.1 | -33.7 |
+| DHER.DE | Delivery Hero | Germania | 99.0 | 36.6 | 101.8 | -2.5 | 8.8 | -7.0 |
+| STMMI.MI | STMicroelectronics | Italia | 98.9 | 34.2 | 98.8 | -21.2 | 62.4 | -50.6 |
+| TPRO.MI | Technoprobe | Italia | 98.8 | 17.2 | 95.2 | -34.7 | 75.3 | -55.0 |
+| SPM.MI | Saipem | Italia | 98.7 | 4.3 | 94.7 | -6.2 | 32.0 | -11.4 |
+| REP.MC | Repsol | Spagna | 98.4 | 27.3 | 85.4 | -4.2 | 36.1 | -13.3 |
+| DIS.MI | D'Amico International Shipping | Italia | 97.9 | 7.5 | 76.4 | -13.3 | 40.0 | -14.4 |
+| EVK.DE | Evonik | Germania | 97.9 | 18.5 | 76.2 | -12.9 | 42.6 | -16.2 |
+| LOTB.BR | Lotus Bakeries | Belgio | 97.8 | 13.940.0 | 75.7 | 4.3 | 19.8 | -1.8 |
+| AIXA.DE | Aixtron | Germania | 97.7 | 25.5 | 74.3 | -18.9 | 82.9 | -57.8 |
+| ITH.L | Ithaca Energy | Regno Unito | 97.7 | 228.8 | 73.1 | -25.6 | 38.9 | -26.8 |
+| CCC.L | Computacenter | Regno Unito | 97.6 | 4.190.0 | 72.3 | -20.4 | 53.5 | -26.4 |
+| ENI.MI | Eni | Italia | 97.5 | 23.7 | 70.1 | -10.7 | 24.7 | -13.2 |
+| DSFIR.AS | DSM Firmenich AG | Paesi Bassi | 96.8 | 106.7 | 62.0 | 0.9 | 26.7 | -5.8 |
 
 ## Il tuo portafoglio
 

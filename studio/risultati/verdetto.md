@@ -1,8 +1,8 @@
-## VERDETTO DI OGGI (25/11/2026): BUY
+## VERDETTO DI OGGI (26/11/2026): BUY
 
 occasione ordinaria: una tranche più grande del solito.
 
-Lettura al 25/11/2026: S&P 500 7,183 (-8.1% dal massimo di 1 anno, MM200 7,360), VIX 28.3, spread HY 3.72 (+1.06 in 60 gg), HYG -2.3% in 60 gg, curva 10a-3m +0.51, sussidi +1% dal minimo, EPU al 70° percentile, GPR al 69°
+Lettura al 26/11/2026: S&P 500 7,183 (-8.1% dal massimo di 1 anno, MM200 7,361), VIX 26.8, spread HY 3.72 (+1.07 in 60 gg), HYG -2.5% in 60 gg, curva 10a-3m +0.51, sussidi +1% dal minimo, EPU al 69° percentile, GPR al 65°
   - Tendenza (prezzo vs media 200 giorni): **sotto MM200**
   - Momentum 12 mesi: **12 mesi positivi**
   - Paura (VIX): **VIX 20-30**
@@ -23,7 +23,7 @@ Lettura al 25/11/2026: S&P 500 7,183 (-8.1% dal massimo di 1 anno, MM200 7,360),
 |---|---|---|---|---|---|---|---|---|---|
 | STRONG BUY | 11.4 | 94 | 11.0 | 2.7 | 5.1 | 7.0 | 76.5 | 80.9 | 4/4 |
 | BUY | 13.3 | 198 | 6.1 | 2.6 | 2.8 | 2.4 | 83.2 | 87.8 | 4/4 |
-| WAIT | 62.3 | 178 | 31.7 | -0.5 | -0.2 | -0.0 | 76.5 | 84.1 | 3/4 |
+| WAIT | 62.3 | 179 | 31.5 | -0.5 | -0.2 | -0.0 | 76.5 | 84.1 | 3/4 |
 | SMALL SELL | 12.9 | 129 | 9.1 | -2.6 | -6.3 | -8.5 | 52.3 | 57.9 | 2/4 |
 
 ## 1.000 € al mese per 36 anni: subito, oppure in tranche pesate dal verdetto
@@ -42,7 +42,6 @@ Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usa
 
 | data | SP | VIX | dal_massimo_% | HYG_60gg_% | verdetto |
 |---|---|---|---|---|---|
-| 2026-09-03 00:00:00 | 7.747.7 | 14.3 | -0.7 | 1.0 | WAIT |
 | 2026-09-04 00:00:00 | 7.718.6 | 14.5 | -1.0 | 1.1 | WAIT |
 | 2026-09-07 00:00:00 | 7.718.6 | 15.3 | -1.0 | 0.5 | WAIT |
 | 2026-09-08 00:00:00 | 7.673.5 | 15.7 | -1.6 | 0.5 | WAIT |
@@ -102,3 +101,4 @@ Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usa
 | 2026-11-23 00:00:00 | 7.237.2 | 26.6 | -7.4 | -2.7 | BUY |
 | 2026-11-24 00:00:00 | 7.201.1 | 26.4 | -7.9 | -2.4 | BUY |
 | 2026-11-25 00:00:00 | 7.182.8 | 28.3 | -8.1 | -2.3 | BUY |
+| 2026-11-26 00:00:00 | 7.182.8 | 26.8 | -8.1 | -2.5 | BUY |

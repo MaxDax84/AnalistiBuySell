@@ -1,6 +1,6 @@
 {
  "inizio": "2026-11-23",
- "ultima_data": "2026-11-25",
+ "ultima_data": "2026-11-26",
  "cassa": 0.0,
  "capitale": 2000.0,
  "credito_minus": 0.0,
@@ -12,10 +12,10 @@
    "q": 17.088747932270856,
    "costo_eur": 400.0,
    "data": "2026-11-25",
-   "prezzo_eur": 23.24336467330744,
-   "var_giorno": 0.0,
-   "percentile": 0.9982572324851865,
-   "assente": 0,
+   "prezzo_eur": 23.22680299670498,
+   "var_giorno": -0.0007125335266747745,
+   "percentile": null,
+   "assente": 1,
    "isin": "US72651A2078",
    "risultati": "2027-02-05"
   },
@@ -24,9 +24,9 @@
    "q": 0.02861671469740634,
    "costo_eur": 400.0,
    "data": "2026-11-25",
-   "prezzo_eur": 13880.0,
-   "var_giorno": 0.0,
-   "percentile": 0.9998257232485186,
+   "prezzo_eur": 13940.0,
+   "var_giorno": 0.004322766570605152,
+   "percentile": 0.9998036135113905,
    "assente": 0,
    "isin": "BE0003604155",
    "risultati": "2027-02-05"
@@ -36,10 +36,10 @@
    "q": 27.698554840670568,
    "costo_eur": 400.0,
    "data": "2026-11-25",
-   "prezzo_eur": 14.340098329490463,
-   "var_giorno": 0.0,
-   "percentile": 0.9989543394911119,
-   "assente": 0,
+   "prezzo_eur": 14.329880528654888,
+   "var_giorno": -0.0007125335266747745,
+   "percentile": null,
+   "assente": 1,
    "isin": "US16208T1025",
    "risultati": "2026-11-05"
   },
@@ -48,10 +48,10 @@
    "q": 10.111966456223428,
    "costo_eur": 400.0,
    "data": "2026-11-25",
-   "prezzo_eur": 39.28019359236922,
-   "var_giorno": 0.0,
-   "percentile": 0.9993028929940746,
-   "assente": 0,
+   "prezzo_eur": 39.25220513750039,
+   "var_giorno": -0.0007125335266746635,
+   "percentile": null,
+   "assente": 1,
    "isin": "US20603L1026",
    "risultati": "2026-11-05"
   },
@@ -60,9 +60,9 @@
    "q": 21.52845439431397,
    "costo_eur": 400.0,
    "data": "2026-11-25",
-   "prezzo_eur": 18.450000762939453,
-   "var_giorno": 0.0,
-   "percentile": 0.9972115719762984,
+   "prezzo_eur": 18.510000228881836,
+   "var_giorno": 0.0032520034396368303,
+   "percentile": 0.9968578161822467,
    "assente": 0,
    "isin": "DE000EVNK013",
    "risultati": "2026-11-03"
@@ -71,9 +71,9 @@
  "ordini": [],
  "rif": {
   "q": 16.004495213180927,
-  "valore": 1993.9999999999998
+  "valore": 1957.6698495921066
  },
- "valore": 1986.0,
+ "valore": 1988.1596436976824,
  "nota": "",
- "valore_prec": 2000.0
+ "valore_prec": 1986.0
 }
