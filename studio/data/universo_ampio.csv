@@ -11,7 +11,7 @@ META,"Meta Platforms, Inc. Class A Common Stock",609.89,1559025977792.0,USA,USA
 TSLA,"Tesla, Inc. Common Stock",380.14,1502601405592.0,USA,USA
 AVGO,Broadcom Inc. Common Stock,300.86,1436194281184.0,USA,USA
 BRK-B,Berkshire Hathaway Inc.,579.28,1278072050993.0,USA,USA
-ANT,"Anthropic, PBC Class A Common Stock",82.79,1083445623974.0,USA,USA
+ANT,"Anthropic, PBC Class A Common Stock",82.79,1094454184030.0,USA,USA
 WMT,Walmart Inc. Common Stock,131.94,1046778479038.0,USA,USA
 JPM,JP Morgan Chase & Co. Common Stock,316.85,841429872927.0,USA,USA
 SKHY,SK hynix Inc. American Depositary Shares,111.14,810061116700.0,USA,USA
@@ -93,9 +93,9 @@ SONY,Sony Group Corporation American Depositary Shares ,28.49,167978537263.0,USA
 SAN,"Banco Santander, S.A. Sponsored ADR (Spain)",11.305,163636578858.0,USA,USA
 CRM,"Salesforce, Inc. Common Stock",197.175,162275025000.0,USA,USA
 PFE,"Pfizer, Inc. Common Stock",28.46,162217837241.0,USA,USA
-ADI,"Analog Devices, Inc. Common Stock",333.105,161411179219.0,USA,USA
 SCHW,Charles Schwab Corporation (The) Common Stock,93.46,161312680109.0,USA,USA
 ACN,Accenture plc Class A Ordinary Shares (Ireland),240.49,160821149539.0,USA,USA
+ADI,"Analog Devices, Inc. Common Stock",333.105,160781926552.0,USA,USA
 TJX,"TJX Companies, Inc. (The) Common Stock",146.11,160717210053.0,USA,USA
 DHR,Danaher Corporation Common Stock,227.4,159982907331.0,USA,USA
 COP,ConocoPhillips Common Stock,135.05,159674349448.0,USA,USA
@@ -114,7 +114,7 @@ BBVA,Banco Bilbao Vizcaya Argentaria S.A. Common Stock,23.99,135993645001.0,USA,
 UBER,"Uber Technologies, Inc. Common Stock",66.35,135479936945.0,USA,USA
 SPGI,S&P Global Inc. Common Stock,460.94,133626506000.0,USA,USA
 SNY,Sanofi ADS,54.39,132649279503.0,USA,USA
-LOW,"Lowe's Companies, Inc. Common Stock",235.62,132195547957.0,USA,USA
+LOW,"Lowe's Companies, Inc. Common Stock",235.62,132194109968.0,USA,USA
 IBN,ICICI Bank Limited Common Stock,36.49,130636253840.0,USA,USA
 BTI,"British American Tobacco  Industries, p.l.c. Common Stock ADR",60.43,130548956729.0,USA,USA
 BA,Boeing Company (The) Common Stock,164.54,130389713128.0,USA,USA
@@ -213,7 +213,7 @@ CP,Canadian Pacific Kansas City Limited Common Shares,93.2,81042501768.0,USA,USA
 CDNS,"Cadence Design Systems, Inc. Common Stock",294.89,80911623310.0,USA,USA
 CL,Colgate-Palmolive Company Common Stock,99.68,79237676736.0,USA,USA
 NOC,Northrop Grumman Corporation Common Stock,556.08,78999221043.0,USA,USA
-TGT,Target Corporation Common Stock,172.17,78216269037.0,USA,USA
+TGT,Target Corporation Common Stock,172.17,77948614072.0,USA,USA
 EPD,Enterprise Products Partners L.P. Common Stock,36.065,77777954204.0,USA,USA
 SNPS,"Synopsys, Inc. Common Stock",405.09,77630088928.0,USA,USA
 ORLY,"O'Reilly Automotive, Inc. Common Stock",96.69,77550091994.0,USA,USA
@@ -300,7 +300,7 @@ INFY,Infosys Limited American Depositary Shares,12.995,52712399383.0,USA,USA
 AME,"AMETEK, Inc.",227.45,52158378645.0,USA,USA
 XEL,Xcel Energy Inc. Common Stock,81.11,52062436477.0,USA,USA
 SRE,DBA Sempra Common Stock,79.09,51734318452.0,USA,USA
-ADSK,"Autodesk, Inc. Common Stock",246.785,51578065000.0,USA,USA
+ADSK,"Autodesk, Inc. Common Stock",246.785,51331280000.0,USA,USA
 ETR,Entergy Corporation Common Stock,107.325,51282795761.0,USA,USA
 KDP,Keurig Dr Pepper Inc. Common Stock,35.63,50865923056.0,USA,USA
 EBAY,eBay Inc. Common Stock,115.54,50722060000.0,USA,USA
@@ -494,7 +494,7 @@ TWLO,Twilio Inc. Class A Common Stock,180.7,27960439582.0,USA,USA
 AXON,"Axon Enterprise, Inc. Common Stock",343.05,27935491852.0,USA,USA
 BAP,Credicorp Ltd. Common Stock,351.135,27886901875.0,USA,USA
 VICI,VICI Properties Inc. Common Stock,25.11,27648259014.0,USA,USA
-FE,FirstEnergy Corp. Common Stock,47.655,27587161641.0,USA,USA
+FE,FirstEnergy Corp. Common Stock,47.655,27592723599.0,USA,USA
 PPG,"PPG Industries, Inc. Common Stock",124.66,27537394000.0,USA,USA
 EME,"EMCOR Group, Inc. Common Stock",628.91,27534940136.0,USA,USA
 ULTA,"Ulta Beauty, Inc. Common Stock",642.64,27477661163.0,USA,USA
@@ -653,7 +653,7 @@ WF,Woori Financial Group Inc. American Depositary Shares (each representing thre
 SNX,TD SYNNEX Corporation Common Stock,218.35,17419419527.0,USA,USA
 H,Hyatt Hotels Corporation Class A Common Stock,186.46,17413515808.0,USA,USA
 KIM,Kimco Realty Corporation (HC) Common Stock,26.04,17303329157.0,USA,USA
-GIB,CGI Inc. Common Stock,83.41,17272159698.0,USA,USA
+GIB,CGI Inc. Common Stock,83.41,17243113333.0,USA,USA
 AS,"Amer Sports, Inc. Ordinary Shares",30.9,17231922258.0,USA,USA
 CF,"CF Industries Holdings, Inc. Common Stock",117.54,17194328439.0,USA,USA
 TU,Telus Corporation Ordinary Shares,10.79,17177680000.0,USA,USA
@@ -704,7 +704,7 @@ FSLR,"First Solar, Inc. Common Stock",147.88,15894312610.0,USA,USA
 LAMR,Lamar Advertising Company Class A Common Stock,156.39,15886165950.0,USA,USA
 JAZZ,Jazz Pharmaceuticals plc Common Stock (Ireland),245.29,15744932565.0,USA,USA
 DUKB,Duke Energy Corporation 5.625% Junior Subordinated Debentures due 2078,20.15,15711122185.0,USA,USA
-BURL,"Burlington Stores, Inc. Common Stock",250.07,15708195814.0,USA,USA
+BURL,"Burlington Stores, Inc. Common Stock",250.07,15637071905.0,USA,USA
 NWS,News Corporation Class B Common Stock,28.94,15545848378.0,USA,USA
 ULS,UL Solutions Inc. Class A Common Stock,76.977,15541883151.0,USA,USA
 CLH,"Clean Harbors, Inc. Common Stock",294.15,15510482730.0,USA,USA
@@ -715,8 +715,8 @@ SMCI,"Super Micro Computer, Inc. Common Stock",23.31,15366589925.0,USA,USA
 MTSI,"MACOM Technology Solutions Holdings, Inc. Common Stock",199.94,15352905146.0,USA,USA
 TLN,Talen Energy Corporation Common Stock,351.61,15296902752.0,USA,USA
 APA,APA Corporation Common Stock,45.48,15270183107.0,USA,USA
-ARMK,Aramark Common Stock,57.77,15229618792.0,USA,USA
 ICLR,ICON plc Ordinary Shares,198.78,15220052864.0,USA,USA
+ARMK,Aramark Common Stock,57.77,15218118691.0,USA,USA
 PKX,POSCO HOLDINGS INC. American Depositary Shares (Each representing 1/4th of a share of Common Stock),46.95,15199208386.0,USA,USA
 CRBG,Corebridge Financial Inc. Common Stock,34.625,15182228418.0,USA,USA
 ZTO,"ZTO Express (Cayman) Inc. American Depositary Shares, each representing one Class A ordinary share.",19.64,15120849611.0,USA,USA
@@ -801,7 +801,7 @@ PS,Pershing Square Inc. Common Stock,32.37,12948000000.0,USA,USA
 SNN,"Smith & Nephew SNATS, Inc. Common Stock",30.91,12942281713.0,USA,USA
 ERIE,Erie Indemnity Company Class A Common Stock,279.82,12925336310.0,USA,USA
 VLYPO,"Valley National Bancorp 5.50% Fixed-to-Floating Rate Non-Cumulative Perpetual Preferred Stock, Series B",23.47,12903002270.0,USA,USA
-BJ,"BJ's Wholesale Club Holdings, Inc. Common Stock",101.7,12846204176.0,USA,USA
+BJ,"BJ's Wholesale Club Holdings, Inc. Common Stock",101.7,12843392883.0,USA,USA
 WSO,"Watsco, Inc. Common Stock",310.315,12831552247.0,USA,USA
 RDY,Dr. Reddy's Laboratories Ltd Common Stock,15.36,12820331059.0,USA,USA
 CRS,Carpenter Technology Corporation Common Stock,258.605,12811481257.0,USA,USA
@@ -1196,7 +1196,7 @@ BROS,Dutch Bros Inc. Class A Common Stock,36.085,6303745015.0,USA,USA
 UBSI,"United Bankshares, Inc. Common Stock",46.86,6303030681.0,USA,USA
 M,Macy's Inc Common Stock,24.11,6296968935.0,USA,USA
 MP,MP Materials Corp. Common Stock,35.29,6291076873.0,USA,USA
-CMC,Commercial Metals Company Common Stock,57.185,6289085811.0,USA,USA
+CMC,Commercial Metals Company Common Stock,57.185,6285221649.0,USA,USA
 COGT,"Cogent Biosciences, Inc. Common Stock",36.08,6277719828.0,USA,USA
 JBTM,JBT Marel Corporation Common Stock,122.655,6264957371.0,USA,USA
 RIOT,"Riot Platforms, Inc. Common Stock ",16.65,6246813017.0,USA,USA
@@ -1215,7 +1215,7 @@ OR,OR Royalties Inc. Common Shares,32.96,6143896242.0,USA,USA
 TTMI,"TTM Technologies, Inc. Common Stock",58.17,6129693998.0,USA,USA
 CPA,"Copa Holdings, S.A. Class A Common Stock",148.68,6116480060.0,USA,USA
 AVT,"Avnet, Inc. Common Stock",74.195,6101418406.0,USA,USA
-AMTM,"Amentum Holdings, Inc. Common Stock",24.88,6083319555.0,USA,USA
+AMTM,"Amentum Holdings, Inc. Common Stock",24.88,6091263366.0,USA,USA
 NOV,NOV Inc. Common Stock,17.035,6073190284.0,USA,USA
 ACT,"Enact Holdings, Inc. Common Stock",45.17,6072735654.0,USA,USA
 FNB,F.N.B. Corporation Common Stock,17.29,6066041599.0,USA,USA
@@ -1315,7 +1315,6 @@ BGC,"BGC Group, Inc. Class A Common Stock",11.47,5397480591.0,USA,USA
 REYN,Reynolds Consumer Products Inc. Common Stock,25.58,5394285280.0,USA,USA
 OBDC,Blue Owl Capital Corporation Common Stock,10.985,5382975617.0,USA,USA
 FND,"Floor & Decor Holdings, Inc. Common Stock",51.63,5381612314.0,USA,USA
-DY,"Dycom Industries, Inc. Common Stock",177.555,5355228720.0,USA,USA
 PSMT,"PriceSmart, Inc. Common Stock",173.09,5353366811.0,USA,USA
 CGABL,The Carlyle Group Inc. 4.625% Subordinated Notes due 2061,14.79,5349615575.0,USA,USA
 BCPC,Balchem Corporation Common Stock,168.3,5348123629.0,USA,USA
@@ -1325,6 +1324,7 @@ VAL,Valaris Limited Common Shares,76.56,5316560520.0,USA,USA
 PECO,"Phillips Edison & Company, Inc. Common Stock",41.17,5310930000.0,USA,USA
 CVCO,"Cavco Industries, Inc. Common Stock When Issued",694.9,5302372604.0,USA,USA
 MMED,"MiniMed Group, Inc. Common Stock",18.84,5300632700.0,USA,USA
+DY,"Dycom Industries, Inc. Common Stock",177.555,5294924473.0,USA,USA
 BILL,"BILL Holdings, Inc. Common Stock",61.54,5285242405.0,USA,USA
 RUSHA,"Rush Enterprises, Inc. Common Stock Cl A",45.49,5285083834.0,USA,USA
 DOCS,"Doximity, Inc. Class A Common Stock",29.62,5284488027.0,USA,USA
@@ -1755,7 +1755,7 @@ KSS,Kohl's Corporation Common Stock,26.74,3031686139.0,USA,USA
 KBH,KB Home Common Stock,49.89,3031452899.0,USA,USA
 DTG,DTE Energy Company 2021 Series E 4.375% Junior Subordinated Debentures,14.54,3026691198.0,USA,USA
 MGEE,"MGE Energy, Inc",80.01,3026259435.0,USA,USA
-TLX,Telix Pharmaceuticals Limited American Depositary Shares,8.91,3018503507.0,USA,USA
+TLX,Telix Pharmaceuticals Limited American Depositary Shares,8.91,3023865384.0,USA,USA
 DAVE,Dave Inc. Class A Common Stock,235.46,3012255320.0,USA,USA
 HTGC,"Hercules Capital, Inc. Common Stock",15.885,3010982624.0,USA,USA
 FG,"F&G Annuities & Life, Inc. Common Stock",22.96,3006479291.0,USA,USA
@@ -1914,9 +1914,9 @@ BLKB,"Blackbaud, Inc. Common Stock",53.33,2398723404.0,USA,USA
 WLYB,"John Wiley & Sons, Inc. Common Stock",47.22,2397056720.0,USA,USA
 ATHM,"Autohome Inc. American Depositary Shares, each representing four class A ordinary shares.",20.78,2393251531.0,USA,USA
 BHF,"Brighthouse Financial, Inc. Common Stock",41.59,2391934644.0,USA,USA
+CENT,Central Garden & Pet Company Common Stock,38.12,2390830135.0,USA,USA
 DNOW,DNOW Inc. Common Stock,13.25,2388621676.0,USA,USA
 CLMT,"Calumet, Inc. Common Stock",27.1,2387305124.0,USA,USA
-CENT,Central Garden & Pet Company Common Stock,38.12,2386029836.0,USA,USA
 WLY,"John Wiley & Sons, Inc. Common Stock",46.98,2384873458.0,USA,USA
 MD,"Pediatrix Medical Group, Inc. Common Stock",30.48,2381241344.0,USA,USA
 MFICL,MidCap Financial Investment Corporation 8.00% Notes due 2028,25.46,2375510216.0,USA,USA
@@ -2116,9 +2116,9 @@ TRNZ,Trinity Capital Inc. 7.875% Notes due 2029,25.33,1781057673.0,USA,USA
 AMR,"Alpha Metallurgical Resources, Inc. Common Stock",140.45,1778384361.0,USA,USA
 BLX,"Bladex, Inc. Class E Common Stock",47.28,1777676890.0,USA,USA
 ADAML,"Adamas Trust, Inc. 6.875% Series F Fixed-to-Floating Rate Cumulative Redeemable Preferred Stock, $0.01 par value per share",19.67,1776294354.0,USA,USA
-JJSF,J & J Snack Foods Corp. Common Stock,95.07,1776060473.0,USA,USA
 SFB,Stifel Financial Corporation 5.20% Senior Notes due 2047,17.38,1775773796.0,USA,USA
 BLBD,Blue Bird Corporation Common Stock,56.61,1774557236.0,USA,USA
+JJSF,J & J Snack Foods Corp. Common Stock,95.07,1773145436.0,USA,USA
 DHC,Diversified Healthcare Trust Common Shares of Beneficial Interest,7.3,1770462846.0,USA,USA
 ARR,"ARMOUR Residential REIT, Inc.",11.92,1769111806.0,USA,USA
 RVMDW,"Revolution Medicines, Inc. Warrant",8.16,1764945356.0,USA,USA
@@ -2467,6 +2467,7 @@ SGP,"SpyGlass Pharma, Inc. Common Stock",33.75,1129323938.0,USA,USA
 WBTN,WEBTOON Entertainment Inc. Common stock,8.3,1127005382.0,USA,USA
 BOW,Bowhead Specialty Holdings Inc. Common Stock,34.19,1126394952.0,USA,USA
 MLTX,MoonLake Immunotherapeutics Class A Ordinary Shares,13.22,1125110376.0,USA,USA
+SPH,"Suburban Propane Partners, L.P. Common Stock",16.57,1123555130.0,USA,USA
 ATEC,"Alphatec Holdings, Inc. Common Stock",7.24,1123212326.0,USA,USA
 NHP,"National Healthcare Properties, Inc. Common Stock",15.38,1122159620.0,USA,USA
 SECZ,Securitize Corp. Common Stock,6.85,1120222840.0,USA,USA
@@ -2480,7 +2481,6 @@ MSEX,Middlesex Water Company Common Stock,58.22,1113729911.0,USA,USA
 RDVT,"Red Violet, Inc. Common Stock ",69.18,1110417658.0,USA,USA
 CCEC,Capital Clean Energy Carriers Corp. Common Share,18.4,1109331915.0,USA,USA
 LADR,Ladder Capital Corp Class A Common Stock,8.785,1106839746.0,USA,USA
-SPH,"Suburban Propane Partners, L.P. Common Stock",16.57,1105424253.0,USA,USA
 HFWA,Heritage Financial Corporation Common Stock,27.2,1103691000.0,USA,USA
 AMRC,"Ameresco, Inc. Class A Common Stock",20.665,1097546564.0,USA,USA
 INOD,Innodata Inc. Common Stock,31.89,1097420748.0,USA,USA
@@ -2529,7 +2529,6 @@ MBWM,Mercantile Bank Corporation Common Stock,59.14,1022436331.0,USA,USA
 DFH,"Dream Finders Homes, Inc. Class A Common Stock",11.28,1021236131.0,USA,USA
 AHCO,AdaptHealth Corp. Common Stock,7.48,1021209603.0,USA,USA
 CODI,D/B/A Compass Diversified Holdings Shares of Beneficial Interest,13.48,1014180822.0,USA,USA
-CFFN,"Capitol Federal Financial, Inc. Common Stock",8.06,1013128161.0,USA,USA
 LGIH,"LGI Homes, Inc. Common Stock",43.49,1012027869.0,USA,USA
 AIIR,Air Global PLC Ordinary Shares,6.3,1010435593.0,USA,USA
 KFRC,"Kforce, Inc. Common Stock",56.35,1009115800.0,USA,USA
@@ -2549,6 +2548,7 @@ SMP,"Standard Motor Products, Inc. Common Stock",44.6,996444771.0,USA,USA
 HQH,abrdn Healthcare Investors Shares of Beneficial Interest,20.99,993744809.0,USA,USA
 FOIL,"Londian Wason New Energy Tech Inc. American Depositary Shares, each representing five Ordinary Shares",12.7,992612150.0,USA,USA
 APOG,"Apogee Enterprises, Inc. Common Stock",47.46,991705129.0,USA,USA
+CFFN,"Capitol Federal Financial, Inc. Common Stock",8.06,988692498.0,USA,USA
 CPAC,Cementos Pacasmayo S.A.A. American Depositary Shares (Each representing five Common Shares),11.61,984222541.0,USA,USA
 RJET,Republic Airways Holdings Inc. Common Stock,21.0,981756657.0,USA,USA
 SWIM,"Latham Group, Inc. Common Stock",8.33,980862248.0,USA,USA
@@ -2584,10 +2584,10 @@ NCZ,Virtus Convertible & Income Fund II Common Shares of Beneficial Interest,12.
 WINA,Winmark Corporation Common Stock,263.03,936175061.0,USA,USA
 TDAY,"USA TODAY Co., Inc. Common Stock",6.32,934335623.0,USA,USA
 HRTG,"Heritage Insurance Holdings, Inc. Common Stock",31.5,933421104.0,USA,USA
+CMP,Compass Minerals Intl Inc Common Stock,22.1,931701215.0,USA,USA
 IRS,IRSA Inversiones Y Representaciones S.A. Global Depositary Shares (Each representing ten shares of Common Stock),11.0,930727512.0,USA,USA
 ODTX,"Odyssey Therapeutics, Inc. Common Stock",19.34,929632741.0,USA,USA
 PTA,Cohen & Steers Tax-Advantaged Preferred Securities and Income Fund Common Shares of Beneficial Interest,16.79,928041343.0,USA,USA
-CMP,Compass Minerals Intl Inc Common Stock,22.1,927777315.0,USA,USA
 TRNS,"Transcat, Inc. Common Stock",98.55,926847573.0,USA,USA
 BMBL,Bumble Inc. Class A Common Stock,5.98,926050930.0,USA,USA
 BST,BlackRock Science and Technology Trust Common Shares of Beneficial Interest,41.77,925532559.0,USA,USA
@@ -2869,7 +2869,7 @@ MTA,Metalla Royalty & Streaming Ltd. Common Shares,6.59,620991081.0,USA,USA
 BWMX,"Betterware de Mexico, S.A.P.I. de C.V. Ordinary Shares",15.72,620705033.0,USA,USA
 TCMD,"Tactile Systems Technology, Inc. Common Stock",27.6,618277895.0,USA,USA
 MOV,Movado Group Inc. Common Stock,27.7,618112592.0,USA,USA
-GDOT,"Green Dot Corporation Class A Common Stock, $0.001 par value",10.835,617692201.0,USA,USA
+GDOT,"Green Dot Corporation Class A Common Stock, $0.001 par value",10.835,617753419.0,USA,USA
 NIE,Virtus Equity & Convertible Income Fund Common Shares of Beneficial Interest,22.24,616247382.0,USA,USA
 BME,Blackrock Health Sciences Trust,46.18,615718771.0,USA,USA
 DLY,DoubleLine Yield Opportunities Fund Common Shares of Beneficial Interest,12.84,615623802.0,USA,USA
@@ -2893,6 +2893,7 @@ CIM,Chimera Investment Corporation Common Stock,7.11,595195832.0,USA,USA
 BGIN,Bgin Blockchain Limited Class A Ordinary Shares,5.26,595095050.0,USA,USA
 FCEL,"FuelCell Energy, Inc. Common Stock",7.44,594859218.0,USA,USA
 CGNT,Cognyte Software Ltd. Ordinary Shares,8.04,594159063.0,USA,USA
+DMAC,DiaMedica Therapeutics Inc. Common Stock,9.17,593340027.0,USA,USA
 VMO,Invesco Municipal Opportunity Trust Common Stock,8.79,592803621.0,USA,USA
 WHFCL,"WhiteHorse Finance, Inc. 7.875% Notes due 2028",25.4,590374435.0,USA,USA
 VPG,"Vishay Precision Group, Inc. Common Stock",44.31,590228253.0,USA,USA
@@ -3003,19 +3004,18 @@ ARVN,"Arvinas, Inc. Common Stock",7.58,496376345.0,USA,USA
 HMH,HMH Holding Inc. Class A Common Stock,11.25,496047971.0,USA,USA
 VGM,Invesco Trust for Investment Grade Municipals Common Stock (DE),9.145,495951347.0,USA,USA
 LYEL,"Lyell Immunopharma, Inc. Common Stock",15.48,495603268.0,USA,USA
-DMAC,DiaMedica Therapeutics Inc. Common Stock,9.17,494790037.0,USA,USA
 FOSL,"Fossil Group, Inc. Common Stock",8.27,494603650.0,USA,USA
 OPRT,Oportun Financial Corporation Common Stock,10.73,494436458.0,USA,USA
 CBIO,"Crescent Biopharma, Inc. Common Stock",12.7,493972113.0,USA,USA
+MAGN,Magnera Corporation Common Stock,13.73,492907000.0,USA,USA
+FVR,"FrontView REIT, Inc. Common Stock",18.21,492557683.0,USA,USA
 CZNC,Citizens & Northern Corp Common Stock,27.42,492204355.0,USA,USA
-MAGN,Magnera Corporation Common Stock,13.73,491534000.0,USA,USA
 VKQ,Invesco Municipal Trust Common Stock,8.87,490826018.0,USA,USA
 AAC,Ares Acquisition Corporation III Class A Ordinary Shares,9.93,490728188.0,USA,USA
 TKNO,"Alpha Teknova, Inc. Common Stock",7.8,490644414.0,USA,USA
 WTBA,West Bancorporation Common Stock,28.72,489496299.0,USA,USA
 TITN,Titan Machinery Inc. Common Stock,20.8,489484258.0,USA,USA
 OOMA,"Ooma, Inc. Common Stock",17.635,486726000.0,USA,USA
-FVR,"FrontView REIT, Inc. Common Stock",18.21,486642856.0,USA,USA
 FMAO,"Farmers & Merchants Bancorp, Inc. Common Stock",35.28,485484411.0,USA,USA
 SENS,"Senseonics Holdings, Inc. Common Stock",8.8,482068470.0,USA,USA
 NMCO,Nuveen Municipal Credit Opportunities Fund Common Shares,8.8,481988971.0,USA,USA

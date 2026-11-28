@@ -1,14 +1,14 @@
-## VERDETTO DI OGGI (26/11/2026): BUY
+## VERDETTO DI OGGI (27/11/2026): BUY
 
 occasione ordinaria: una tranche più grande del solito.
 
-Lettura al 26/11/2026: S&P 500 7,183 (-8.1% dal massimo di 1 anno, MM200 7,361), VIX 26.8, spread HY 3.72 (+1.07 in 60 gg), HYG -2.5% in 60 gg, curva 10a-3m +0.51, sussidi +1% dal minimo, EPU al 69° percentile, GPR al 65°
+Lettura al 27/11/2026: S&P 500 7,297 (-6.7% dal massimo di 1 anno, MM200 7,364), VIX 23.8, spread HY 3.77 (+1.09 in 60 gg), HYG -2.3% in 60 gg, curva 10a-3m +0.59, sussidi +0% dal minimo, EPU al 68° percentile, GPR al 68°
   - Tendenza (prezzo vs media 200 giorni): **sotto MM200**
   - Momentum 12 mesi: **12 mesi positivi**
   - Paura (VIX): **VIX 20-30**
-  - Sentiment: struttura a termine del VIX (dal 2006): **inversione (VIX sopra il VIX3M)**
+  - Sentiment: struttura a termine del VIX (dal 2006): **normale (VIX sotto il VIX3M)**
   - Sentiment: SKEW, costo della protezione (dal 2000): **SKEW medio**
-  - Sentiment: VVIX, volatilità della volatilità (dal 2007): **VVIX > 110**
+  - Sentiment: VVIX, volatilità della volatilità (dal 2007): **VVIX 90-110**
   - Credito (HYG, variazione 60 gg, dal 2007): **credito tranquillo**
   - Curva dei tassi (10 anni - 3 mesi): **curva normale**
   - Lavoro (sussidi settimanali vs minimo 1 anno): **sussidi vicini ai minimi**
@@ -30,10 +30,10 @@ Lettura al 26/11/2026: S&P 500 7,183 (-8.1% dal massimo di 1 anno, MM200 7,361),
 
 | politica | versato_€ | valore_finale_€ | moltiplicatore | peggior_calo_% | liquidità_rimasta_€ |
 |---|---|---|---|---|---|
-| ogni mese tutto subito | 443.000.0 | 2.960.108.5 | 6.7 | -50.4 | 0.0 |
-| frena su WAIT (0,5), accelera su BUY (1,5) e STRONG BUY (3), zero su SMALL SELL | 443.000.0 | 2.535.952.6 | 5.7 | -43.8 | 68.000.0 |
-| tranche normale su WAIT, zero su SMALL SELL, la cassa accumulata va su BUY (2) e STRONG BUY (tutta) | 443.000.0 | 2.931.438.2 | 6.6 | -50.2 | 0.0 |
-| tranche normale sempre, STRONG BUY spende anche la cassa (solo accelerazione) | 443.000.0 | 2.960.108.5 | 6.7 | -50.4 | 0.0 |
+| ogni mese tutto subito | 443.000.0 | 3.007.366.0 | 6.8 | -50.4 | 0.0 |
+| frena su WAIT (0,5), accelera su BUY (1,5) e STRONG BUY (3), zero su SMALL SELL | 443.000.0 | 2.575.342.3 | 5.8 | -43.8 | 68.000.0 |
+| tranche normale su WAIT, zero su SMALL SELL, la cassa accumulata va su BUY (2) e STRONG BUY (tutta) | 443.000.0 | 2.978.237.9 | 6.7 | -50.2 | 0.0 |
+| tranche normale sempre, STRONG BUY spende anche la cassa (solo accelerazione) | 443.000.0 | 3.007.366.0 | 6.8 | -50.4 | 0.0 |
 
 Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usata si accumula per i verdetti dopo).
 
@@ -42,7 +42,6 @@ Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usa
 
 | data | SP | VIX | dal_massimo_% | HYG_60gg_% | verdetto |
 |---|---|---|---|---|---|
-| 2026-09-04 00:00:00 | 7.718.6 | 14.5 | -1.0 | 1.1 | WAIT |
 | 2026-09-07 00:00:00 | 7.718.6 | 15.3 | -1.0 | 0.5 | WAIT |
 | 2026-09-08 00:00:00 | 7.673.5 | 15.7 | -1.6 | 0.5 | WAIT |
 | 2026-09-09 00:00:00 | 7.636.4 | 16.5 | -2.1 | 0.2 | WAIT |
@@ -102,3 +101,4 @@ Pesi: WAIT 0,5 · BUY 1,5 · STRONG BUY 3 · SMALL SELL 0 (la liquidità non usa
 | 2026-11-24 00:00:00 | 7.201.1 | 26.4 | -7.9 | -2.4 | BUY |
 | 2026-11-25 00:00:00 | 7.182.8 | 28.3 | -8.1 | -2.3 | BUY |
 | 2026-11-26 00:00:00 | 7.182.8 | 26.8 | -8.1 | -2.5 | BUY |
+| 2026-11-27 00:00:00 | 7.297.5 | 23.8 | -6.7 | -2.3 | BUY |
